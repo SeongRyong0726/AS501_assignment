@@ -1,0 +1,5 @@
+Time resolution is 1 ps
+Block Memory Generator module tb_bram_combine.aaa.design_1_i.axi_bram_ctrl_0_bram.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_6_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+blk_mem_gen_v8_4_6 collision detected at time: 1000000, Instance: tb_bram_combine.aaa.design_1_i.axi_bram_ctrl_0_bram.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_6_inst , A read address: 0, B write address: 0
+blk_mem_gen_v8_4_6 collision detected at time: 1100000, Instance: tb_bram_combine.aaa.design_1_i.axi_bram_ctrl_0_bram.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_6_inst , A read address: 0, B write address: 0
+blk_mem_gen_v8_4_6 collision detected at time: 1200000, Instance: tb_bram_combine.aaa.design_1_i.axi_bram_ctrl_0_bram.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_6_inst , A read address: 0, B write address: 0

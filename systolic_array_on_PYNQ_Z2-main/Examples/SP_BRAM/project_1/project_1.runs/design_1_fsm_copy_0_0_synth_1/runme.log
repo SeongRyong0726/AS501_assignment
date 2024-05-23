@@ -1,0 +1,278 @@
+
+*** Running vivado
+    with args -log design_1_fsm_copy_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_fsm_copy_0_0.tcl
+
+
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source design_1_fsm_copy_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.1/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_fsm_copy_0_0
+Command: synth_design -top design_1_fsm_copy_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19016
+WARNING: [Synth 8-11065] parameter 'IDLE' becomes localparam in 'fsm_copy' with formal parameter declaration list [C:/Users/SROH/Desktop/SP_BRAM/example.v:37]
+WARNING: [Synth 8-11065] parameter 'NEXT' becomes localparam in 'fsm_copy' with formal parameter declaration list [C:/Users/SROH/Desktop/SP_BRAM/example.v:38]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2322.805 ; gain = 410.438
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_fsm_copy_0_0' [c:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.gen/sources_1/bd/design_1/ip/design_1_fsm_copy_0_0/synth/design_1_fsm_copy_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'fsm_copy' [C:/Users/SROH/Desktop/SP_BRAM/example.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'fsm_copy' (0#1) [C:/Users/SROH/Desktop/SP_BRAM/example.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_fsm_copy_0_0' (0#1) [c:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.gen/sources_1/bd/design_1/ip/design_1_fsm_copy_0_0/synth/design_1_fsm_copy_0_0.v:53]
+WARNING: [Synth 8-7129] Port data_out_sp_bram[31] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[30] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[29] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[28] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[27] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[26] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[25] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[24] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[23] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[22] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[21] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[20] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[19] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[18] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[17] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[16] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[15] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[14] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[13] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[12] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[11] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[10] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[9] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[8] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[7] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[6] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[5] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[4] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[3] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[2] in module fsm_copy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[1] in module fsm_copy is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2415.320 ; gain = 502.953
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2433.230 ; gain = 520.863
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2433.230 ; gain = 520.863
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2433.230 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2545.879 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 2545.883 ; gain = 0.004
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port data_out_sp_bram[31] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[30] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[29] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[28] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[27] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[26] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[25] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[24] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[23] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[22] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[21] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[20] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[19] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[18] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[17] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[16] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[15] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[14] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[13] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[12] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[11] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[10] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[9] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[8] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[7] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[6] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[5] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[4] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[3] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[2] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port data_out_sp_bram[1] in module design_1_fsm_copy_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT3 |     1|
+|2     |FDRE |     2|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 32 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 2545.883 ; gain = 520.863
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2545.883 ; gain = 633.516
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2545.883 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2545.883 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 786d022d
+INFO: [Common 17-83] Releasing license: Synthesis
+21 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2545.883 ; gain = 1036.324
+INFO: [Common 17-1381] The checkpoint 'C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.runs/design_1_fsm_copy_0_0_synth_1/design_1_fsm_copy_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_fsm_copy_0_0, cache-ID = 2cfb7b66631d2e8c
+INFO: [Common 17-1381] The checkpoint 'C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.runs/design_1_fsm_copy_0_0_synth_1/design_1_fsm_copy_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_fsm_copy_0_0_utilization_synth.rpt -pb design_1_fsm_copy_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Nov  9 19:09:14 2023...

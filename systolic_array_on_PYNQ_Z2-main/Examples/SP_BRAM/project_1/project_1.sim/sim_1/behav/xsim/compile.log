@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/example.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fsm_copy
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.ip_user_files/bd/design_1/ip/design_1_fsm_copy_0_0/sim/design_1_fsm_copy_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_fsm_copy_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.ip_user_files/bd/design_1/ip/design_1_axi_bram_ctrl_0_bram_0/sim/design_1_axi_bram_ctrl_0_bram_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.ip_user_files/bd/design_1/ip/design_1_xlconstant_0_0/sim/design_1_xlconstant_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_xlconstant_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.ip_user_files/bd/design_1/sim/design_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/tb_example.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_bram_combine

@@ -1,0 +1,17 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/project_1/project_1.sim/sim_1/synth/timing/xsim/tb_bram_combine_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0
+INFO: [VRFC 10-311] analyzing module design_1_fsm_copy_0_0
+INFO: [VRFC 10-311] analyzing module design_1_fsm_copy_0_0_fsm_copy
+INFO: [VRFC 10-311] analyzing module design_1_wrapper
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized0
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper__parameterized0
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_6
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_6_synth
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/SROH/Desktop/SP_BRAM/tb_example.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_bram_combine
