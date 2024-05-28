@@ -33,9 +33,7 @@ module tb_systolic_system #(
     reg [OUT_WIDTH -1 : 0]       w_data_bias;
     reg                          w_en_bias;
     //o_buf
-    reg                          o_idx_gen_on;
     reg                          o_ag_o_on;
-    reg                          o_drain;
     reg [ADDR_WIDTH -1 : 0]      o_base_addr;
     reg [$clog2(ARRAY_M)-1:0]    o_ram_idx;
     reg [ADDR_WIDTH-1 : 0]       o_read_addr;
@@ -81,9 +79,7 @@ module tb_systolic_system #(
         .w_data_bias(w_data_bias),
         .w_en_bias(w_en_bias),
         
-        .o_idx_gen_on(o_idx_gen_on),
         .o_ag_o_on(o_ag_o_on),
-        .o_drain(o_drain),
         .o_base_addr(o_base_addr),
         .o_ram_idx(o_ram_idx),
         .o_read_addr(o_read_addr),
@@ -94,8 +90,8 @@ module tb_systolic_system #(
         .N(N)
     );
     integer i, cc;
-    integer row_dim = 16;
-    integer col_dim = 16;
+    integer row_dim = 10;
+    integer col_dim = 10;
     initial begin
     //mode = OS test [op_signal_in : os flow = b100, os drain = b110]
     // streaming data to systolic array test 
@@ -111,9 +107,10 @@ module tb_systolic_system #(
         w_base_addr = 0;
         w_num_cols  = 0;
         operation_signal_in = 0;
-        o_idx_gen_on= 0;
+        w_index_bias = 0;
+        w_data_bias = 0;
+        w_en_bias = 0;
         o_ag_o_on   = 0;
-        o_drain     = 0;
         o_base_addr = 0;
         o_ram_idx   = 0;
         o_read_addr = 0;
@@ -131,6 +128,18 @@ module tb_systolic_system #(
         o_base_addr = 0;
         o_ram_idx   = 0;
         o_read_addr = 0;
+        #1
+        // bias value setting
+        for(int j=0;j<ARRAY_N;j++){
+            w_index_bias = j;
+            w_data_bias = 'hfffffff0;
+            w_en_bias = 1;
+            #1
+        }
+        w_index_bias = 0;
+        w_data_bias = 'h0;
+        w_en_bias = 0;
+        #1
         // STEP1 : OS_FLOW
         a_buf_on    = 1;
         w_buf_on    = 1;
@@ -147,10 +156,8 @@ module tb_systolic_system #(
         operation_signal_in = 3'b110;
         #(ARRAY_N - row_dim -1) // ARRAY_N - num_rows -1
             //store drain data to ram
-        o_idx_gen_on= 0;
-        o_drain     = 0;
         //#(1)//DELAY OBUF
-        o_ag_o_on   = 1;
+        o_ag_o_on = 1;
         #(row_dim + 1)            //num_rows+1
         // STEP3: check ram contents
         // for(cc = 0; cc<8; cc=cc+1)

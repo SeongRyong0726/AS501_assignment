@@ -72,9 +72,7 @@ module systolic_system #(
     input wire                          w_en_bias,
 
     //O_buffer READ
-    input wire                          o_idx_gen_on,
     input wire                          o_ag_o_on,
-    input wire                          o_drain,
     input wire [ADDR_WIDTH -1 : 0]      o_base_addr,
     input wire [$clog2(ARRAY_M)-1:0]    o_ram_idx,
     input wire [ADDR_WIDTH-1 : 0]       o_read_addr,
@@ -169,7 +167,7 @@ module systolic_system #(
         .data_out(result_data_set_simd)
     )
 
-    O_buffer_top #(
+    O_buffer #(
         .RAM_SIZE(RAM_SIZE),
         .ADDR_WIDTH(ADDR_WIDTH),
         .ARRAY_M(ARRAY_M),
