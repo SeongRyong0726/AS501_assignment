@@ -1,0 +1,37 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version V-2023.12-1_Full64; Runtime version V-2023.12-1_Full64;  May 28 00:13 2024
+Inference image #1 
+Current correction count = 1
+Inference image #2 
+Current correction count = 2
+Inference image #3 
+Current correction count = 3
+Inference image #4 
+Current correction count = 4
+Inference image #5 
+Current correction count = 5
+Inference image #6 
+Current correction count = 6
+Inference image #7 
+Current correction count = 7
+Inference image #8 
+Current correction count = 8
+Inference image #9 
+Current correction count = 9
+Inference image #10 
+Current correction count = 10
+-------------------------------------------------------
+Accuracy = 100.00
+-------------------------------------------------------
+mcycleh = 00000000, mcycle = 08f09001
+minstreth = 00000000, minstret = 0216888c
+-------------------------------------------------------
+$finish called from file "/home/AS20233757/AS501_assignment/sim/tb/core_tb_10.sv", line 173.
+$finish at simulation time       14998393250000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1499839325000000 fs
+CPU Time:    554.530 seconds;       Data structure size:  64.9Mb
+Tue May 28 00:23:13 2024

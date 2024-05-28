@@ -1,0 +1,616 @@
+Command: vcs -fgp -full64 -sverilog /home/AS20233757/AS501_assignment/sim/tb/core_tb_10.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/common/core_package.sv /home/AS20233757/AS501_assignment/sim/../rtl/common/d_flip_flop.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/common/mux2to1.sv /home/AS20233757/AS501_assignment/sim/../rtl/common/mux3to1.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/common/mux4to1.sv /home/AS20233757/AS501_assignment/sim/../rtl/common/mux5to1.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/common/counter.sv /home/AS20233757/AS501_assignment/sim/../rtl/memory/memory_top.sv \
+/technology/SAED32/lib/sram/verilog/saed32sram.v /home/AS20233757/AS501_assignment/sim/../rtl/cache/submodule/cache_sram.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/cache/instr_cache.sv /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/alu.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/csr.sv /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/decoder.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/regfile.sv /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/scalar_core.sv \
+/home/AS20233757/AS501_assignment/sim/../rtl/cpu_top.sv -timescale=1ns/1ps +incdir+/tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver \
++define+SIM -debug_access+all -kdb -l vcs.log
+                         Chronologic VCS (TM)
+        Version V-2023.12-1_Full64 -- Tue May 28 00:13:55 2024
+
+                    Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file '/home/AS20233757/AS501_assignment/sim/tb/core_tb_10.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/core_package.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/d_flip_flop.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux2to1.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux3to1.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux4to1.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux5to1.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/counter.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/memory/memory_top.sv'
+Parsing design file '/technology/SAED32/lib/sram/verilog/saed32sram.v'
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 101
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 13.
+  Previous value: 10
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 102
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 14.
+  Previous value: 1024
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 103
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 15.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 229
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 103.
+  Previous value: 46
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 357
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 229.
+  Previous value: 48
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 443
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 355.
+  Previous value: 7
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 444
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 356.
+  Previous value: 128
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 445
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 357.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 653
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 445.
+  Previous value: 128
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 765
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 653.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 891
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 765.
+  Previous value: 46
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1019
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 891.
+  Previous value: 48
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1105
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1017.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1106
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1018.
+  Previous value: 256
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1107
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1019.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1235
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1105.
+  Previous value: 5
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1236
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1106.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1237
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1107.
+  Previous value: 50
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1445
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1237.
+  Previous value: 128
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1557
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1445.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1643
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1555.
+  Previous value: 9
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1644
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1556.
+  Previous value: 512
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1645
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1557.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1853
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1645.
+  Previous value: 128
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 1965
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1853.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2079
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 1965.
+  Previous value: 34
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2165
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2077.
+  Previous value: 6
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2166
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2078.
+  Previous value: 64
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2167
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2079.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2288
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2167.
+  Previous value: 16
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2425
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2288.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2534
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2425.
+  Previous value: 4
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2645
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2532.
+  Previous value: 7
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2646
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2533.
+  Previous value: 128
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2647
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2534.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2768
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2647.
+  Previous value: 16
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 2905
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2768.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3014
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 2905.
+  Previous value: 4
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3125
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3012.
+  Previous value: 4
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3126
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3013.
+  Previous value: 16
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3127
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3014.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3248
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3127.
+  Previous value: 16
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3375
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3248.
+  Previous value: 22
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3512
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3375.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3656
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3512.
+  Previous value: 39
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3765
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3656.
+  Previous value: 4
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3876
+  Text macro (numAddr) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3763.
+  Previous value: 5
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3877
+  Text macro (numWords) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3764.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3878
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3765.
+  Previous value: 8
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 3999
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3878.
+  Previous value: 16
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 4136
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 3999.
+  Previous value: 32
+
+
+Warning-[TMR] Text macro redefined
+/technology/SAED32/lib/sram/verilog/saed32sram.v, 4245
+  Text macro (wordLength) is redefined. The last definition will override 
+  previous ones.
+  Location of previous definition: 
+  /technology/SAED32/lib/sram/verilog/saed32sram.v, 4136.
+  Previous value: 4
+
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/cache/submodule/cache_sram.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/cache/instr_cache.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/alu.sv'
+Parsing included file '/tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver/DW_dp_mult_comb_function.inc'.
+Back to file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/alu.sv'.
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/csr.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/decoder.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/regfile.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core/scalar_core.sv'
+Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/cpu_top.sv'
+Top Level Modules:
+       CORE_TB
+       SRAM1RW1024x8
+       SRAM1RW128x46
+       SRAM1RW256x128
+       SRAM1RW256x32
+       SRAM1RW256x46
+       SRAM1RW256x48
+       SRAM1RW256x8
+       SRAM1RW32x50
+       SRAM1RW512x128
+       SRAM1RW512x32
+       SRAM1RW512x8
+       SRAM1RW64x128
+       SRAM1RW64x32
+       SRAM1RW64x34
+       SRAM1RW64x8
+       SRAM2RW128x16
+       SRAM2RW128x32
+       SRAM2RW128x4
+       SRAM2RW128x8
+       SRAM2RW16x16
+       SRAM2RW16x32
+       SRAM2RW16x4
+       SRAM2RW16x8
+       SRAM2RW32x16
+       SRAM2RW32x22
+       SRAM2RW32x32
+       SRAM2RW32x39
+       SRAM2RW32x4
+       SRAM2RW32x8
+       SRAM2RW64x16
+       SRAM2RW64x32
+       SRAM2RW64x4
+       SRAM2RW64x8
+TimeScale is 1 ns / 100 fs
+Starting vcs inline pass...
+
+45 modules and 0 UDP read.
+recompiling module CORE_TB
+recompiling package pkg_bool
+recompiling package pkg_rw
+recompiling package pkg_opfunct3
+recompiling module MUX2TO1
+recompiling module MUX3TO1
+recompiling module MUX4TO1
+recompiling module MUX5TO1
+recompiling module MEMORY_TOP
+recompiling module SRAM1RW1024x8
+recompiling module SRAM1RW128x46
+recompiling module SRAM1RW256x128
+recompiling module SRAM1RW256x32
+recompiling module SRAM1RW256x46
+recompiling module SRAM1RW256x48
+recompiling module SRAM1RW256x8
+recompiling module SRAM1RW32x50
+recompiling module SRAM1RW512x128
+recompiling module SRAM1RW512x32
+recompiling module SRAM1RW512x8
+recompiling module SRAM1RW64x128
+recompiling module SRAM1RW64x32
+recompiling module SRAM1RW64x34
+recompiling module SRAM1RW64x8
+recompiling module SRAM2RW128x16
+recompiling module SRAM2RW128x32
+recompiling module SRAM2RW128x4
+recompiling module SRAM2RW128x8
+recompiling module SRAM2RW16x16
+recompiling module SRAM2RW16x32
+recompiling module SRAM2RW16x4
+recompiling module SRAM2RW16x8
+recompiling module SRAM2RW32x16
+recompiling module SRAM2RW32x22
+recompiling module SRAM2RW32x32
+recompiling module SRAM2RW32x39
+recompiling module SRAM2RW32x4
+recompiling module SRAM2RW32x8
+recompiling module SRAM2RW64x16
+recompiling module SRAM2RW64x32
+recompiling module SRAM2RW64x4
+recompiling module SRAM2RW64x8
+recompiling module ALU
+recompiling module CSR
+recompiling module SCALAR_CORE
+All of 45 modules done
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
+-Wl,-rpath=/tools/Synopsys/vcs/V-2023.12-1/linux64/lib -L/tools/Synopsys/vcs/V-2023.12-1/linux64/lib \
+-Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _454520_archive_1.so \
+SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
+-lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   \
+/tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_save_restore_new.o /tools/Synopsys/verdi/V-2023.12-1/share/PLI/VCS/LINUX64/pli.a \
+-ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+CPU time: 2.589 seconds to compile + .229 seconds to elab + .224 seconds to link
+Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
