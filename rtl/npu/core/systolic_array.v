@@ -6,8 +6,8 @@
 
 `timescale 100ns/1ns
 module systolic_array #(
-    parameter integer   ARRAY_N         = 8,
-    parameter integer   ARRAY_M         = 8,
+    parameter integer   ARRAY_N         = 16,
+    parameter integer   ARRAY_M         = 16,
 
     parameter integer   ACT_WIDTH       = 8,
     parameter integer   WGT_WIDTH       = 8,
