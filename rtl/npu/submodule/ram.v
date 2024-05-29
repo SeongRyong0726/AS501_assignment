@@ -25,20 +25,15 @@ module ram
   input  wire [ DATA_WIDTH  -1 : 0 ]  write_data
 );
 
-  reg signed [ DATA_WIDTH -1 : 0 ] mem [ 0 : 1<<ADDR_WIDTH ];
+  reg signed [ DATA_WIDTH -1 : 0 ] mem [ 1<<ADDR_WIDTH : 0 ];
 //   DEBUG start
-//  initial begin
-//    for (integer i = 0; i < (1 << ADDR_WIDTH); i = i + 1) begin
-//      mem[i] = 1;
-//    end
-//  end
+ integer i=0;
+ initial begin
+   for (i = 0; i < (1 << ADDR_WIDTH); i = i + 1) begin
+     mem[i] = 8'b1;
+   end
+ end
 //   DEBUG end
-
-integer i;
-initial begin
-  for (i=0;i<=1<<ADDR_WIDTH;i=i+1)
-    mem[i] = 0;
-end
 
   always @(posedge clk)
   begin: RAM_WRITE

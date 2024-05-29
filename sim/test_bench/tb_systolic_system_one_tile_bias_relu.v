@@ -124,9 +124,9 @@ module tb_systolic_system #(
         reset       = 0;
         mode        = 1; //os
         a_base_addr = 0;
-        a_num_rows  = 6;
+        a_num_rows  = row_dim;
         w_base_addr = 0;
-        w_num_cols  = 6;
+        w_num_cols  = col_dim;
         o_base_addr = 0;
         o_ram_idx   = 0;
         o_read_addr = 0;
@@ -134,21 +134,39 @@ module tb_systolic_system #(
         // bias value setting
         w_data_bias = 'hfffffff0;
         w_en_bias = 1;
-        w_index_bias = 'b000;
+        w_index_bias = 'b0000;
         #1
-        w_index_bias = 'b001;
+        w_index_bias = 'b0001;
         #1
-        w_index_bias = 'b010;
+        w_index_bias = 'b0010;
         #1
-        w_index_bias = 'b011;
+        w_index_bias = 'b0011;
         #1
-        w_index_bias = 'b100;
+        w_index_bias = 'b0100;
         #1
-        w_index_bias = 'b101;
+        w_index_bias = 'b0101;
         #1
-        w_index_bias = 'b110;
+        w_index_bias = 'b0110;
         #1
-        w_index_bias = 'b111;
+        w_index_bias = 'b0111;
+        #1
+        w_data_bias = 'hffffffe0;
+        w_index_bias = 'b1000;
+        #1
+        w_index_bias = 'b1001;
+        #1
+        w_index_bias = 'b1010;
+        #1
+        w_index_bias = 'b1011;
+        w_data_bias = 'h00000010;
+        #1
+        w_index_bias = 'b1100;
+        #1
+        w_index_bias = 'b1101;
+        #1
+        w_index_bias = 'b1110;
+        #1
+        w_index_bias = 'b1111;
         #1
         // for(j=0;j<ARRAY_N;j=j+1){
         //     w_index_bias = 'b0;
