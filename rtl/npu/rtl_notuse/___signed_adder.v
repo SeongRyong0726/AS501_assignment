@@ -2,13 +2,13 @@
 // Signed Adder
 
 
-'timescale 1ns/1ps
+//'timescale 1ns/1ps
 module signed_adder #(
     parameter integer       DATA_TYPE           = "INT",
     parameter               REGISTER_OUTPUT     = "FALSE",
     parameter integer       IN1_WIDTH           = 16,
     parameter integer       IN2_WIDTH           = 16,
-    parameter integer       OUT_WIDTH           = 16,    
+    parameter integer       OUT_WIDTH           = 16   
 ) (
     input  wire                                 clk,
     input  wire                                 reset,

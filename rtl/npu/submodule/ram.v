@@ -27,11 +27,11 @@ module ram
 
   reg signed [ DATA_WIDTH -1 : 0 ] mem [ 0 : 1<<ADDR_WIDTH ];
 //   DEBUG start
- initial begin
-   for (integer i = 0; i < (1 << ADDR_WIDTH); i = i + 1) begin
-     mem[i] = 1;
-   end
- end
+//  initial begin
+//    for (integer i = 0; i < (1 << ADDR_WIDTH); i = i + 1) begin
+//      mem[i] = 1;
+//    end
+//  end
 //   DEBUG end
 
 integer i;

@@ -165,7 +165,7 @@ module systolic_system #(
         .w_en(w_en_bias),
         .data_in(result_data_set)
         .data_out(result_data_set_simd)
-    )
+    );
 
     O_buffer #(
         .RAM_SIZE(RAM_SIZE),

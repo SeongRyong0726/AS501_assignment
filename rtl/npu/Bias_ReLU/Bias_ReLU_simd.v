@@ -13,7 +13,7 @@ module Bias_ReLU_simd #(
     input wire [ARRAY_N * OUT_WIDTH -1 : 0] data_out
 );
 
-reg [OUT_WITDH -1 : 0] bias_values [ARRAY_N -1 : 0];
+reg [OUT_WIDTH -1 : 0] bias_values [ARRAY_N -1 : 0];
 
 always @(posedge clk)
 begin
@@ -23,14 +23,14 @@ begin
     end
 end
 
-wire data_out_0[ARRAY_N*OUT_WIDTH -1 : 0]
 
 genvar i;
 generate
 for(i=0; i<ARRAY_N; i=i+1)
 begin: SIMD_LOOP
-    data_out_0[ARRAY_N * (i+1)-1 : ARRAY_N * (i)] = data_in[ARRAY_N * (i+1)-1 : ARRAY_N * (i)] + bias_values[i]
-    data_out = [ARRAY_N * (i+1)-1 : ARRAY_N * (i)] = data_out_0[ARRAY_N * (i+1)-1] == 'b0 ? data_out_0[ARRAY_N * (i+1)-1 : ARRAY_N * (i)] : 0
+    wire [OUT_WIDTH-1:0] temp;
+    assign temp  = data_in[OUT_WIDTH * (i+1)-1 : OUT_WIDTH * (i)] + bias_values[i];
+    assign data_out[OUT_WIDTH * (i+1)-1 :OUT_WIDTH * (i)] = temp[OUT_WIDTH * (i+1)-1] == 'b0 ? temp : 0;
 end
 endgenerate
 
