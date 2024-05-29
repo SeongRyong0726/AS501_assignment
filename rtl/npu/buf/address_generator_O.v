@@ -23,9 +23,9 @@ module address_generator_O #(
     generate
         reg [ADDR_WIDTH-1 : 0] o_addr;
         for(m=0; m<ARRAY_M; m=m+1)
-        begin
+        begin : OUT_LOOP
             always @(posedge clk)
-            begin
+            begin : INNER_LOOP
                 if(reset)
                     o_addr <= 'b0;
                 else if(on_)

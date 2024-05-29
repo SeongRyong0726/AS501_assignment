@@ -74,7 +74,7 @@ module O_buffer #(
             .write_addr(addr_set[ADDR_WIDTH*m+:ADDR_WIDTH]),
             .write_data(data_in_[OUT_WIDTH*m+:OUT_WIDTH])
         );
-        assign data_read = (ram_idx == m)? output_data[DATA_WIDTH-1:0] : {DATA_WIDTH{'bZ}};
+        assign data_read = (ram_idx == m)? output_data[DATA_WIDTH-1:0] : {DATA_WIDTH{32'bZ}};
     end
     endgenerate
 endmodule

@@ -86,7 +86,7 @@ module pe #(
     ) acc (
         .clk    (clk),
         .reset  (reset),
-        .enable ('b1),
+        .enable (1'b1),
         .in     (acc_input),
         .out    (acc_output)
     );

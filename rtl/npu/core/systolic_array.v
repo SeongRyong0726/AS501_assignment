@@ -62,7 +62,7 @@ begin: LOOP_OUTPUT_FORWARD
             ) fwd_a (
             .clk(!clk),
             .reset(reset), 
-            .enable('b1), 
+            .enable(1'b1), 
             .in(LOOP_IPNUT_FORWARD[m-1].LOOP_OUTPUT_FORWARD[n].act_in),
             .out(act_in_)
             );
@@ -71,7 +71,7 @@ begin: LOOP_OUTPUT_FORWARD
             ) fwd_a_ (
             .clk(clk),
             .reset(reset), 
-            .enable('b1), 
+            .enable(1'b1), 
             .in(act_in_),
             .out(act_in)
             );
@@ -90,7 +90,7 @@ begin: LOOP_OUTPUT_FORWARD
             ) fwd_w (
             .clk(!clk), 
             .reset(reset), 
-            .enable('b1), 
+            .enable(1'b1), 
             .in(LOOP_IPNUT_FORWARD[m].LOOP_OUTPUT_FORWARD[n-1].wgt_in),
             .out(wgt_in_));
         reg_with_sync_en #(
@@ -98,7 +98,7 @@ begin: LOOP_OUTPUT_FORWARD
             ) fwd_w_ (
             .clk(clk), 
             .reset(reset), 
-            .enable('b1), 
+            .enable(1'b1), 
             .in(wgt_in_),
             .out(wgt_in));
         /*DELETE L.current+1 to match Behavior Simulation and post-synthesis simulation (additional consideration: acc_reg in pe trigger @ neg edge)*/
@@ -108,7 +108,7 @@ begin: LOOP_OUTPUT_FORWARD
             ) result_st (
             .clk(clk), 
             .reset(reset), 
-            .enable('b1), 
+            .enable(1'b1), 
             .in(LOOP_IPNUT_FORWARD[m].LOOP_OUTPUT_FORWARD[n-1].result_out),
             .out(result_in)
             ); 

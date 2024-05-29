@@ -30,7 +30,7 @@ module tb_systolic_system #(
     reg [2:0]                    operation_signal_in;
     //SIMD
     reg [$clog2(ARRAY_N) : 0]    w_index_bias;
-    reg [OUT_WIDTH -1 : 0]       w_data_bias;
+    reg [PE_OUT_WIDTH -1 : 0]       w_data_bias;
     reg                          w_en_bias;
     //o_buf
     reg                          o_ag_o_on;
@@ -60,18 +60,18 @@ module tb_systolic_system #(
         .a_buf_on(a_buf_on),
         .a_base_addr(a_base_addr),
         .a_num_rows(a_num_rows),
-        .bram_to_a_ram_w_data(0),
-        .bram_to_a_ram_w_addr(0),
-        .bram_to_a_ram_w_en(0),
+        .bram_to_a_ram_w_data(32'b0),
+        .bram_to_a_ram_w_addr(10'b0),
+        .bram_to_a_ram_w_en(16'b0),
 
         .mode(mode),
         
         .w_buf_on(w_buf_on),
         .w_base_addr(w_base_addr),
         .w_num_cols(w_num_cols),
-        .bram_to_w_ram_w_data(0),
-        .bram_to_w_ram_w_addr(0),
-        .bram_to_w_ram_w_en(0),
+        .bram_to_w_ram_w_data(32'b0),
+        .bram_to_w_ram_w_addr(10'b0),
+        .bram_to_w_ram_w_en(16'b0),
 
         .operation_signal_in(operation_signal_in),
 
@@ -92,6 +92,8 @@ module tb_systolic_system #(
     integer i, cc;
     integer row_dim = 10;
     integer col_dim = 10;
+    integer j=0;
+
     initial begin
     //mode = OS test [op_signal_in : os flow = b100, os drain = b110]
     // streaming data to systolic array test 
@@ -130,12 +132,30 @@ module tb_systolic_system #(
         o_read_addr = 0;
         #1
         // bias value setting
-        for(int j=0;j<ARRAY_N;j++){
-            w_index_bias = j;
-            w_data_bias = 'hfffffff0;
-            w_en_bias = 1;
-            #1
-        }
+        w_data_bias = 'hfffffff0;
+        w_en_bias = 1;
+        w_index_bias = 'b000;
+        #1
+        w_index_bias = 'b001;
+        #1
+        w_index_bias = 'b010;
+        #1
+        w_index_bias = 'b011;
+        #1
+        w_index_bias = 'b100;
+        #1
+        w_index_bias = 'b101;
+        #1
+        w_index_bias = 'b110;
+        #1
+        w_index_bias = 'b111;
+        #1
+        // for(j=0;j<ARRAY_N;j=j+1){
+        //     w_index_bias = 'b0;
+        //     w_data_bias = 'hfffffff0;
+        //     w_en_bias = 1;
+        //     #1
+        // }
         w_index_bias = 0;
         w_data_bias = 'h0;
         w_en_bias = 0;
@@ -144,21 +164,21 @@ module tb_systolic_system #(
         a_buf_on    = 1;
         w_buf_on    = 1;
         operation_signal_in = 3'b100;
-        #(K) 
+        #30 // K = 30
         a_buf_on    = 0;
         w_buf_on    = 0;
         operation_signal_in = 3'b100;
-        #(row_dim + col_dim - 1) // num_rows + num_cols -1
+        #(10 + 10 - 1) // row_dim + col_dim -1
         
         // STEP2: OS_DRAIN
         a_buf_on    = 0;
         w_buf_on    = 0;
         operation_signal_in = 3'b110;
-        #(ARRAY_N - row_dim -1) // ARRAY_N - num_rows -1
+        #(16 - 10 -1) // ARRAY_N - row_dim -1
             //store drain data to ram
         //#(1)//DELAY OBUF
         o_ag_o_on = 1;
-        #(row_dim + 1)            //num_rows+1
+        #(10 + 1)            //row_dim+1
         // STEP3: check ram contents
         // for(cc = 0; cc<8; cc=cc+1)
         // begin
@@ -169,6 +189,7 @@ module tb_systolic_system #(
         //     #1;
         // end
         // end
+        o_ag_o_on = 0;
     end
     always #0.5 clk = !clk;
 endmodule

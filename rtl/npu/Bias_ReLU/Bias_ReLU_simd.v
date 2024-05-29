@@ -30,7 +30,7 @@ for(i=0; i<ARRAY_N; i=i+1)
 begin: SIMD_LOOP
     wire [OUT_WIDTH-1:0] temp;
     assign temp  = data_in[OUT_WIDTH * (i+1)-1 : OUT_WIDTH * (i)] + bias_values[i];
-    assign data_out[OUT_WIDTH * (i+1)-1 :OUT_WIDTH * (i)] = temp[OUT_WIDTH * (i+1)-1] == 'b0 ? temp : 0;
+    assign data_out[OUT_WIDTH * (i+1)-1 :OUT_WIDTH * (i)] = temp[OUT_WIDTH -1] == 'b0 ? temp : 0;
 end
 endgenerate
 

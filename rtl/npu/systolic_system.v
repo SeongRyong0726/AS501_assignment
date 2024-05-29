@@ -163,7 +163,7 @@ module systolic_system #(
         .w_index(w_index_bias),
         .w_data(w_data_bias),
         .w_en(w_en_bias),
-        .data_in(result_data_set)
+        .data_in(result_data_set),
         .data_out(result_data_set_simd)
     );
 
