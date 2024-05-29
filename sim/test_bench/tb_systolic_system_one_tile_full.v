@@ -1,5 +1,3 @@
-//If you want to use this, use have to use git commit "one_tile_Bias+ReLU done"
-
 `timescale 100ns/1ns
 module tb_systolic_system #(
     parameter integer ARRAY_N = 16,
@@ -133,6 +131,7 @@ module tb_systolic_system #(
         o_ram_idx   = 0;
         o_read_addr = 0;
         #1
+        // -----------------------
         // bias value setting
         w_data_bias = 'hfffffff0;
         w_en_bias = 1;
@@ -170,12 +169,8 @@ module tb_systolic_system #(
         #1
         w_index_bias = 'b1111;
         #1
-        // for(j=0;j<ARRAY_N;j=j+1){
-        //     w_index_bias = 'b0;
-        //     w_data_bias = 'hfffffff0;
-        //     w_en_bias = 1;
-        //     #1
-        // }
+        // --------------------
+
         w_index_bias = 0;
         w_data_bias = 'h0;
         w_en_bias = 0;
