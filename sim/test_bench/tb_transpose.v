@@ -33,10 +33,10 @@ module tb_systolic_system #(
     integer i;
     // integer A = 10;
     // integer B = 10;
-    // OUTPUT BUFFER (BxA) 로 존재 이 A개씩 나와서 transpose의 옆구리로 들어가니까 
-    // transpose의 input dim 은 (A x B)
-    // transpose의 output dim 은 (B x A)
-    // (A x B) --> (B x A)
+    // OUTPUT BUFFER (AxB) 로 존재, 값이 B개씩 나와서 A차례 transpose의 옆구리로 들어가니까 
+    // transpose의 input dim 은 (B x A)
+    // transpose의 output dim 은 (A x B)
+    // (B x A) --> (A x B)
     initial begin
         clk = 1;
         reset =1;
