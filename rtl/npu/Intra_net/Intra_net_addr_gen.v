@@ -1,6 +1,5 @@
 `timescale 100ns/1ns
 module Intra_net_addr_gen #(
-    parameter integer OUT_DATA_WIDTH = 32,
     parameter integer ACT_DATA_WIDTH = 8,
     parameter integer ADDR_WIDTH = 10,
     parameter integer IDX_WIDTH = 4, // 16 bufs
@@ -11,7 +10,9 @@ module Intra_net_addr_gen #(
 
     input wire [ADDR_WIDTH-1:0] O_base_addr,
     input wire [ADDR_WIDTH-1:0] A_base_addr,
-    input wire [$clog2(COL_DIM)-1 : 0]      A,
+    input wire [$clog2(COL_DIM) : 0]      A,
+    input wire [$clog2(COL_DIM) : 0]      B,
+
 
     // input wire [IDX_WIDTH-1:0]  num_of_col,
     // input wire [IDX_WIDTH-1:0]  num_of_row,
@@ -20,7 +21,7 @@ module Intra_net_addr_gen #(
 
     output wire [ADDR_WIDTH-1:0]O_addr,
     output wire [ADDR_WIDTH-1:0]A_addr,
-    output wire A_w_en
+    output wire [COL_DIM-1:0] A_w_en
 );
 /*
     parameter : base_addr of outputbuf and activation buf, 
@@ -35,6 +36,7 @@ reg [IDX_WIDTH : 0] delay_count;
 wire start_signal_a;
 wire start_signal_o;
 
+
 always @(posedge clk)
 begin
     if(start_signal)
@@ -43,9 +45,9 @@ begin
         delay_count <= 0;
 end
 
-assign start_signal_a = (delay_count > A-1)? 1'b1 : 1'b0;  
-assign A_w_en = start_signal_a;
-assign start_signal_o = start_signal;
+assign start_signal_a = (delay_count > A+(COL_DIM-B)-1)? 1'b1 : 1'b0;  
+assign A_w_en = {COL_DIM{start_signal_a}};
+assign start_signal_o = (delay_count > 0)? 1'b1 : 1'b0;  
 
 always @(posedge clk)
 begin
@@ -56,6 +58,7 @@ begin
     else begin
         O_addr_offset <= 0;
     end
+
     if(start_signal_a)
     begin
         A_addr_offset <= A_addr_offset + 'b1;

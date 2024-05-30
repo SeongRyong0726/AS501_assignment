@@ -7,8 +7,8 @@ module transpose #(
     input wire clk,
     input wire reset,
     input wire T_start,
-    input wire [$clog2(COL_DIM)-1 : 0]      A,
-    input wire [$clog2(COL_DIM)-1 : 0]      B,
+    input wire [$clog2(COL_DIM) : 0]      A,
+    input wire [$clog2(COL_DIM) : 0]      B,
 
     input wire [ROW_DIM*DATA_WIDTH -1 : 0] data_in,
     output wire [COL_DIM*DATA_WIDTH -1 : 0] data_out,
@@ -26,7 +26,7 @@ end
 
 wire state; //[in, out]
 assign state = (count < A)? 1 : 0;
-assign T_end = (count > A + B -1)? 1 : 0;
+assign T_end = (count > A + ROW_DIM -1)? 1 : 0;
 
 genvar r, c;
 generate
@@ -49,7 +49,10 @@ generate
             reg [DATA_WIDTH-1:0] st;
             always @(posedge clk)
             begin
-                st <= reg_in;
+                if(T_start)
+                    st <= reg_in;
+                else
+                    st <= 0;
             end
             assign reg_out = st;
 

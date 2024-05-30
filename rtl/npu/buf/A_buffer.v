@@ -23,6 +23,7 @@ module A_buffer #(
     input wire      [ADDR_WIDTH-1:0]        bram_to_ram_w_addr,
     input wire      [ARRAY_N-1:0]           bram_to_ram_w_en,
     input wire      [ACT_WIDTH-1:0]         bram_to_ram_w_data,
+    input wire      [ACT_WIDTH*ARRAY_M-1: 0]input_dataset_from_O,
 
     output wire     [IBUF_DATA_WIDTH-1:  0] act_data_set_out     
 );

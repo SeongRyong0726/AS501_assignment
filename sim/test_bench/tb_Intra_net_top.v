@@ -1,9 +1,8 @@
 `timescale 100ns/1ns
-module tb_systolic_system #(
+module tb_Intra_net_top #(
     parameter integer ROW_DIM = 16,
     parameter integer COL_DIM = 16,
     parameter integer DATA_WIDTH = 8,
-    parameter integer OUT_DATA_WIDTH = 32,
     parameter integer ADDR_WIDTH = 10,
     parameter integer IDX_WIDTH = 4
 );
@@ -30,7 +29,6 @@ module tb_systolic_system #(
         .ROW_DIM(ROW_DIM),
         .COL_DIM(COL_DIM),
         .DATA_WIDTH(DATA_WIDTH),
-        .OUT_DATA_WIDTH(OUT_DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
         .IDX_WIDTH(IDX_WIDTH)
     ) Intra_net_top_inst (
