@@ -244,7 +244,7 @@ module fsm_copy #(
             start <= data_out_sp_bram;
             state <= (start)? GET_VAR_R_REQ: IDLE;//W_LOAD: IDLE;//W_LOAD: IDLE;//
          end
-
+        // sp_bram에서 값을 차례로 들고오는 과정이 아래 3개 state
           if(state == GET_VAR_R_REQ)
           begin
              system_reset <= 0;
@@ -274,12 +274,13 @@ module fsm_copy #(
             get_var_count <= get_var_count + 1;
             state <= (get_var_count == NUM_VAR-1)? DECIDE_MODE : GET_VAR_R_REQ ; 
           end
-
+        // sp_bram에서 값을 다 들고 온 뒤 연산이 OS 인지 WS인지 matmul_Variable[0]을 보고 판단함 
           if(state == DECIDE_MODE)
           begin
              state <= (matmul_variable[0])? FILL_RAM_OS : FILL_RAM_WS;
           end
-
+        // OS 를 위해 A_bram, W_bram에서 Activation과 Weight 버퍼로 값을 채우는 과정
+        // 값 채우는 과정은 각 버퍼가 동시에 실행 + 더 오래 걸리는 것이 끝날때까지 기다림.
           if(state == FILL_RAM_OS)
           begin
              mode        <= 1; //os
@@ -316,8 +317,8 @@ module fsm_copy #(
              
              state <= (fill_ram_count == matmul_variable[2] * ARRAY_M * ((iter_col>iter_row)? iter_col:iter_row)-1)? WAIT_DELAY_OS : FILL_RAM_OS;
              fill_ram_count <= (fill_ram_count == matmul_variable[2]*ARRAY_M * ((iter_col>iter_row)? iter_col:iter_row)  -1)? 'b0: fill_ram_count + 1;
-
           end
+          //버퍼를 다 채우고 나서 기다리는 과정 : 아마도 합성하고 나서 실행하는 과정에서 값이 불안정한 signal bit이 있어서 잠시 기다리려고 시도를 했던것 같다 (의미 없음) 
           if(state == WAIT_DELAY_OS)
           begin
             state <= (fill_ram_count == 5   -1)? OS_FLOW_1 : WAIT_DELAY_OS;
@@ -329,6 +330,7 @@ module fsm_copy #(
                 iter_col <= iter_col-1;
             end
           end
+          // 마찬가지로 WS를 채우는 과정이다. 
           if(state == FILL_RAM_WS)
           begin
              mode        <= 0; //ws
@@ -366,6 +368,7 @@ module fsm_copy #(
              state <= (fill_ram_count == contents_num_at_WS   -1)? WAIT_DELAY_WS : FILL_RAM_WS;
              fill_ram_count <= (fill_ram_count == contents_num_at_WS  -1)? 'b0: fill_ram_count + 1;
          end
+         //마찬가지로 buffer에 다 채우고 나서 잠시 기다린다.
          if(state == WAIT_DELAY_WS)
           begin
             state <= (fill_ram_count == 5   -1)? W_LOAD : WAIT_DELAY_WS;
@@ -380,6 +383,8 @@ module fsm_copy #(
           end
 
         //=========================================
+        //Decrease iter/_ROW/_K/_COL은 여러 타일을 한번에 처리하기 위해 loop를 contorl 하는 부분이다.
+        //이미 계산할 거대한 타일의 크기를 알고있기 때문에, 필요한 loop의 구조를 알고있고 여기서 control
         if(state == DECREASE_ITER)
         begin
             if(cycle_count == 0)begin
@@ -423,6 +428,7 @@ module fsm_copy #(
             array_contents_reset<= 0;
             state <= W_LOAD;
         end
+        //weight 를 systolic array에 load (Weight stationary mode에서)
         if(state == W_LOAD)
         begin
             //TMP
@@ -438,7 +444,7 @@ module fsm_copy #(
             cycle_count <= (cycle_count == (matmul_var_1 +1   -1)) ? 'b0: cycle_count+1;
             //#(6);                       //TODO  W + 1????????????????? W= M;
         end
-
+        //Flow_1, 2, 3은 weight stationary동작에서 값이 들어갈 때, 처음 결과가 나올 때, (우리는 OS만 보니까 이거 신경 쓸 필요 없을듯.!)
         if(state == A_FLOW_1) /* TURN ON ram reader */
         begin
             a_buf_on    <= 1;
@@ -486,6 +492,7 @@ module fsm_copy #(
         end
 
         //==========================================
+        //큰 matrix를 tile로 나누어서 한번에 계산할 때 loop control ()
         if(state == DECREASE_ITER_OS)begin
             if(cycle_count == 0)begin
             end
@@ -519,6 +526,8 @@ module fsm_copy #(
             w_base_addr <= (w_base_addr + matmul_variable[2]);
             state <= OS_FLOW_1;
         end
+        //## OS가 동작하는 과정 
+        // skew된 값이 들어온다.
         if(state == OS_FLOW_1)
         begin
             //TMP
@@ -531,7 +540,8 @@ module fsm_copy #(
             cycle_count <= (cycle_count == (matmul_variable[2]  -1)) ? 'b0: cycle_count+1;
             // #( K )
         end
-
+        // K 사이클이 돈 이후에 buffer address generator를 끈다.
+        // 나머지 계산이 이뤄질때까지 기다린다.
         if(state == OS_FLOW_2)    
         begin
             a_buf_on    <= 0;
@@ -541,15 +551,17 @@ module fsm_copy #(
             cycle_count <= (cycle_count == (matmul_var_1+matmul_var_3 -1   -1)) ? 'b0: cycle_count+1;
             //#(6+6-1) // num_rows + num_cols -1
         end
+        //값을 저장하기 위해 drain을 하는데, 처음 결과가 나올때 까지 저장은 하지 않고 drain만한다. (만약 결과가 2x2라면, 16x16에서 14 cycle을 기다려야 한다.)
         if(state == STORE_AT_RAM_OS_1)
         begin
             a_buf_on    <= 0;
             w_buf_on    <= 0;
-            operation_signal_in <= 3'b110;
+            operation_signal_in <= 3'b110; // drain
             state <= (cycle_count == (ARRAY_N-matmul_var_1-1   -1))? STORE_AT_RAM_OS_2 : STORE_AT_RAM_OS_1;
             cycle_count <= (cycle_count == (ARRAY_N-matmul_var_1-1   -1)) ? 'b0: cycle_count+1;
             //#(ARRAY_N - 6 -1) // ARRAY_N - num_rows -1.
         end
+        // OS결과가 16x16일때 처음에 drain되는 값을 잡기 위해(edge case) 따로 만들었다.
         if(state == STORE_AT_RAM_OS_EDGE)
         begin
             a_buf_on    <= 0;
@@ -560,6 +572,7 @@ module fsm_copy #(
             operation_signal_in <= 3'b100;   
             state <= STORE_AT_RAM_OS_2;      
         end
+        // drain되는 값을 버퍼에 저장. 
         if(state == STORE_AT_RAM_OS_2)
         begin
             o_idx_gen_on<= 0;
