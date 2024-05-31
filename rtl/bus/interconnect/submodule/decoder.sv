@@ -12,10 +12,6 @@
 
 module BUS_DECODER #(
     parameter DWidth      = 32,
-    parameter Slave0Start = '0,
-    parameter Slave0End   = '0,
-    parameter Slave1Start = '0,
-    parameter Slave1End   = '0,
     parameter NumofSlave  = 2,
     localparam MuxWidth   = $clog2(NumofSlave+1)
 )(
@@ -28,11 +24,12 @@ module BUS_DECODER #(
     output  logic                   sel_o[0:NumofSlave],
     output  logic   [MuxWidth-1:0]  mux_sel_o
 );
+    import pkg_memorymap::*;
 
     always_comb begin
-        if (addr_i >= Slave0Start && addr_i < Slave0End) begin
+        if (addr_i >= Slave0_Start && addr_i < Slave0_End) begin
             mux_sel_o = 'd0;
-        end else if (addr_i >= Slave1Start && addr_i < Slave1End) begin
+        end else if (addr_i >= Slave1_Start && addr_i < Slave1_End) begin
             mux_sel_o = 'd1;
         end else begin
             mux_sel_o = $pow(2, MuxWidth) - 'd1;

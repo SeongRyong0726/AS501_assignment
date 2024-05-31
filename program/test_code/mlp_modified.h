@@ -32,6 +32,7 @@ int max(int []);
 #define FC3_B_ADDR  (FC3_W_ADDR  + HIDDEN2_SIZE * OUTPUT_SIZE  * sizeof(int))
 #define OUTPUT_ADDR (FC3_B_ADDR  + OUTPUT_SIZE  * sizeof(int))
 #define LABEL_ADDR  (OUTPUT_ADDR + OUTPUT_SIZE  * sizeof(int))
+#define INPUT_LOOPBACK_ADDR  0x01f00000
 
 // Define NPU-related Variable & Address
 #define IMEM_DATA_NUM 12544
