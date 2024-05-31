@@ -12,10 +12,6 @@
 
 module BUS_TOP #(
     parameter DWidth      = 32,
-    parameter Slave0Start = '0,
-    parameter Slave0End   = '0,
-    parameter Slave1Start = '0,
-    parameter Slave1End   = '0,
     parameter NumofSlave  = 2,
     localparam MuxWidth   = $clog2(NumofSlave+1)
 )(
@@ -56,9 +52,7 @@ module BUS_TOP #(
         .ready_o                    (readyoutd)
     );
 
-    INTERCONNECT #(.DWidth(DWidth), .Slave0Start(Slave0Start),
-               .Slave0End(Slave0End), .Slave1Start(Slave1Start),
-               .Slave1End(Slave1End), .NumofSlave(NumofSlave)) INTERCONNECT(
+    INTERCONNECT #(.DWidth(DWidth), .NumofSlave(NumofSlave)) INTERCONNECT(
         .clk_i                      (clk_i),
         .rst_ni                     (rst_ni),
         .addr_i                     (addr_i),

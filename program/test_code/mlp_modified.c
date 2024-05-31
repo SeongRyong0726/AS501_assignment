@@ -27,6 +27,7 @@ int main(void){
     int* fc3_bias    = (int*)(FC3_B_ADDR);
     int* output      = (int*)(OUTPUT_ADDR);
     int* label       = (int*)(LABEL_ADDR);
+    int* input_loopback = (int*)(INPUT_LOOPBACK_ADDR);
     // JW ADD (24.05.29)
     uint8_t* imem    = (uint8_t*)(IMEM_ADDR);
     uint8_t* wmem    = (uint8_t*)(WMEM_ADDR);
@@ -38,6 +39,10 @@ int main(void){
     for (int i = 0; i < IMEM_DATA_NUM; ++i){
         imem[i] = input[i]
     }
+    for (int i = 0; i < IMEM_DATA_NUM; ++i){
+        input_loopback[i] = imem[i]
+    }
+/*    
 //  WMEM Loopback Test
     for (int i = 0; i < WMEM_DATA_NUM; ++i){
         wmem[i] = fc1_weight[i]
@@ -45,13 +50,12 @@ int main(void){
 //  BMEM Loopback Test
     for (int i = 0; i < BMEM_DATA_NUM; ++i){
         bmem[i] = fc1_bias[i]
-    }
-'''    
+    }  
 //  OMEM Loopback Test
     for (int i = 0; i < OMEM_DATA_NUM; ++i){
         omem[i] = fc1_output[i]
     }
-'''
+*/
 //
 ////////////////////////////////////////////////////////////////////////////////
 

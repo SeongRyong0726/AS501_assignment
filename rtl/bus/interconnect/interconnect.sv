@@ -11,10 +11,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 module INTERCONNECT #(
     parameter DWidth      = 32,
-    parameter Slave0Start = '0,
-    parameter Slave0End   = '0,
-    parameter Slave1Start = '0,
-    parameter Slave1End   = '0,
     parameter NumofSlave  = 2,
     localparam MuxWidth   = $clog2(NumofSlave+1)
 )(
@@ -37,9 +33,7 @@ module INTERCONNECT #(
 
     logic           [MuxWidth-1:0]  mux_sel;
 
-    BUS_DECODER #(.DWidth(DWidth), .Slave0Start(Slave0Start),
-                  .Slave0End(Slave0End), .Slave1Start(Slave1Start),
-                  .Slave1End(Slave1End), .NumofSlave(NumofSlave)) DECODER(
+    BUS_DECODER #(.DWidth(DWidth), .NumofSlave(NumofSlave)) DECODER(
         .clk_i                      (clk_i),
         .rst_ni                     (rst_ni),
         .addr_i                     (addr_i),
