@@ -1,1 +1,1 @@
-pkg_bool pkg_rw pkg_opfunct3
+pkg_memorymap pkg_trans pkg_resp pkg_bool pkg_rw pkg_opfunct3

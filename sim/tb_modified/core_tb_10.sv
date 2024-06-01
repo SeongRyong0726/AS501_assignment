@@ -12,7 +12,7 @@
 
 module CORE_TB();
     localparam DWidth        = 32;
-    localparam InitFile      = "../../program/out/mlp_10.hex";
+    localparam InitFile      = "../../program/out/mlp_modified_riscv.hex";
     localparam MemDepth      = 32'h02004000;
     localparam IMemStart     = 32'h00000000;
     localparam DMemStart     = 32'h00004000;
@@ -21,7 +21,7 @@ module CORE_TB();
     localparam Hidden1Size   = 'd128;
     localparam Hidden2Size   = 'd64;
     localparam OutputSize    = 'd10;
-    localparam NumOfTest     = 'd10;
+    localparam NumOfTest     = 'd1;
 
     localparam InputAddr     = DMemStart;
     localparam Fc1WAddr      = (InputAddr  + InputSize   * NumOfTest   * 4);
@@ -43,6 +43,9 @@ module CORE_TB();
     localparam Fc3WInitFile  = "../../program/test_code/parameter/fc3_weight.txt";
     localparam Fc3BInitFile  = "../../program/test_code/parameter/fc3_bias.txt";
     localparam LabelInitFile = "../../program/test_code/label/label.txt";
+
+    `include "../compare_memory.sv"
+    import pkg_memorymap::*;
 
     logic                           clk;
     logic                           mclk;
@@ -135,17 +138,17 @@ module CORE_TB();
     int exit_signal = 0;
 
     always @(*) begin
-        if (DUT.SCORE.SRF.GPR[25] == 'd99999) begin
+        if (DUT.CPU.SCORE.SRF.GPR[25] == 'd99999) begin
             exit_signal = 1;
         end
     end
 
-    always @(DUT.SCORE.SRF.GPR[26]) begin
-        if (DUT.SCORE.SRF.GPR[26] != 0) begin
-            $display("Current correction count = %-d", DUT.SCORE.SRF.GPR[27]);
+    always @(DUT.CPU.SCORE.SRF.GPR[26]) begin
+        if (DUT.CPU.SCORE.SRF.GPR[26] != 0) begin
+            $display("Current correction count = %-d", DUT.CPU.SCORE.SRF.GPR[27]);
         end
-        if (DUT.SCORE.SRF.GPR[26] < NumOfTest) begin
-            $display("Inference image #%-d ", DUT.SCORE.SRF.GPR[26] + 1);
+        if (DUT.CPU.SCORE.SRF.GPR[26] < NumOfTest) begin
+            $display("Inference image #%-d ", DUT.CPU.SCORE.SRF.GPR[26] + 1);
         end
     end
 
@@ -159,28 +162,37 @@ module CORE_TB();
         rst_n = 1'b0;
         #mClkPeriod;
         rst_n = 1'b1;
+        #10000000;
+        /*
         forever begin
             @(posedge clk)
             if (exit_signal == 1) begin
-                accuracy = DUT.SCORE.SRF.GPR[27];
+                accuracy = DUT.CPU.SCORE.SRF.GPR[27];
                 accuracy = accuracy / NumOfTest * 100;
                 $display("-------------------------------------------------------");
                 $display("Accuracy = %-.2f", accuracy);
                 $display("-------------------------------------------------------");
-                $display("mcycleh = %08X, mcycle = %08X", DUT.SCORE.SRF.GPR[29], DUT.SCORE.SRF.GPR[28]);
-                $display("minstreth = %08X, minstret = %08X", DUT.SCORE.SRF.GPR[31], DUT.SCORE.SRF.GPR[30]);
+                $display("mcycleh = %08X, mcycle = %08X", DUT.CPU.SCORE.SRF.GPR[29], DUT.CPU.SCORE.SRF.GPR[28]);
+                $display("minstreth = %08X, minstret = %08X", DUT.CPU.SCORE.SRF.GPR[31], DUT.CPU.SCORE.SRF.GPR[30]);
                 $display("-------------------------------------------------------");
-                $finish();
+                break;
+                //$finish();
             end
         end
-
+        */
+        compare_memory  (     
+                            .addr1  (EXT_IMEM_Start    ),   
+                            .addr2  (EXT_IMEM_LB_Start ),   
+                            .size   (InputSize* NumOfTest*4)
+                        );
         $finish();
     end
 
     // Waveform dump
-    // initial begin
-    //     $fsdbDumpfile("./core.fsdb");
-    //     $fsdbDumpvars("+mda", DUT);
-    // end
+    initial begin
+        $fsdbDumpfile("./core.fsdb");
+        $fsdbDumpvars("+mda", DUT);
+        $fsdbDumpvars("+mda", MEMORY);
+    end
 
 endmodule

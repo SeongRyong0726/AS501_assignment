@@ -18,7 +18,7 @@ OBJCOPY = objcopy
 ELF2HEX = ./common/b2h_converter
 CFLAGS = -march=rv32im_zicsr -mabi=ilp32 -Wl
 MEMORY_BYTE_WIDTH = 4
-TARGET ?= mlp
+TARGET ?= mlp_modified
 OUT_DIR = ./out
 
 all: clean riscv

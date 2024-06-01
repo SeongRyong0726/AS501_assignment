@@ -53,12 +53,12 @@ module SOC_TOP #(
     assign  dmem_wdata_o    =   m2s_wdata;
     assign  dmem_addr_o     =   m2s_addr;
     assign  dmem_req_o      =   m2s_trans & b2s_sel[0];
-    assign  dmem_write_o    =   m2s_write;
+    assign  dmem_write_o    =   m2s_write & b2s_sel[0];
 
     // Master
-    CPU_TOP #(.DWidth(DWidth)) DUT(
-        .clk_i                      (clk),
-        .rst_ni                     (rst_n),
+    CPU_TOP #(.DWidth(DWidth)) CPU(
+        .clk_i                      (clk_i),
+        .rst_ni                     (rst_ni),
 
         .imem_ready_i               (imem_ready_i),
         .imem_rdata_i               (imem_rdata_i),
@@ -74,8 +74,8 @@ module SOC_TOP #(
     );
 
     BUS_TOP #(.DWidth(DWidth), .NumofSlave(NumofSlave)) BUS(
-        .clk_i                      (clk),
-        .rst_ni                     (rst_n),
+        .clk_i                      (clk_i),
+        .rst_ni                     (rst_ni),
         .addr_i                     (m2s_addr),
         .trans_i                    (m2s_trans),
         .rdata_i                    (s2b_rdata),
@@ -88,9 +88,9 @@ module SOC_TOP #(
     );
 
     // Slave 1
-    NPU_CORE #(.DWidth(DWidth)) SCORE(
-        .clk_i                      (clk),
-        .rst_ni                     (rst_n),
+    NPU_TOP #(.DWidth(DWidth)) NPU(
+        .clk_i                      (clk_i),
+        .rst_ni                     (rst_ni),
         .sel_i                      (b2s_sel[1]),
         .trans_i                    (m2s_trans),
         .ready_i                    (b2m_ready),

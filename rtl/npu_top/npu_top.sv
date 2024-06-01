@@ -10,7 +10,7 @@
 //                            Supervised by Wanyeong Jung (wanyeong@kaist.ac.kr)
 ////////////////////////////////////////////////////////////////////////////////
 
-module ACTIVATION_TOP #(
+module NPU_TOP #(
     parameter DWidth   = 32
 )(
     // Basic signals
@@ -39,7 +39,7 @@ module ACTIVATION_TOP #(
     logic   [DWidth-1:0]            addr;
     logic   [DWidth-1:0]            wdata;
 
-    NPU_IF #(.DWidth(DWidth)) ACTIVATION_IF(
+    NPU_IF #(.DWidth(DWidth)) NPU_IF(
         // From Bus
         .clk_i                      (clk_i),
         .rst_ni                     (rst_ni),

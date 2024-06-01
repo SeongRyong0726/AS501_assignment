@@ -11,12 +11,12 @@
 //                            Supervised by Wanyeong Jung (wanyeong@kaist.ac.kr)
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "mlp.h"
+#include "mlp_modified.h"
 #include <stdint.h>
 #include <inttypes.h>
 
 int main(void){
-    int* input       = (int*)(INPUT_ADDR);
+    volatile int* input       = (int*)(INPUT_ADDR);
     int* fc1_weight  = (int*)(FC1_W_ADDR);
     int* fc1_bias    = (int*)(FC1_B_ADDR);
     int* fc1_output  = (int*)(FC1_O_ADDR);
@@ -27,21 +27,29 @@ int main(void){
     int* fc3_bias    = (int*)(FC3_B_ADDR);
     int* output      = (int*)(OUTPUT_ADDR);
     int* label       = (int*)(LABEL_ADDR);
-    int* input_loopback = (int*)(INPUT_LOOPBACK_ADDR);
+    volatile int* input_loopback = (int*)(INPUT_LOOPBACK_ADDR);
     // JW ADD (24.05.29)
-    uint8_t* imem    = (uint8_t*)(IMEM_ADDR);
-    uint8_t* wmem    = (uint8_t*)(WMEM_ADDR);
-    uint8_t* bmem    = (uint8_t*)(BMEM_ADDR);
-    int* omem        = (int*)(OMEM_ADDR);
+    volatile int* imem    = (int*)(IMEM_ADDR);
+    volatile int* wmem    = (int*)(WMEM_ADDR);
+    volatile int* bmem    = (int*)(BMEM_ADDR);
+    volatile int* omem    = (int*)(OMEM_ADDR);
 
+    int InputSize     = 784;
+    int Hidden1Size   = 128;
+    int Hidden2Size   = 64;
+    int OutputSize    = 10;
+    int NumOfTest     = 1;
+
+    int IMEM_DATA_SIZE = 784*NumOfTest;
 ////////////////////////////////////////////////////////////////////////////////
 //  IMEM Loopback Test
-    for (int i = 0; i < IMEM_DATA_NUM; ++i){
-        imem[i] = input[i]
+    for (int i = 0; i < IMEM_DATA_SIZE; i=i+1){
+        imem[i] = input[i];
     }
-    for (int i = 0; i < IMEM_DATA_NUM; ++i){
-        input_loopback[i] = imem[i]
+    for (int i = 0; i < IMEM_DATA_SIZE; i=i+1){
+        input_loopback[i] = imem[i];
     }
+    return 0;
 /*    
 //  WMEM Loopback Test
     for (int i = 0; i < WMEM_DATA_NUM; ++i){
@@ -60,6 +68,8 @@ int main(void){
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
+
+/*
 //  Inference
     register unsigned int image_idx asm("x26");
     register unsigned int correct_count asm("x27") = 0;
@@ -136,4 +146,5 @@ int max(int input[]) {
         }
     }
     return max_index;
+    */
 }

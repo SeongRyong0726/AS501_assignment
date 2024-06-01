@@ -44,7 +44,7 @@ module NPU_IF #(
     localparam InputAddr  = 'h4;
     localparam OutputAddr = 'h8;
     
-    localparam IMEMAddr  = 17'h00400;
+    localparam IMEMAddr  = 18'h20000;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Latched data
@@ -74,21 +74,21 @@ module NPU_IF #(
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = FALSE;
-                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:15] == IMEMAddr);
+                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:14] == IMEMAddr);
                 rdata_o           = latched_output;
             end
             StRead: begin
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = TRUE;
-                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:15] == IMEMAddr);
+                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:14] == IMEMAddr);
                 rdata_o           = rdata_i;
             end
             StWrite: begin
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = FALSE;
-                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:15] == IMEMAddr);
+                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:14] == IMEMAddr);
                 rdata_o           = latched_output;
             end
             default: begin
