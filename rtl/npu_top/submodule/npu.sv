@@ -24,7 +24,7 @@ module NPU #(
     // To master
     output  logic   [DWidth-1:0]    rdata_o
 );
-    localparam AddrWidth = 32;
+    localparam AddrWidth = 24;
     localparam TypeAddr   = 'h0;
     localparam InputAddr  = 'h4;
     localparam OutputAddr = 'h8;
@@ -34,10 +34,10 @@ module NPU #(
         .ADDR_WIDTH(AddrWidth),
         .OUTPUT_REG(0) // not use we keep read_addr 
     ) sram (
-        .clk(clk),
+        .clk(clk_i),
         .reset(rst_ni),
         .read_req(1'b0),   //since we not use REG
-        .read_addr(addr_i),
+        .read_addr(addr_i[AddrWidth-1:0]),
         .read_data(rdata_o),   //output
         .write_req(wen_input_i),
         .write_addr(addr_i),
