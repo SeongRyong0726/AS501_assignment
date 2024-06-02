@@ -12,41 +12,49 @@ Linker script and memory map
 
                 0x02004000                        PROVIDE (_estack = 0x2004000)
 
-.text           0x00000000      0x198
+.text           0x00000000      0xac4
                 [!provide]                        PROVIDE (_start = .)
                 0x00000000                        . = ALIGN (0x4)
                 0x00000000                        _stext = .
  *(.text)
- .text          0x00000000        0x8 /tmp/ccP7rgcu.o
- .text          0x00000008      0x190 /tmp/cczpOmSt.o
-                0x00000008                main
+ .text          0x00000000        0x8 /tmp/ccLDpFmb.o
+ .text          0x00000008      0xabc /tmp/ccj1ktdo.o
+                0x00000008                imem_transfer
+                0x000000a8                wmem_transfer
+                0x00000148                bias_transfer
+                0x000001bc                omem_transfer
+                0x00000230                layer1_inference
+                0x000003a4                layer2_inference
+                0x00000510                layer3_inference
+                0x00000654                batch_inference
+                0x00000748                main
  *(.text*)
  *(.rodata)
  *(.rodata*)
  *(.srodata)
  *(.srodata*)
-                0x00000198                        . = ALIGN (0x4)
-                0x00000198                        _etext = .
-                0x00000198                        _sidata = _etext
+                0x00000ac4                        . = ALIGN (0x4)
+                0x00000ac4                        _etext = .
+                0x00000ac4                        _sidata = _etext
 
-.rela.dyn       0x00000198        0x0
- .rela.text     0x00000198        0x0 /tmp/ccP7rgcu.o
+.rela.dyn       0x00000ac4        0x0
+ .rela.text     0x00000ac4        0x0 /tmp/ccLDpFmb.o
 
-.data           0x00004000        0x0 load address 0x00000198
+.data           0x00004000        0x0 load address 0x00000ac4
                 0x00004000                        . = ALIGN (0x4)
                 0x00004000                        _sdata = .
                 [!provide]                        PROVIDE (__global_pointer$ = (. + 0x800))
                 0x00004000                        . = ALIGN (0x4)
  *(.data)
- .data          0x00004000        0x0 /tmp/ccP7rgcu.o
- .data          0x00004000        0x0 /tmp/cczpOmSt.o
+ .data          0x00004000        0x0 /tmp/ccLDpFmb.o
+ .data          0x00004000        0x0 /tmp/ccj1ktdo.o
  *(.data*)
  *(.sdata)
  *(.sdata*)
                 0x00004000                        . = ALIGN (0x4)
                 0x00004000                        _edata = .
-LOAD /tmp/ccP7rgcu.o
-LOAD /tmp/cczpOmSt.o
+LOAD /tmp/ccLDpFmb.o
+LOAD /tmp/ccj1ktdo.o
 LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/libm.a
 LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
 START GROUP
@@ -56,17 +64,17 @@ END GROUP
 LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
 OUTPUT(./out/mlp_modified_riscv.elf elf32-littleriscv)
 
-.bss            0x00004000        0x0 load address 0x00000198
- .bss           0x00004000        0x0 /tmp/ccP7rgcu.o
- .bss           0x00004000        0x0 /tmp/cczpOmSt.o
+.bss            0x00004000        0x0 load address 0x00000ac4
+ .bss           0x00004000        0x0 /tmp/ccLDpFmb.o
+ .bss           0x00004000        0x0 /tmp/ccj1ktdo.o
 
 .riscv.attributes
-                0x00000000       0x33
+                0x00000000       0x37
  .riscv.attributes
-                0x00000000       0x31 /tmp/ccP7rgcu.o
+                0x00000000       0x31 /tmp/ccLDpFmb.o
  .riscv.attributes
-                0x00000031       0x33 /tmp/cczpOmSt.o
+                0x00000031       0x37 /tmp/ccj1ktdo.o
 
 .comment        0x00000000       0x10
- .comment       0x00000000       0x10 /tmp/cczpOmSt.o
+ .comment       0x00000000       0x10 /tmp/ccj1ktdo.o
                                  0x11 (size before relaxing)
