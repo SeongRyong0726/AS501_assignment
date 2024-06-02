@@ -42,42 +42,43 @@ module systolic_system_adv #(
     input wire clk,
     input wire reset,
     input wire sa_reset,
-    //A buf READ
+    //A buf READ (BUF --> SA : FSM)
     input wire                          a_buf_on,
     input wire [ADDR_WIDTH-1:0]         a_base_addr,
     input wire [$clog2(ARRAY_N) : 0]    a_num_rows, //dimension (M)
-    //A buf WRITE
+    //A buf WRITE (EXT --> BUF)
     input wire [32-1:0]                 a_ram_w_data,
     input wire      [ADDR_WIDTH-1:0]    a_ram_w_addr,
     input wire      [ARRAY_N-1:0]       a_ram_w_en,
 
 
-
-    //W_buf READ
+ 
+    //W_buf READ  (BUF --> SA : FSM)
     input wire                          mode,
     input wire                          w_buf_on,
     input wire [ADDR_WIDTH -1:0]        w_base_addr,
     input wire [$clog2(ARRAY_N):0]      w_num_cols, //dimension (N)
-    //W buf WRITE
+    //W buf WRITE   (EXT --> BUF)
     input wire [32-1:0]                 w_ram_w_data,
     input wire      [ADDR_WIDTH-1:0]    w_ram_w_addr,
     input wire      [ARRAY_M-1:0]       w_ram_w_en,
     
 
-    //systolic array
+    //systolic array (FSM)
     input wire [2:0]                    operation_signal_in,
 
-    //SIMD
+    //SIMD  (EXT --> BUF)
     input wire [$clog2(ARRAY_N) : 0]    w_index_bias,
     input wire [OUT_WIDTH -1 : 0]       w_data_bias,
     input wire                          w_en_bias,
 
-    //O_buffer READ
+    //O_buffer READ (SA --> BUF : FSM)
     input wire                          o_ag_o_on,
     input wire [ADDR_WIDTH -1 : 0]      o_base_addr,
+    //O_buffer READ ( BUF --> EXT)
     input wire [$clog2(ARRAY_M)-1:0]    o_ram_idx,
     input wire [ADDR_WIDTH-1 : 0]       o_read_addr,
-    //Intra_net
+    //Intra_net  (O_BUF --> A_BUF : FSM)
     input wire                          Intranet_on,
     input wire                          Intra_sig_start,
     input wire[ADDR_WIDTH-1:0]          Intra_O_base_addr,
@@ -86,11 +87,12 @@ module systolic_system_adv #(
 
     //O_buf WRITE
     output wire [32-1:0]         data_in_o_bram,
-    
+
+    // PARAMETER : predefined
     input wire[31: 0] M,
     input wire[31: 0] K,
     input wire[31: 0] N,
-
+    // DEBUG
     output wire [ACT_WIDTH*ARRAY_M-1: 0] Intra_net_data_out_DEBUG,
     output wire [ACT_WIDTH*ARRAY_M-1: 0]  Intra_net_data_in_DEBUG,
     output wire [DATA_WIDTH*ARRAY_M-1: 0] SIMD_data_out_DEBUG,
