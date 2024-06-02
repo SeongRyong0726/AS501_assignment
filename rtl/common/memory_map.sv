@@ -49,4 +49,14 @@ package pkg_memorymap;
     localparam      NPU_OMEM_Start  = NPU_BMEM_End;
     localparam      NPU_OMEM_Depth  = 32'h00002000;
     localparam      NPU_OMEM_End    = NPU_OMEM_Start + NPU_OMEM_Depth;
+
+    localparam      NPU_PARA_Start  = NPU_OMEM_End;
+    localparam      NPU_PARA_Depth  = 32'h00000080;
+    localparam      NPU_PARA_End    = NPU_PARA_Start + NPU_PARA_Depth;
+
+    localparam      NPU_OP_Start  = NPU_PARA_End;
+    localparam      NPU_OP_Depth  = 32'h00000010;
+    localparam      NPU_OP_End    = NPU_OP_Start + NPU_OP_Depth;
+
+
 endpackage

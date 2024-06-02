@@ -87,11 +87,8 @@ module systolic_system_adv #(
 
     //O_buf WRITE
     output wire [32-1:0]         data_in_o_bram,
+    output wire [$clog2(ARRAY_N)-1 : 0] max_idx_value,
 
-    // PARAMETER : predefined
-    input wire[31: 0] M,
-    input wire[31: 0] K,
-    input wire[31: 0] N,
     // DEBUG
     output wire [ACT_WIDTH*ARRAY_M-1: 0] Intra_net_data_out_DEBUG,
     output wire [ACT_WIDTH*ARRAY_M-1: 0]  Intra_net_data_in_DEBUG,
@@ -216,11 +213,21 @@ module systolic_system_adv #(
         .base_addr(o_base_addr),
         .ram_idx(o_ram_idx),
         .read_addr(mux_O_addr), //o_read_addr),
-        .data_read(data_in_o_bram),
-        .data_read_set(data_read_set),
+        //.data_read(data_in_o_bram), //TODO 
+        .data_read_set(data_read_set), // goto max and Intra_net
         .DEBUG_enable_set(DEBUG_enable_set)
     ); 
 
+    max_16 #(
+        .DATA_WIDTH(8),
+        .NUM_DATA(16)
+    ) max_16_inst (
+        .clk(clk),
+        .reset(reset),
+        .input_data_set(data_read_set),
+        .output_data(data_in_o_bram),
+        .max_idx_value(max_idx_value)
+    )
     Intra_net_top #(
         .ROW_DIM(ARRAY_N),
         .COL_DIM(ARRAY_N),
