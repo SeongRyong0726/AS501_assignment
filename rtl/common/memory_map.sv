@@ -12,7 +12,7 @@
 package pkg_memorymap;
     //Slave0 (Ext. Mem)
     localparam      Slave0_Start    = 32'h00000000;
-    localparam      Slave0_Depth    = 32'h40000000;
+    localparam      Slave0_Depth    = 32'h02004000;
     //localparam      Slave0_Depth    = 32'h01e57478;
     localparam      Slave0_End      = Slave0_Start + Slave0_Depth;
 
@@ -22,6 +22,7 @@ package pkg_memorymap;
     localparam      Slave1_End      = Slave1_Start + Slave1_Depth;
 
     //Slave0 (Ext. Mem) Detail
+    localparam      EXTMEM_BASE     = Slave0_Start;
     localparam      InstMem_Start   = 32'h00000000;
     localparam      InstMem_Depth   = 32'h00004000;
     localparam      InstMem_End     = InstMem_Start + InstMem_Depth;
@@ -32,6 +33,7 @@ package pkg_memorymap;
     localparam      EXT_IMEM_Start  = DataMem_Start; 
     localparam      EXT_IMEM_LB_Start = 32'h01000000;
     //Slave1 (NPU Core) Detail
+    localparam      NPU_BASE        = Slave1_Start;
     localparam      NPU_IMEM_Start  = 32'h02000000;
     localparam      NPU_IMEM_Depth  = 32'h00003100;
     localparam      NPU_IMEM_End    = NPU_IMEM_Start + NPU_IMEM_Depth;

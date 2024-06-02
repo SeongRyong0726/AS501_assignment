@@ -34,8 +34,8 @@ module NPU_TOP #(
     localparam OutputAddr = 'h8;
 
     logic   [DWidth-1:0]            rdata;
-    logic                           wen_type;
-    logic                           wen_input;
+    logic                           cen;
+    logic                           wen;
     logic   [DWidth-1:0]            addr;
     logic   [DWidth-1:0]            wdata;
 
@@ -52,8 +52,8 @@ module NPU_TOP #(
 
         // NPU
         .rdata_i                    (rdata),
-        .wen_type_o                 (wen_type),
-        .wen_input_o                (wen_input),
+        .cen_o                      (cen),
+        .wen_o                      (wen),
         .addr_o                     (addr),
         .wdata_o                    (wdata),
 
@@ -66,8 +66,8 @@ module NPU_TOP #(
     NPU #(.DWidth(DWidth)) NPU(
         .clk_i                      (clk_i),
         .rst_ni                     (rst_ni),
-        .wen_type_i                 (wen_type),
-        .wen_input_i                (wen_input),
+        .cen_i                      (cen),
+        .wen_i                      (wen),
         .addr_i                     (addr),
         .wdata_i                    (wdata),
         .rdata_o                    (rdata)

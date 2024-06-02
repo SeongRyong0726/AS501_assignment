@@ -23,11 +23,11 @@ module NPU_IF #(
     input   logic                   write_i,
     input   logic   [DWidth-1:0]    addr_i,
     input   logic   [DWidth-1:0]    wdata_i,
-    // From activation
+    // From NPU
     input   logic   [DWidth-1:0]    rdata_i,
-    // To activation
-    output  logic                   wen_type_o,
-    output  logic                   wen_input_o,
+    // To NPU
+    output  logic                   wen_o,
+    output  logic                   cen_o,
     output  logic   [DWidth-1:0]    addr_o,
     output  logic   [DWidth-1:0]    wdata_o,
     // To master
@@ -44,7 +44,7 @@ module NPU_IF #(
     localparam InputAddr  = 'h4;
     localparam OutputAddr = 'h8;
     
-    localparam IMEMAddr  = 18'h20000;
+    localparam NPUAddr  = 1;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Latched data
@@ -74,28 +74,32 @@ module NPU_IF #(
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = FALSE;
-                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:14] == IMEMAddr);
+                wen_o             = act_state_d inside {StWrite} && (addr_i[31] == NPUAddr);
+                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[31] == NPUAddr);
                 rdata_o           = latched_output;
             end
             StRead: begin
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = TRUE;
-                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:14] == IMEMAddr);
+                wen_o             = act_state_d inside {StWrite} && (addr_i[31] == NPUAddr);
+                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[31] == NPUAddr);
                 rdata_o           = rdata_i;
             end
             StWrite: begin
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = FALSE;
-                wen_input_o       = act_state_d inside {StWrite} && (addr_i[31:14] == IMEMAddr);
+                wen_o             = act_state_d inside {StWrite} && (addr_i[31] == NPUAddr);
+                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[31] == NPUAddr);
                 rdata_o           = latched_output;
             end
             default: begin
                 act_state_d       = StIdle;
                 {resp_o, ready_o} = PENDING;
                 wen_latch         = FALSE;
-                wen_input_o       = FALSE;
+                wen_o       = FALSE;
+                cen_o             = FALSE;
                 rdata_o           = '0;
             end
         endcase
