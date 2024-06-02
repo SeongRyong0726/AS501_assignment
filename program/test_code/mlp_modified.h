@@ -55,6 +55,7 @@ int max(int []);
 #define BMEM_ADDR_END (BMEM_ADDR_BASE+BMEM_SIZE)
 #define OMEM_ADDR_END (OMEM_ADDR_BASE+OMEM_SIZE)
 
+#define TILE_END_CSR 0X80123456
 
 // JW ADDED (24.05.28)
 //********* Memory Map (NUM_OF_TEST = 10000 case)*********/

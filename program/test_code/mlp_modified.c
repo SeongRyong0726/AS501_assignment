@@ -50,6 +50,14 @@ int main(void){
         input_loopback[i] = imem[i];
     }
     return 0;
+
+
+    /*
+    while (TILE_END_CSR == 0){
+        ;
+    }
+    TILE_START_CSR = 1
+    */
 /*    
 //  WMEM Loopback Test
     for (int i = 0; i < WMEM_DATA_NUM; ++i){

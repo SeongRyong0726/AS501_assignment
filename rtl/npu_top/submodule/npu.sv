@@ -17,8 +17,8 @@ module NPU #(
     input   logic                   clk_i,
     input   logic                   rst_ni,
     // From interface
-    input   logic                   wen_type_i,
-    input   logic                   wen_input_i,
+    input   logic                   cen_i,
+    input   logic                   wen_i,
     input   logic   [DWidth-1:0]    addr_i,
     input   logic   [DWidth-1:0]    wdata_i,
     // To master
@@ -39,7 +39,7 @@ module NPU #(
         .read_req(1'b0),   //since we not use REG
         .read_addr(addr_i[AddrWidth-1:0]),
         .read_data(rdata_o),   //output
-        .write_req(wen_input_i),
+        .write_req(wen_i),
         .write_addr(addr_i),
         .write_data(wdata_i)
     );
