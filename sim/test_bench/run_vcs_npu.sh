@@ -42,9 +42,28 @@
 ## Modify to fit your source file names
 ##
     # Simulated rtl list
-    RTL_LIST=" $RTL_DIR/npu/Intra_net/transpose.v \
-               $TB_DIR/tb_transpose.v 
-                                  "
+    RTL_LIST="  $TB_DIR/tb_npu.sv                                               \
+                $RTL_DIR/npu_top/npu.sv                                         \
+                $RTL_DIR/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v     \
+                $RTL_DIR/npu_top/systolic_system/buf/address_generator_A.v      \
+                $RTL_DIR/npu_top/systolic_system/buf/address_generator_W.v      \
+                $RTL_DIR/npu_top/systolic_system/buf/address_generator_O.v      \
+                $RTL_DIR/npu_top/systolic_system/buf/A_buffer.v                 \
+                $RTL_DIR/npu_top/systolic_system/buf/W_buffer.v                 \
+                $RTL_DIR/npu_top/systolic_system/buf/O_buffer.v                 \
+                $RTL_DIR/npu_top/systolic_system/core/pe.v                      \
+                $RTL_DIR/npu_top/systolic_system/core/systolic_array.v          \
+                $RTL_DIR/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v \
+                $RTL_DIR/npu_top/systolic_system/Intra_net/Intra_net_top.v      \
+                $RTL_DIR/npu_top/systolic_system/Intra_net/transpose.v          \
+                $RTL_DIR/npu_top/systolic_system/submodule/max_16.v             \
+                $RTL_DIR/npu_top/systolic_system/submodule/mux_2_to_1.v         \
+                $RTL_DIR/npu_top/systolic_system/submodule/onehot_encoder.sv    \
+                $RTL_DIR/npu_top/systolic_system/submodule/ram.v                \
+                $RTL_DIR/npu_top/systolic_system/submodule/reg_with_sync_en.v   \
+                $RTL_DIR/npu_top/systolic_system/systolic_system_adv.v          \
+                $RTL_DIR/npu_top/npu_controller/npu_controller.sv               \
+                $RTL_DIR/npu_top/npu_decoder/npu_decoder.sv"
               
 
     # Timescale
