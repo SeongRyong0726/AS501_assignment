@@ -70,6 +70,9 @@ int max(int []);
 #define NPU_CTRL_ADDR 0x8000a020
 #define NPU_CTRL_SIZE 0X40
 
+#define MAX_ADDR      0x8000a060
+#define MAX_SIZE      0x00000040
+
 
 // JW ADDED (24.05.28)
 //********* Memory Map (NUM_OF_TEST = 10000 case)*********/
