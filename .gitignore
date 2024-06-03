@@ -1,3 +1,4 @@
-_MACOSX/
-sim/test_bench/out/
-sim/out/
+_MACOSX/*
+sim/test_bench/out/*
+sim/out/*
+program/out/*

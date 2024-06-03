@@ -121,17 +121,12 @@ module npu_controller #(
     //instr _ st_data (parameter, bias, act, weight)
     
     //TODO decoding addr
-    // assign a_ram_w_addr = (operation_type=='b1000)? {22'b0,((addr_i[31:2] - NPU_IMEM_Start[31:2])-K*imem_batch_cnt)}: 32'bz;
-    // assign a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
-    // assign a_ram_w_en_pre = imem_batch_cnt; //K
-    // assign w_ram_w_addr = (operation_type=='b1001)? {22'b0,((addr_i[31:2] - NPU_WMEM_Start[31:2])-K*wmem_batch_cnt)}: 32'bz;
-    // assign w_ram_w_data = (operation_type=='b1001)? (wdata_i) : 8'bz;
-    // assign w_ram_w_en_pre = wmem_batch_cnt;
-    assign a_ram_w_addr = (operation_type=='b1000)? (((addr_i - NPU_IMEM_Start)/4)/ARRAY_DIM): 32'bz;
-    assign a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
-    assign a_ram_w_en_pre = (((addr_i - NPU_IMEM_Start)/4)%ARRAY_DIM); //K
 
-    assign w_ram_w_addr = (operation_type=='b1001)? ((addr_i - NPU_WMEM_Start)/4)/ARRAY_DIM : 32'bz;
+    assign a_ram_w_addr = (operation_type=='b1000)? (addr_i - NPU_IMEM_Start)/(ARRAY_DIM*4) : 32'bz;
+    assign a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
+    assign a_ram_w_en_pre = ((addr_i - NPU_IMEM_Start)/4)%ARRAY_DIM ;
+
+    assign w_ram_w_addr = (operation_type=='b1001)? (addr_i - NPU_WMEM_Start)/(ARRAY_DIM*4) : 32'bz;
     assign w_ram_w_data = (operation_type=='b1001)? (wdata_i) : 8'bz;
     assign w_ram_w_en_pre = ((addr_i - NPU_WMEM_Start)/4)%ARRAY_DIM;
 
@@ -139,7 +134,11 @@ module npu_controller #(
     assign w_data_bias = (operation_type=='b1010)? (wdata_i) : 8'bz;
     assign w_en_bias_pre = ((addr_i - NPU_BMEM_Start)/4)%ARRAY_DIM;
 
-
+    wire [$clog2(ARRAY_DIM)-1:0] w_ram_w_en_pre;
+    wire [$clog2(ARRAY_DIM)-1:0] w_en_bias_pre;
+    wire [$clog2(ARRAY_DIM)-1:0] a_ram_w_en_pre;
+    wire [$clog2(ARRAY_DIM)-1:0] decoder_in; 
+    wire [$clog2(ARRAY_DIM)-1:0] decoder_out; 
 
     assign decoder_in = (operation_type=='b1000)? a_ram_w_en_pre : ((operation_type=='b1001)? w_ram_w_en_pre:w_en_bias_pre);
     onehot_encoder #(
@@ -153,8 +152,13 @@ module npu_controller #(
     assign w_ram_w_en = (operation_type=='b1001)? decoder_out : 16'bz;
     assign w_en_bias = (operation_type=='b1010)? decoder_out : 16'bz;
     
-    assign o_ram_idx = {($clog2(ARRAY_M)){1'bz}};
-    assign o_read_addr = (operation_type == 'b1011)? (addr_i - NPU_OMEM_Start)/4: {(ADDR_WIDTH){1'bz}};
+    assign o_ram_idx = {$clog2(ARRAY_M){'bz}};
+    assign o_read_addr = (operation_type == 'b1010)? (addr_i - MEM_OMEM_Start): {ADDR_WIDTH{'bz}};
+    
+    assign rdata_o = (addr_i == NPU_PARA_Start +'b000100)? op_end : {12'b0,max_idx_value, data_in_o_bram[15:0]};
+    //obuf
+
+
     
     assign debug1_o = addr_i;
     assign debug2_o  = (NPU_PARA_Start +32'h4);

@@ -39,7 +39,7 @@ Command: vcs -fgp -full64 -sverilog /home/AS20233757/AS501_assignment/sim/../rtl
 -timescale=1ns/1ps +incdir+/tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver +define+SIM \
 -debug_access+all -kdb -l vcs.log
                          Chronologic VCS (TM)
-        Version V-2023.12-1_Full64 -- Mon Jun  3 17:23:45 2024
+        Version V-2023.12-1_Full64 -- Mon Jun  3 17:31:21 2024
 
                     Copyright (c) 1991 - 2024 Synopsys, Inc.
    This software and the associated documentation are proprietary to Synopsys,
@@ -577,129 +577,54 @@ Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systol
 Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/reg_with_sync_en.v'
 Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/systolic_system_adv.v'
 Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv'
+
+Warning-[IPDW] Identifier previously declared
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 137
+  Second declaration for identifier 'w_ram_w_en_pre' ignored
+  Identifier 'w_ram_w_en_pre' previously declared as logic. 
+  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+  93]
+
+
+Warning-[IPDW] Identifier previously declared
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 138
+  Second declaration for identifier 'w_en_bias_pre' ignored
+  Identifier 'w_en_bias_pre' previously declared as logic. 
+  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+  94]
+
+
+Warning-[IPDW] Identifier previously declared
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 139
+  Second declaration for identifier 'a_ram_w_en_pre' ignored
+  Identifier 'a_ram_w_en_pre' previously declared as logic. 
+  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+  95]
+
+
+Warning-[IPDW] Identifier previously declared
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 140
+  Second declaration for identifier 'decoder_in' ignored
+  Identifier 'decoder_in' previously declared as logic. 
+  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+  96]
+
+
+Warning-[IPDW] Identifier previously declared
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 141
+  Second declaration for identifier 'decoder_out' ignored
+  Identifier 'decoder_out' previously declared as logic. 
+  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+  97]
+
+
+Error-[IND] Identifier not declared
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 156
+  Identifier 'MEM_OMEM_Start' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
 Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_decoder/npu_decoder.sv'
-Top Level Modules:
-       CORE_TB
-       SRAM1RW1024x8
-       SRAM1RW128x46
-       SRAM1RW256x128
-       SRAM1RW256x32
-       SRAM1RW256x46
-       SRAM1RW256x48
-       SRAM1RW256x8
-       SRAM1RW32x50
-       SRAM1RW512x128
-       SRAM1RW512x32
-       SRAM1RW512x8
-       SRAM1RW64x128
-       SRAM1RW64x32
-       SRAM1RW64x34
-       SRAM1RW64x8
-       SRAM2RW128x16
-       SRAM2RW128x32
-       SRAM2RW128x4
-       SRAM2RW128x8
-       SRAM2RW16x16
-       SRAM2RW16x32
-       SRAM2RW16x4
-       SRAM2RW16x8
-       SRAM2RW32x16
-       SRAM2RW32x22
-       SRAM2RW32x32
-       SRAM2RW32x39
-       SRAM2RW32x4
-       SRAM2RW32x8
-       SRAM2RW64x16
-       SRAM2RW64x32
-       SRAM2RW64x4
-       SRAM2RW64x8
-TimeScale is 1 ns / 100 fs
-
-Warning-[TFIPC] Too few instance port connections
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_top.sv, 66
-NPU_TOP, "NPU #(.DWidth(DWidth)) NPU( .clk_i (clk_i),  .rst_ni (rst_ni),  .cen_i (cen),  .wen_i (wen),  .addr_i (addr),  .wdata_i (wdata),  .rdata_o (rdata));"
-  The above instance has fewer port connections than the module definition.
-  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
-  ports.
-
-Notice: Ports coerced to inout, use -notice for details
-Starting vcs inline pass...
-
-62 modules and 0 UDP read.
-recompiling package pkg_memorymap
-recompiling package pkg_trans
-recompiling package pkg_resp
-recompiling package pkg_bool
-recompiling package pkg_rw
-recompiling package pkg_opfunct3
-recompiling module MUX2TO1
-recompiling module MUX3TO1
-recompiling module MUX4TO1
-recompiling module MUX5TO1
-recompiling module CORE_TB
-recompiling module SOC_TOP
-recompiling module ALU
-recompiling module CSR
-recompiling module SCALAR_CORE
-recompiling module NPU_TOP
-recompiling module NPU_IF
-recompiling module MEMORY_TOP
-recompiling module SRAM1RW1024x8
-recompiling module SRAM1RW128x46
-recompiling module SRAM1RW256x128
-recompiling module SRAM1RW256x32
-recompiling module SRAM1RW256x46
-recompiling module SRAM1RW256x48
-recompiling module SRAM1RW256x8
-recompiling module SRAM1RW32x50
-recompiling module SRAM1RW512x128
-recompiling module SRAM1RW512x32
-recompiling module SRAM1RW512x8
-recompiling module SRAM1RW64x128
-recompiling module SRAM1RW64x32
-recompiling module SRAM1RW64x34
-recompiling module SRAM1RW64x8
-recompiling module SRAM2RW128x16
-recompiling module SRAM2RW128x32
-recompiling module SRAM2RW128x4
-recompiling module SRAM2RW128x8
-recompiling module SRAM2RW16x16
-recompiling module SRAM2RW16x32
-recompiling module SRAM2RW16x4
-recompiling module SRAM2RW16x8
-recompiling module SRAM2RW32x16
-recompiling module SRAM2RW32x22
-recompiling module SRAM2RW32x32
-recompiling module SRAM2RW32x39
-recompiling module SRAM2RW32x4
-recompiling module SRAM2RW32x8
-recompiling module SRAM2RW64x16
-recompiling module SRAM2RW64x32
-recompiling module SRAM2RW64x4
-50 of 62 modules done
-recompiling module SRAM2RW64x8
-recompiling module BUS_TOP
-recompiling module INTERCONNECT
-recompiling module BUS_DECODER
-recompiling module BUS_MUX
-recompiling module Bias_ReLU_simd
-recompiling module A_buffer
-recompiling module pe
-recompiling module systolic_array
-recompiling module Intra_net_top
-recompiling module max_16
-recompiling module npu_controller
-All of 62 modules done
-rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
-if [ -x ../simv ]; then chmod a-x ../simv; fi
-g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
--Wl,-rpath=/tools/Synopsys/vcs/V-2023.12-1/linux64/lib -L/tools/Synopsys/vcs/V-2023.12-1/linux64/lib \
--Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _99683_archive_1.so \
-SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
--lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_tls.o \
--Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   \
-/tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_save_restore_new.o /tools/Synopsys/verdi/V-2023.12-1/share/PLI/VCS/LINUX64/pli.a \
--ldl  -lc -lm -lpthread -ldl 
-../simv up to date
-CPU time: 4.782 seconds to compile + .319 seconds to elab + .268 seconds to link
-Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
+57 warnings
+1 error
+CPU time: .221 seconds to compile
