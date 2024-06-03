@@ -167,7 +167,8 @@ void batch_inference(   volatile int input[], volatile int fc1_weight[], volatil
                         volatile int imem[], volatile int wmem[], volatile int bmem[], volatile int omem[],
                         volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
                         volatile int npu_ctrl[], int batch_size){
-                                                     
+    
+    npu_ctrl[9] = INPUT_SIZE;  //ich                                                 
     imem_transfer(input, imem, INPUT_SIZE, batch_size, I_EMA_SIZE);
     
     layer1_inference(fc1_weight, fc1_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
@@ -179,15 +180,19 @@ void batch_inference(   volatile int input[], volatile int fc1_weight[], volatil
 
 void imem_transfer(volatile int input[], volatile int imem[], int ich_size, int batch_size, int i_ema_size){
     for (int i = 0; i < I_EMA_SIZE; i=i+1){
-        //imem[i] = input[i];
-        imem[(i/ich_size)+(i%ich_size)*BATCH_SIZE] = input[i];
+        //volatile int temp = input[i];
+        //imem[i] = temp;
+        imem[i] = input[i];
+        //imem[(i/ich_size)+(i%ich_size)*BATCH_SIZE] = input[i];
     }
 }
 
 void wmem_transfer(volatile int weight[], volatile int wmem[], int ich_size, int tile_size, int w_ema_size){
     for (volatile int i = 0; i < w_ema_size; i=i+1){
-        //wmem[i] = weight[i];
-        wmem[(i/ich_size)+(i%ich_size)*tile_size] = weight[i];
+        //volatile int temp = weight[i];
+        //wmem[i] = temp;
+        wmem[i] = weight[i];
+        //wmem[(i/ich_size)+(i%ich_size)*tile_size] = weight[i];
         //volatile int temp = (i/ich_size)+(i%ich_size)*tile_size;
         //wmem[temp] = weight[i];
     }
@@ -229,8 +234,8 @@ void layer1_inference(  volatile int fc1_weight[], volatile int fc1_bias[], vola
     }
     
     for (volatile int i = 0; i<FC1_TILE_ITER; i=i+1){
-        npu_ctrl[7] = i*16; //Intra_O 
-        npu_ctrl[8] = i*16; //Intra_A
+        npu_ctrl[7] = (i)*16; //Intra_O 
+        npu_ctrl[8] = (8-1-i)*16; //Intra_A
         omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
         while(omem2imem_end[0] == 0x00000001){
             ;
@@ -261,7 +266,7 @@ void layer2_inference(  volatile int fc2_weight[], volatile int fc2_bias[], vola
     }
     for (volatile int i = 0; i<FC2_TILE_ITER; i=i+1){
         npu_ctrl[7] = i*16; //Intra_O 
-        npu_ctrl[8] = i*16; //Intra_A
+        npu_ctrl[8] = (4-1-i)*16; //Intra_A
         omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
         while(omem2imem_end[0] == 0x00000001){
             ;

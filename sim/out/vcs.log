@@ -39,7 +39,7 @@ Command: vcs -fgp -full64 -sverilog /home/AS20233757/AS501_assignment/sim/../rtl
 -timescale=1ns/1ps +incdir+/tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver +define+SIM \
 -debug_access+all -kdb -l vcs.log
                          Chronologic VCS (TM)
-        Version V-2023.12-1_Full64 -- Mon Jun  3 18:00:03 2024
+        Version V-2023.12-1_Full64 -- Mon Jun  3 20:46:14 2024
 
                     Copyright (c) 1991 - 2024 Synopsys, Inc.
    This software and the associated documentation are proprietary to Synopsys,
@@ -579,7 +579,7 @@ Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systol
 Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv'
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 137
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 145
   Second declaration for identifier 'w_ram_w_en_pre' ignored
   Identifier 'w_ram_w_en_pre' previously declared as logic. 
   [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
@@ -587,7 +587,7 @@ Warning-[IPDW] Identifier previously declared
 
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 138
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 146
   Second declaration for identifier 'w_en_bias_pre' ignored
   Identifier 'w_en_bias_pre' previously declared as logic. 
   [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
@@ -595,7 +595,7 @@ Warning-[IPDW] Identifier previously declared
 
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 139
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 147
   Second declaration for identifier 'a_ram_w_en_pre' ignored
   Identifier 'a_ram_w_en_pre' previously declared as logic. 
   [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
@@ -603,7 +603,7 @@ Warning-[IPDW] Identifier previously declared
 
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 140
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 148
   Second declaration for identifier 'decoder_in' ignored
   Identifier 'decoder_in' previously declared as logic. 
   [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
@@ -611,7 +611,7 @@ Warning-[IPDW] Identifier previously declared
 
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 141
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 149
   Second declaration for identifier 'decoder_out' ignored
   Identifier 'decoder_out' previously declared as logic. 
   [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
@@ -664,19 +664,18 @@ NPU_TOP, "NPU #(.DWidth(DWidth)) NPU( .clk_i (clk_i),  .rst_ni (rst_ni),  .cen_i
 
 
 Warning-[CWUC] Concatenations with unsized constants
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 155
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 163
 "'bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
   An unsized constant ''bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz' is used in the 
   concatenation. The unsized constant will be used as a 32-bit constant.
 
 
 Warning-[CWUC] Concatenations with unsized constants
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 156
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 164
 "'bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
   An unsized constant ''bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz' is used in the 
   concatenation. The unsized constant will be used as a 32-bit constant.
 
-Notice: Ports coerced to inout, use -notice for details
 Starting vcs inline pass...
 
 62 modules and 0 UDP read.
@@ -748,12 +747,12 @@ rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
 if [ -x ../simv ]; then chmod a-x ../simv; fi
 g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
 -Wl,-rpath=/tools/Synopsys/vcs/V-2023.12-1/linux64/lib -L/tools/Synopsys/vcs/V-2023.12-1/linux64/lib \
--Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _229911_archive_1.so \
+-Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _53927_archive_1.so \
 SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
 -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_tls.o \
 -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   \
 /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_save_restore_new.o /tools/Synopsys/verdi/V-2023.12-1/share/PLI/VCS/LINUX64/pli.a \
 -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
-CPU time: 4.784 seconds to compile + .316 seconds to elab + .262 seconds to link
+CPU time: 4.842 seconds to compile + .340 seconds to elab + .258 seconds to link
 Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)

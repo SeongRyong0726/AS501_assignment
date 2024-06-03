@@ -34,27 +34,27 @@ package pkg_memorymap;
     localparam      EXT_IMEM_LB_Start = 32'h01000000;
     //Slave1 (NPU Core) Detail
     localparam      NPU_IMEM_Start  = Slave1_Start;
-    localparam      NPU_IMEM_Depth  = 32'h00003100;
+    localparam      NPU_IMEM_Depth  = 32'h0000c400;
     localparam      NPU_IMEM_End    = NPU_IMEM_Start + NPU_IMEM_Depth;
 
     localparam      NPU_WMEM_Start  = NPU_IMEM_End;
-    localparam      NPU_WMEM_Depth  = 32'h00003100;
+    localparam      NPU_WMEM_Depth  = 32'h0000c400;
     localparam      NPU_WMEM_End    = NPU_WMEM_Start + NPU_WMEM_Depth;
 
     localparam      NPU_BMEM_Start  = NPU_WMEM_End;
-    localparam      NPU_BMEM_Depth  = 32'h00000080;
+    localparam      NPU_BMEM_Depth  = 32'h00000200;
     localparam      NPU_BMEM_End    = NPU_BMEM_Start + NPU_BMEM_Depth;
 
     localparam      NPU_OMEM_Start  = NPU_BMEM_End;
-    localparam      NPU_OMEM_Depth  = 32'h00002000;
+    localparam      NPU_OMEM_Depth  = 32'h00008000;
     localparam      NPU_OMEM_End    = NPU_OMEM_Start + NPU_OMEM_Depth;
 
     localparam      NPU_PARA_Start  = NPU_OMEM_End;
-    localparam      NPU_PARA_Depth  = 32'h00000080;
+    localparam      NPU_PARA_Depth  = 32'h00000200;
     localparam      NPU_PARA_End    = NPU_PARA_Start + NPU_PARA_Depth;
 
     localparam      NPU_OP_Start  = NPU_PARA_End;
-    localparam      NPU_OP_Depth  = 32'h00000010;
+    localparam      NPU_OP_Depth  = 32'h00000040;
     localparam      NPU_OP_End    = NPU_OP_Start + NPU_OP_Depth;
 
 

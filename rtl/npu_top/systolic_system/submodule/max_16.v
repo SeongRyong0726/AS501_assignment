@@ -9,13 +9,13 @@ module max_16 #(
     output wire [DATA_WIDTH-1 : 0] output_data,
     output wire [$clog2(NUM_DATA)-1 : 0] max_idx_value
 );
-    wire [DATA_WIDTH*NUM_DATA/2 -1 : 0] level1;
-    wire [DATA_WIDTH*NUM_DATA/4 -1 : 0] level2;
-    wire [DATA_WIDTH*NUM_DATA/8 -1 : 0] level3;
+    wire [DATA_WIDTH*NUM_DATA/2 -1 : 0] level1;  //8bit x 8개
+    wire [DATA_WIDTH*NUM_DATA/4 -1 : 0] level2;  //8bit x 4개
+    wire [DATA_WIDTH*NUM_DATA/8 -1 : 0] level3;  //8bit x 2개
 
-    wire [$clog2(NUM_DATA) * NUM_DATA/2 -1 : 0] idx_level1;
-    wire [$clog2(NUM_DATA) * NUM_DATA/4 -1 : 0] idx_level2;
-    wire [$clog2(NUM_DATA) * NUM_DATA/8 -1 : 0] idx_level3;
+    wire [$clog2(NUM_DATA) * NUM_DATA/2 -1 : 0] idx_level1; //4bit x 8개
+    wire [$clog2(NUM_DATA) * NUM_DATA/4 -1 : 0] idx_level2; //4bit x 4개
+    wire [$clog2(NUM_DATA) * NUM_DATA/8 -1 : 0] idx_level3; //2bit x 2개
 
     
     for(genvar i=0; i<NUM_DATA/2; i=i+1) begin
@@ -39,11 +39,11 @@ module max_16 #(
             level2[DATA_WIDTH*(2*i+1) -1 :DATA_WIDTH*2*i]>level2[DATA_WIDTH*(2*i+2) -1 :DATA_WIDTH*(2*i+1)]?
             level2[DATA_WIDTH*(2*i+1) -1 :DATA_WIDTH*2*i]:level2[DATA_WIDTH*(2*i+2) -1 :DATA_WIDTH*(2*i+1)];
         assign idx_level3[$clog2(NUM_DATA) * (i+1)-1 :$clog2(NUM_DATA) * i] =
-            level2[DATA_WIDTH*(2*i+1) -1 :DATA_WIDTH*2*i]>level1[DATA_WIDTH*(2*i+2) -1 :DATA_WIDTH*(2*i+1)]?
+            level2[DATA_WIDTH*(2*i+1) -1 :DATA_WIDTH*2*i]>level2[DATA_WIDTH*(2*i+2) -1 :DATA_WIDTH*(2*i+1)]?
             idx_level2[$clog2(NUM_DATA) * (2*i+1)-1:$clog2(NUM_DATA) * 2*i] : idx_level2[$clog2(NUM_DATA) * (2*i+2)-1:$clog2(NUM_DATA) * (2*i+1)];
     end
 
     assign output_data = level3[DATA_WIDTH-1:0] > level3[DATA_WIDTH*2-1:DATA_WIDTH]? level3[DATA_WIDTH-1:0] : level3[DATA_WIDTH*2-1:DATA_WIDTH];
-    assign max_idx_value = idx_level3[$clog2(NUM_DATA)-1:0] > idx_level3[$clog2(NUM_DATA)*2-1:$clog2(NUM_DATA)]?
+    assign max_idx_value = level3[DATA_WIDTH-1:0] > level3[DATA_WIDTH*2-1:DATA_WIDTH]?
             idx_level3[$clog2(NUM_DATA)-1:0] : idx_level3[$clog2(NUM_DATA)*2-1:$clog2(NUM_DATA)];
 endmodule

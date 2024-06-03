@@ -122,13 +122,21 @@ module npu_controller #(
     
     //TODO decoding addr
 
-    assign a_ram_w_addr = (operation_type=='b1000)? (addr_i - NPU_IMEM_Start)/(ARRAY_DIM*4) : 32'bz;
-    assign a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
-    assign a_ram_w_en_pre = ((addr_i - NPU_IMEM_Start)/4)%ARRAY_DIM ;
+    // assign a_ram_w_addr = (operation_type=='b1000)? (addr_i - NPU_IMEM_Start)/(ARRAY_DIM*4) : 32'bz;
+    // assign a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
+    // assign a_ram_w_en_pre = ((addr_i - NPU_IMEM_Start)/4)%ARRAY_DIM ;
 
-    assign w_ram_w_addr = (operation_type=='b1001)? (addr_i - NPU_WMEM_Start)/(ARRAY_DIM*4) : 32'bz;
+    // assign w_ram_w_addr = (operation_type=='b1001)? (addr_i - NPU_WMEM_Start)/(ARRAY_DIM*4) : 32'bz;
+    // assign w_ram_w_data = (operation_type=='b1001)? (wdata_i) : 8'bz;
+    // assign w_ram_w_en_pre = ((addr_i - NPU_WMEM_Start)/4)%ARRAY_DIM;
+
+    assign a_ram_w_addr = (operation_type=='b1000)? (addr_i - NPU_IMEM_Start)/(4)-K*imem_batch_cnt : 32'bz;
+    assign a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
+    assign a_ram_w_en_pre = imem_batch_cnt;
+
+    assign w_ram_w_addr = (operation_type=='b1001)? (addr_i - NPU_WMEM_Start)/(4)-K*wmem_batch_cnt : 32'bz;
     assign w_ram_w_data = (operation_type=='b1001)? (wdata_i) : 8'bz;
-    assign w_ram_w_en_pre = ((addr_i - NPU_WMEM_Start)/4)%ARRAY_DIM;
+    assign w_ram_w_en_pre = wmem_batch_cnt;
 
     assign w_index_bias = (operation_type=='b1010)? (addr_i - NPU_BMEM_Start)/ARRAY_DIM : 32'bz;
     assign w_data_bias = (operation_type=='b1010)? (wdata_i) : 8'bz;
@@ -153,7 +161,7 @@ module npu_controller #(
     assign w_en_bias = (operation_type=='b1010)? decoder_out : 16'bz;
     
     assign o_ram_idx = {$clog2(ARRAY_M){'bz}};
-    assign o_read_addr = (operation_type == 'b1010)? (addr_i - NPU_OMEM_Start): {ADDR_WIDTH{'bz}};
+    assign o_read_addr = (operation_type == 'b1011)? (addr_i - NPU_OMEM_Start)/4: {ADDR_WIDTH{'bz}};
     
     //assign rdata_o = (addr_i == NPU_PARA_Start +'b000100)? op_end : {12'b0,max_idx_value, data_in_o_bram[15:0]};
     //obuf
@@ -181,72 +189,72 @@ module npu_controller #(
 
     // Stage Transition
 
-    // always @ (posedge clk_i or negedge rst_ni) begin
-    //     if (~rst_ni) begin
-    //         imem_write_cnt <= 0;
-    //     end
-    //     else if (state == IDLE) begin
-    //         if ((operation_type=='b1000)&&(wen_i==1'b1)&&(state==IDLE))begin
-    //             if (imem_write_cnt == K-1) begin
-    //                 imem_write_cnt <= 0;
-    //             end
-    //             else begin
-    //                 imem_write_cnt <= imem_write_cnt + 1;
-    //             end
-    //         end
-    //     end
-    //     else begin
-    //         imem_write_cnt <= 0;
-    //     end
-    // end
-    // always @ (posedge clk_i or negedge rst_ni) begin
-    //     if (~rst_ni) begin
-    //         wmem_write_cnt <= 0;
-    //     end
-    //     else if (state == IDLE) begin
-    //         if ((operation_type=='b1001)&&(wen_i==1'b1))begin
-    //             if (wmem_write_cnt == K) begin
-    //                 wmem_write_cnt <= 0;
-    //             end
-    //             else begin
-    //                 wmem_write_cnt <= wmem_write_cnt + 1;
-    //             end
-    //         end
-    //     end
-    //     else begin
-    //         wmem_write_cnt <= 0;
-    //     end
-    // end
-    // always @ (posedge clk_i or negedge rst_ni) begin
-    //     if (~rst_ni) begin
-    //         imem_batch_cnt <= 0;
-    //     end
-    //     else if (state == IDLE) begin
-    //         if ((operation_type=='b1001)&&(wen_i==1'b1))begin
-    //             if (imem_write_cnt == K-1) begin
-    //                 imem_batch_cnt <= imem_batch_cnt + 1;
-    //             end
-    //         end
-    //     end
-    //     else begin
-    //         imem_batch_cnt <= 0;
-    //     end        
-    // end
-    // always @ (posedge clk_i or negedge rst_ni) begin
-    //     if (~rst_ni) begin
-    //         wmem_batch_cnt <= 0;
-    //     end
-    //     else if (state == IDLE) begin
-    //         if ((operation_type=='b1001)&&(wen_i==1'b1))begin
-    //             if (wmem_write_cnt == K-1) begin
-    //                 wmem_batch_cnt <= wmem_batch_cnt + 1;
-    //             end
-    //         end
-    //     end
-    //     else begin
-    //         wmem_batch_cnt <= 0;
-    //     end  
-    // end
+     always @ (posedge clk_i or negedge rst_ni) begin
+         if (~rst_ni) begin
+             imem_write_cnt <= 0;
+         end
+         else if (state == IDLE) begin
+             if ((operation_type=='b1000)&&(wen_i==1'b1)&&(state==IDLE))begin
+                 if (imem_write_cnt == K-1) begin
+                     imem_write_cnt <= 0;
+                 end
+                 else begin
+                     imem_write_cnt <= imem_write_cnt + 1;
+                 end
+             end
+         end
+         else begin
+             imem_write_cnt <= 0;
+         end
+     end
+     always @ (posedge clk_i or negedge rst_ni) begin
+         if (~rst_ni) begin
+             wmem_write_cnt <= 0;
+         end
+         else if (state == IDLE) begin
+             if ((operation_type=='b1001)&&(wen_i==1'b1))begin
+                 if (wmem_write_cnt == K) begin
+                     wmem_write_cnt <= 0;
+                 end
+                 else begin
+                     wmem_write_cnt <= wmem_write_cnt + 1;
+                 end
+             end
+         end
+         else begin
+             wmem_write_cnt <= 0;
+         end
+     end
+     always @ (posedge clk_i or negedge rst_ni) begin
+         if (~rst_ni) begin
+             imem_batch_cnt <= 0;
+         end
+         else if (state == IDLE) begin
+             if ((operation_type=='b1000)&&(wen_i==1'b1))begin
+                 if (imem_write_cnt == K-1) begin
+                     imem_batch_cnt <= imem_batch_cnt + 1;
+                 end
+             end
+         end
+         else begin
+             imem_batch_cnt <= 0;
+         end        
+     end
+     always @ (posedge clk_i or negedge rst_ni) begin
+         if (~rst_ni) begin
+             wmem_batch_cnt <= 0;
+         end
+         else if (state == IDLE) begin
+             if ((operation_type=='b1001)&&(wen_i==1'b1))begin
+                 if (wmem_write_cnt == K-1) begin
+                     wmem_batch_cnt <= wmem_batch_cnt + 1;
+                 end
+             end
+         end
+         else begin
+             wmem_batch_cnt <= 0;
+         end  
+     end
 
     always @ (posedge clk_i or negedge rst_ni) begin
         if (~rst_ni) begin

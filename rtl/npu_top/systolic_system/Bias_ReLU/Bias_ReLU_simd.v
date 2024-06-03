@@ -10,7 +10,7 @@ module Bias_ReLU_simd #(
     input wire [ARRAY_N -1 : 0]             w_en,
 
     input wire [ARRAY_N * OUT_WIDTH -1 : 0] data_in,
-    input wire [ARRAY_N * OUT_WIDTH -1 : 0] data_out
+    output wire [ARRAY_N * OUT_WIDTH -1 : 0] data_out
 );
 
 reg signed  [OUT_WIDTH -1 : 0] bias_values [ARRAY_N -1 : 0];
