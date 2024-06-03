@@ -96,18 +96,35 @@ module npu_controller #(
         
         //TODO decoding addr
 
-        a_ram_w_addr = (operation_type=='b1000)? (addr_i - NPU_IMEM_Start)/ARRAY_DIM : 32'bz;
-        a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
-        a_ram_w_en = (operation_type=='b1000)? ARRAY_DIM //??
+        assign a_ram_w_addr = (operation_type=='b1000)? (addr_i - NPU_IMEM_Start)/(ARRAY_DIM*4) : 32'bz;
+        assign a_ram_w_data = (operation_type=='b1000)? (wdata_i) : 8'bz;
+        assign a_ram_w_en_pre = ((addr_i - NPU_IMEM_Start)/4)%ARRAY_DIM ;
 
-        w_ram_w_addr = (operation_type=='b1001)? (addr_i - NPU_WMEM_Start)/ARRAY_DIM : 32'bz;
-        w_ram_w_data = (operation_type=='b1001)? (wdata_i) : 8'bz;
-        w_ram_w_en = (operation_type=='b1001)? ARRAY_DIM //??
-        //0 - 15 --> 16bit 1-hot
+        assign w_ram_w_addr = (operation_type=='b1001)? (addr_i - NPU_WMEM_Start)/(ARRAY_DIM*4) : 32'bz;
+        assign w_ram_w_data = (operation_type=='b1001)? (wdata_i) : 8'bz;
+        assign w_ram_w_en_pre = ((addr_i - NPU_WMEM_Start)/4)%ARRAY_DIM;
+
+        assign w_index_bias = (operation_type=='b1010)? (addr_i - NPU_BMEM_Start)/ARRAY_DIM : 32'bz;
+        assign w_data_bias = (operation_type=='b1010)? (wdata_i) : 8'bz;
+        assign w_en_bias_pre = ((addr_i - NPU_BMEM_Start)/4)%ARRAY_DIM;
+
+        wire [$clog2(ARRAY_DIM)-1:0] w_ram_w_en_pre;
+        wire [$clog2(ARRAY_DIM)-1:0] w_en_bias_pre;
+        wire [$clog2(ARRAY_DIM)-1:0] a_ram_w_en_pre;
+        wire [$clog2(ARRAY_DIM)-1:0] decoder_in; 
+        wire [$clog2(ARRAY_DIM)-1:0] decoder_out; 
+
+        assign decoder_in = (operation_type=='b1000)? a_ram_w_en_pre : ((operation_type=='b1001)? w_ram_w_en_pre:w_en_bias_pre);
+        onehot_encoder #(
+            .DWidth(4)
+        ) onehot_decoder_inst (
+            .data_i(decoder_in),
+            .data_o(decoder_out)
+        );
         
-        w_index_bias = (operation_type=='b1010)? (addr_i - NPU_IMEM_Start)/ARRAY_DIM : 32'bz;
-        w_data_bias = (operation_type=='b1010)? (wdata_i) : 8'bz;
-        w_en_bias = (operation_type=='b1010)? ARRAY_DIM //??
+        assign a_ram_w_en = (operation_type=='b1000)? decoder_out : 16'bz;
+        assign w_ram_w_en = (operation_type=='b1001)? decoder_out : 16'bz;
+        assign w_en_bias = (operation_type=='b1010)? decoder_out : 16'bz;
         
         o_ram_idx = {$clog2(ARRAY_M){'bz}};
         o_read_addr = (operation_type == 'b1010)? (addr_i - MEM_OMEM_Start): {ADDR_WIDTH{'bz}};
