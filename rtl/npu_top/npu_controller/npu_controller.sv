@@ -153,9 +153,9 @@ module npu_controller #(
     assign w_en_bias = (operation_type=='b1010)? decoder_out : 16'bz;
     
     assign o_ram_idx = {$clog2(ARRAY_M){'bz}};
-    assign o_read_addr = (operation_type == 'b1010)? (addr_i - MEM_OMEM_Start): {ADDR_WIDTH{'bz}};
+    assign o_read_addr = (operation_type == 'b1010)? (addr_i - NPU_OMEM_Start): {ADDR_WIDTH{'bz}};
     
-    assign rdata_o = (addr_i == NPU_PARA_Start +'b000100)? op_end : {12'b0,max_idx_value, data_in_o_bram[15:0]};
+    //assign rdata_o = (addr_i == NPU_PARA_Start +'b000100)? op_end : {12'b0,max_idx_value, data_in_o_bram[15:0]};
     //obuf
 
 

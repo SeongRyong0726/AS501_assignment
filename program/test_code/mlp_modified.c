@@ -179,13 +179,15 @@ void batch_inference(   volatile int input[], volatile int fc1_weight[], volatil
 
 void imem_transfer(volatile int input[], volatile int imem[], int ich_size, int batch_size, int i_ema_size){
     for (int i = 0; i < I_EMA_SIZE; i=i+1){
-        imem[i] = input[i];
+        //imem[i] = input[i];
+        imem[(i/ich_size)+(i%ich_size)*BATCH_SIZE] = input[i];
     }
 }
 
 void wmem_transfer(volatile int weight[], volatile int wmem[], int ich_size, int tile_size, int w_ema_size){
     for (volatile int i = 0; i < w_ema_size; i=i+1){
-        wmem[i] = weight[i];
+        //wmem[i] = weight[i];
+        wmem[(i/ich_size)+(i%ich_size)*tile_size] = weight[i];
         //volatile int temp = (i/ich_size)+(i%ich_size)*tile_size;
         //wmem[temp] = weight[i];
     }
