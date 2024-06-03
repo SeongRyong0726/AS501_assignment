@@ -15,7 +15,7 @@ module transpose #(
     output wire T_end
 );
 
-reg [$clog2(COL_DIM) : 0] count;
+reg [$clog2(COL_DIM)+1 : 0] count;
 always @(posedge clk)
 begin
     if(T_start)
@@ -25,7 +25,7 @@ begin
 end
 
 wire state; //[in, out]
-assign state = (count < A)? 1 : 0;
+assign state = (count < A+1)? 1 : 0;
 assign T_end = (count > A + ROW_DIM -1)? 1 : 0;
 
 genvar r, c;

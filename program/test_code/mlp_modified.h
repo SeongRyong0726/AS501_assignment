@@ -19,23 +19,30 @@ int max(int []);
 #define HIDDEN1_SIZE 128
 #define HIDDEN2_SIZE 64
 #define OUTPUT_SIZE  10
-#define NUM_OF_TEST  1
+#define NUM_OF_TEST  10
+#define I_EMA_SIZE 7840
+#define W_FC1_TILE_EMA_SIZE 12544
+#define W_FC2_TILE_EMA_SIZE 2048
+#define W_FC3_TILE_EMA_SIZE 640
+#define FC1_TILE_ITER (HIDDEN1_SIZE/TILE_SIZE)
+#define FC2_TILE_ITER (HIDDEN2_SIZE/TILE_SIZE)
+#define FC3_TILE_ITER 1
 
 // Define the HW Characteristics
 #define BATCH_SIZE   16
 #define TILE_SIZE    16
-#define NUM_OF_BATCH (NUM_OF_TEST+BATCH_SIZE-1)/(BATCH_SIZE) 
+#define NUM_OF_BATCH 1//(NUM_OF_TEST+BATCH_SIZE-1)/(BATCH_SIZE) 
 
 #define INPUT_ADDR  0x00004000
-#define FC1_W_ADDR  (INPUT_ADDR  + INPUT_SIZE   * NUM_OF_TEST  * sizeof(int))
-#define FC1_B_ADDR  (FC1_W_ADDR  + INPUT_SIZE   * HIDDEN1_SIZE * sizeof(int))
-#define FC1_O_ADDR  (FC1_B_ADDR  + HIDDEN1_SIZE * sizeof(int))
-#define FC2_W_ADDR  (FC1_O_ADDR  + HIDDEN1_SIZE * sizeof(int))
-#define FC2_B_ADDR  (FC2_W_ADDR  + HIDDEN1_SIZE * HIDDEN2_SIZE * sizeof(int))
-#define FC2_O_ADDR  (FC2_B_ADDR  + HIDDEN2_SIZE * sizeof(int))
-#define FC3_W_ADDR  (FC2_O_ADDR  + HIDDEN2_SIZE * sizeof(int))
-#define FC3_B_ADDR  (FC3_W_ADDR  + HIDDEN2_SIZE * OUTPUT_SIZE  * sizeof(int))
-#define OUTPUT_ADDR (FC3_B_ADDR  + OUTPUT_SIZE  * sizeof(int))
+#define FC1_W_ADDR  (INPUT_ADDR  + INPUT_SIZE   * NUM_OF_TEST  * sizeof(int)) // ba80
+#define FC1_B_ADDR  (FC1_W_ADDR  + INPUT_SIZE   * HIDDEN1_SIZE * sizeof(int)) // 6_da80
+#define FC1_O_ADDR  (FC1_B_ADDR  + HIDDEN1_SIZE * sizeof(int)) // 6_dc80
+#define FC2_W_ADDR  (FC1_O_ADDR  + HIDDEN1_SIZE * sizeof(int)) // 6_de80
+#define FC2_B_ADDR  (FC2_W_ADDR  + HIDDEN1_SIZE * HIDDEN2_SIZE * sizeof(int)) // 7_5e80
+#define FC2_O_ADDR  (FC2_B_ADDR  + HIDDEN2_SIZE * sizeof(int)) // 7_5f80
+#define FC3_W_ADDR  (FC2_O_ADDR  + HIDDEN2_SIZE * sizeof(int)) // 7_6080
+#define FC3_B_ADDR  (FC3_W_ADDR  + HIDDEN2_SIZE * OUTPUT_SIZE  * sizeof(int)) // 7_6a80
+#define OUTPUT_ADDR (FC3_B_ADDR  + OUTPUT_SIZE  * sizeof(int)) // 7_6aa8
 #define LABEL_ADDR  (OUTPUT_ADDR + OUTPUT_SIZE  * sizeof(int))
 #define INPUT_LOOPBACK_ADDR  0x01000000
 
@@ -50,28 +57,22 @@ int max(int []);
 #define BMEM_SIZE 0x00000080
 #define OMEM_SIZE 0x00002000
 
-#define IMEM_ADDR 0x80000000
-#define WMEM_ADDR 0x80004000
-#define BMEM_ADDR 0x80008000
-#define OMEM_ADDR 0x80009000
+#define IMEM_ADDR 0x10000000
+#define WMEM_ADDR 0x10004000
+#define BMEM_ADDR 0x10008000
+#define OMEM_ADDR 0x10009000
 
 #define IMEM_ADDR_END (IMEM_ADDR_BASE+IMEM_SIZE)
 #define WMEM_ADDR_END (WMEM_ADDR_BASE+WMEM_SIZE)
 #define BMEM_ADDR_END (BMEM_ADDR_BASE+BMEM_SIZE)
 #define OMEM_ADDR_END (OMEM_ADDR_BASE+OMEM_SIZE)
 
-#define TILE_START_ADDR 0x8000a000
-#define TILE_END_ADDR 0x8000a004
-#define OMEM2IMEM_START_ADDR 0x8000a008
-#define OMEM2IMEM_END_ADDR 0x8000a00c
-#define LAYER_START_ADDR 0x8000a010
-#define LAYER_END_ADDR 0x8000a0014
-
-#define NPU_CTRL_ADDR 0x8000a020
-#define NPU_CTRL_SIZE 0X40
-
-#define MAX_ADDR      0x8000a060
-#define MAX_SIZE      0x00000040
+#define TILE_START_ADDR 0x10008300
+#define TILE_END_ADDR 0x10008284
+#define OMEM2IMEM_START_ADDR 0x10008304
+#define OMEM2IMEM_END_ADDR 0x10008284
+#define NPU_CTRL_ADDR 0x10008280
+#define NPU_CTRL_SIZE 0x40
 
 
 // JW ADDED (24.05.28)

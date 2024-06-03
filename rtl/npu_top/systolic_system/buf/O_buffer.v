@@ -28,10 +28,10 @@ module O_buffer #(
     //  read
     input wire  [$clog2(ARRAY_M)-1:0]   ram_idx,
     input wire  [ADDR_WIDTH-1 : 0]      read_addr,
-    output signed [DATA_WIDTH-1:0]   data_read,
+    // output signed [DATA_WIDTH-1:0]   data_read,
     output signed [ACT_WIDTH*ARRAY_M-1 : 0] data_read_set,
-
-    output wire [ARRAY_M-1:0]          DEBUG_enable_set
+    output signed [ACT_WIDTH*ARRAY_M-1 : 0] debug_output
+    // output wire [ARRAY_M-1:0]          DEBUG_enable_set
 );
 
     reg [OBUF_DATA_WIDTH-1:0]   data_in_;
@@ -80,7 +80,8 @@ module O_buffer #(
             .write_data(data_in_[OUT_WIDTH*m+:OUT_WIDTH])
         );
         assign data_read = (ram_idx == m)? output_data[DATA_WIDTH-1:0] : {DATA_WIDTH{32'bZ}};
-        assign data_read_set[ACT_WIDTH*(ARRAY_M-m)-1 : ACT_WIDTH*(ARRAY_M-1-m)] = (m<num_cols)? output_data[ACT_WIDTH-1:0] : {ACT_WIDTH{'b0}};
+        assign data_read_set[ACT_WIDTH*(m+1)-1 : ACT_WIDTH*(m)] = (m<num_cols)? output_data[ACT_WIDTH-1:0] : {(ACT_WIDTH){1'b0}};
+        assign debug_output[ACT_WIDTH*(m+1)-1 : ACT_WIDTH*(m)] = output_data[ACT_WIDTH-1:0];
     end
     endgenerate
 endmodule

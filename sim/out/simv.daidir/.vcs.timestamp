@@ -1,7 +1,7 @@
 2        
 0 DW_dp_mult_comb_function.inc
 0 /tools/Synopsys/vcs/V-2023.12-1/etc/systemverilog/DW_dp_mult_comb_function.inc
-67
+86
 +define+SIM
 +incdir+/tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver
 +itf+/tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcsdp_lite.tab
@@ -60,8 +60,6 @@ vcs.log
 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/scalar_core.sv
 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_top.sv
 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/interface/npu_interface.sv
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/submodule/npu.sv
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/submodule/ram.sv
 /home/AS20233757/AS501_assignment/sim/../rtl/memory/memory_top.sv
 /technology/SAED32/lib/sram/verilog/saed32sram.v
 /home/AS20233757/AS501_assignment/sim/../rtl/bus/bus_top.sv
@@ -69,8 +67,29 @@ vcs.log
 /home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/decoder.sv
 /home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/multiplexer.sv
 /home/AS20233757/AS501_assignment/sim/../rtl/bus/default/default_slave.sv
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu.sv
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_A.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_W.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_O.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/A_buffer.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/W_buffer.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/O_buffer.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/pe.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/systolic_array.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_top.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/transpose.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/max_16.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/mux_2_to_1.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/onehot_encoder.sv
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/ram.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/reg_with_sync_en.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/systolic_system_adv.v
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv
+/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_decoder/npu_decoder.sv
 52
-XDG_SESSION_ID=3535
+XDG_SESSION_ID=4570
 XDG_RUNTIME_DIR=/run/user/1518
 XDG_DATA_DIRS=/home/AS20233757/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
 XCELIUMHOME=/tools/Cadence/XCELIUM2303
@@ -89,9 +108,9 @@ VCS_ARCH=linux64
 USE_CALIBRE_64=1
 UNAME=/bin/uname
 TOOL_HOME=/tools/Synopsys/vcs/V-2023.12-1/linux64
-SSH_TTY=/dev/pts/71
-SSH_CONNECTION=143.248.95.64 53959 143.248.96.21 501
-SSH_CLIENT=143.248.95.64 53959 501
+SSH_TTY=/dev/pts/7
+SSH_CONNECTION=143.248.222.87 55258 143.248.96.21 501
+SSH_CLIENT=143.248.222.87 55258 501
 SPECTREHOME=/tools/Cadence/SPECTRE231
 SNPS_VERDI_INTERNAL_LP_XML_NEW_FLOW=1
 SNPS_VCS_PYTHON3=/tools/Synopsys/vcs/V-2023.12-1/linux64/bin/Python-3.6.1/bin/python3
@@ -124,30 +143,49 @@ CDS_INST_DIR=/tools/Cadence/IC618
 CDSHOME=/tools/Cadence/IC618
 0
 0
-34
+53
 1705036913 /tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver/DW_dp_mult_comb_function.inc
-1717233711 ../compare_memory.sv
-1717170544 /home/AS20233757/AS501_assignment/sim/../rtl/bus/default/default_slave.sv
-1717170544 /home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/multiplexer.sv
+1717238579 ../compare_memory.sv
+1717368380 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_decoder/npu_decoder.sv
+1717366987 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv
+1717358561 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/systolic_system_adv.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/reg_with_sync_en.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/ram.v
+1717328887 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/onehot_encoder.sv
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/mux_2_to_1.v
+1717333606 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/max_16.v
+1717355293 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/transpose.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_top.v
+1717356676 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/systolic_array.v
+1717350525 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/pe.v
+1717350373 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/O_buffer.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/W_buffer.v
+1717360047 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/A_buffer.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_O.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_W.v
+1717319090 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_A.v
+1717352620 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v
+1717349088 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/bus/default/default_slave.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/multiplexer.sv
 1717180408 /home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/decoder.sv
 1717180408 /home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/interconnect.sv
 1717180408 /home/AS20233757/AS501_assignment/sim/../rtl/bus/bus_top.sv
 1711690636 /technology/SAED32/lib/sram/verilog/saed32sram.v
 1716735503 /home/AS20233757/AS501_assignment/sim/../rtl/memory/memory_top.sv
-1717232941 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/submodule/ram.sv
-1717230697 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/submodule/npu.sv
-1717229948 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/interface/npu_interface.sv
-1717229528 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_top.sv
-1717170560 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/scalar_core.sv
-1717170560 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/regfile.sv
-1717170560 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/decoder.sv
-1717170560 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/csr.sv
-1717170560 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv
-1717170560 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/instr_cache.sv
-1717170560 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv
+1717368657 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/interface/npu_interface.sv
+1717306518 /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_top.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/scalar_core.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/regfile.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/decoder.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/csr.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/instr_cache.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv
 1717180408 /home/AS20233757/AS501_assignment/sim/../rtl/cpu_top/cpu_top.sv
-1717231095 /home/AS20233757/AS501_assignment/sim/../rtl/soc_top/soc_top.sv
-1717233595 /home/AS20233757/AS501_assignment/sim/tb_modified/core_tb_10.sv
+1717305382 /home/AS20233757/AS501_assignment/sim/../rtl/soc_top/soc_top.sv
+1717369491 /home/AS20233757/AS501_assignment/sim/tb_modified/core_tb_10.sv
 1716735503 /home/AS20233757/AS501_assignment/sim/../rtl/common/counter.sv
 1716735503 /home/AS20233757/AS501_assignment/sim/../rtl/common/mux5to1.sv
 1716735503 /home/AS20233757/AS501_assignment/sim/../rtl/common/mux4to1.sv
@@ -155,8 +193,8 @@ CDSHOME=/tools/Cadence/IC618
 1716735503 /home/AS20233757/AS501_assignment/sim/../rtl/common/mux2to1.sv
 1716735503 /home/AS20233757/AS501_assignment/sim/../rtl/common/d_flip_flop.sv
 1716735502 /home/AS20233757/AS501_assignment/sim/../rtl/common/core_package.sv
-1717170551 /home/AS20233757/AS501_assignment/sim/../rtl/common/bus_package.sv
-1717233873 /home/AS20233757/AS501_assignment/sim/../rtl/common/memory_map.sv
+1717319057 /home/AS20233757/AS501_assignment/sim/../rtl/common/bus_package.sv
+1717364423 /home/AS20233757/AS501_assignment/sim/../rtl/common/memory_map.sv
 1704885200 /tools/Synopsys/verdi/V-2023.12-1/share/PLI/VCS/LINUX64/verdi.tab
 1705810276 /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcsdp_lite.tab
 4
@@ -164,5 +202,5 @@ CDSHOME=/tools/Cadence/IC618
 1705810837 /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/liberrorinf.so
 1705810789 /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/libsnpsmalloc.so
 1705810836 /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/libvfs.so
-1717233895 simv.daidir
+1717386064 simv.daidir
 -1 partitionlib

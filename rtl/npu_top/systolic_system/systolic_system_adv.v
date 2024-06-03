@@ -70,7 +70,7 @@ module systolic_system_adv #(
     //SIMD  (EXT --> BUF)
     input wire [$clog2(ARRAY_N) : 0]    w_index_bias,
     input wire [OUT_WIDTH -1 : 0]       w_data_bias,
-    input wire                          w_en_bias,
+    input wire [ARRAY_M-1:0]            w_en_bias,
 
     //O_buffer READ (SA --> BUF : FSM)
     input wire                          o_ag_o_on,
@@ -86,15 +86,16 @@ module systolic_system_adv #(
     output wire                         Intra_sig_end,
 
     //O_buf WRITE
-    output wire [32-1:0]         data_in_o_bram,
+    output wire [8-1:0]         data_in_o_bram,
     output wire [$clog2(ARRAY_N)-1 : 0] max_idx_value,
+    output wire [8*16-1 : 0] debug_output
 
     // DEBUG
-    output wire [ACT_WIDTH*ARRAY_M-1: 0] Intra_net_data_out_DEBUG,
-    output wire [ACT_WIDTH*ARRAY_M-1: 0]  Intra_net_data_in_DEBUG,
-    output wire [DATA_WIDTH*ARRAY_M-1: 0] SIMD_data_out_DEBUG,
-    output wire [10+3:0] DEBUG_A_wen_addr,
-    output wire [ARRAY_M-1:0]          DEBUG_enable_set
+    // output wire [ACT_WIDTH*ARRAY_M-1: 0] Intra_net_data_out_DEBUG,
+    // output wire [ACT_WIDTH*ARRAY_M-1: 0]  Intra_net_data_in_DEBUG,
+    // output wire [DATA_WIDTH*ARRAY_M-1: 0] SIMD_data_out_DEBUG,
+    // output wire [10+3:0] DEBUG_A_wen_addr,
+    // output wire [ARRAY_M-1:0]          DEBUG_enable_set
 
     // output wire [PE_OUT_WIDTH*ARRAY_M-1:0]      DEBUG_data,
     // output wire [IBUF_DATA_WIDTH-1:0]   DEBUG_act_data_set,
@@ -105,7 +106,7 @@ module systolic_system_adv #(
     wire [WBUF_DATA_WIDTH-1:  0]      wgt_data_set_w;
     wire [PE_OUT_WIDTH*ARRAY_M-1:0]   result_data_set;
     wire [PE_OUT_WIDTH*ARRAY_M-1:0]   result_data_set_simd;
-    wire [DATA_WIDTH*ARRAY_M-1 : 0]   data_read_set;
+    wire [ACT_WIDTH*ARRAY_M-1 : 0]   data_read_set;
     // wire for mux to support Intra_net
     wire [ACT_WIDTH*ARRAY_M-1: 0]   Intra_net_data_out;
     wire [ADDR_WIDTH-1:0]           Intra_net_A_addr;
@@ -116,6 +117,8 @@ module systolic_system_adv #(
     wire [ADDR_WIDTH-1:0]           mux_A_addr;
     wire [ARRAY_N-1:0]              mux_A_w_en;
     wire [ADDR_WIDTH-1:0]           mux_O_addr;
+
+
     assign mux_A_w_en = (Intranet_on)?  Intra_net_A_w_en : a_ram_w_en; ////////////
     assign mux_A_addr = (Intranet_on)?  Intra_net_A_addr : a_ram_w_addr; ///////////
     assign mux_O_addr = (Intranet_on)?  Intra_net_O_addr : o_read_addr; //////
@@ -143,7 +146,7 @@ module systolic_system_adv #(
         .bram_to_ram_w_en(mux_A_w_en),
         .bram_to_ram_w_data(a_ram_w_data[ACT_WIDTH-1:0]), //one data
         .input_dataset_from_O(Intra_net_data_out), //data from O buf
-
+        .Intranet_on(Intranet_on),
         .act_data_set_out(act_data_set_w)
     );
 
@@ -215,7 +218,8 @@ module systolic_system_adv #(
         .read_addr(mux_O_addr), //o_read_addr),
         //.data_read(data_in_o_bram), //TODO 
         .data_read_set(data_read_set), // goto max and Intra_net
-        .DEBUG_enable_set(DEBUG_enable_set)
+        //.DEBUG_enable_set(DEBUG_enable_set)
+        .debug_output(debug_output)
     ); 
 
     max_16 #(
@@ -227,7 +231,8 @@ module systolic_system_adv #(
         .input_data_set(data_read_set),
         .output_data(data_in_o_bram),
         .max_idx_value(max_idx_value)
-    )
+    );
+    
     Intra_net_top #(
         .ROW_DIM(ARRAY_N),
         .COL_DIM(ARRAY_N),

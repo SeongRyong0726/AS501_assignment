@@ -12,49 +12,49 @@ Linker script and memory map
 
                 0x02004000                        PROVIDE (_estack = 0x2004000)
 
-.text           0x00000000      0xac4
+.text           0x00000000      0xab0
                 [!provide]                        PROVIDE (_start = .)
                 0x00000000                        . = ALIGN (0x4)
                 0x00000000                        _stext = .
  *(.text)
- .text          0x00000000        0x8 /tmp/ccLDpFmb.o
- .text          0x00000008      0xabc /tmp/ccj1ktdo.o
-                0x00000008                imem_transfer
-                0x000000a8                wmem_transfer
-                0x00000148                bias_transfer
-                0x000001bc                omem_transfer
-                0x00000230                layer1_inference
-                0x000003a4                layer2_inference
-                0x00000510                layer3_inference
-                0x00000654                batch_inference
-                0x00000748                main
+ .text          0x00000000        0x8 /tmp/ccxoD7Fm.o
+ .text          0x00000008      0xaa8 /tmp/cctZY8UP.o
+                0x00000008                main
+                0x00000348                imem_transfer
+                0x000003c8                wmem_transfer
+                0x00000444                bias_transfer
+                0x000004b8                omem_transfer
+                0x0000052c                layer1_inference
+                0x000006cc                layer2_inference
+                0x00000860                layer3_inference
+                0x000009b4                batch_inference
  *(.text*)
  *(.rodata)
  *(.rodata*)
  *(.srodata)
  *(.srodata*)
-                0x00000ac4                        . = ALIGN (0x4)
-                0x00000ac4                        _etext = .
-                0x00000ac4                        _sidata = _etext
+                0x00000ab0                        . = ALIGN (0x4)
+                0x00000ab0                        _etext = .
+                0x00000ab0                        _sidata = _etext
 
-.rela.dyn       0x00000ac4        0x0
- .rela.text     0x00000ac4        0x0 /tmp/ccLDpFmb.o
+.rela.dyn       0x00000ab0        0x0
+ .rela.text     0x00000ab0        0x0 /tmp/ccxoD7Fm.o
 
-.data           0x00004000        0x0 load address 0x00000ac4
+.data           0x00004000        0x0 load address 0x00000ab0
                 0x00004000                        . = ALIGN (0x4)
                 0x00004000                        _sdata = .
                 [!provide]                        PROVIDE (__global_pointer$ = (. + 0x800))
                 0x00004000                        . = ALIGN (0x4)
  *(.data)
- .data          0x00004000        0x0 /tmp/ccLDpFmb.o
- .data          0x00004000        0x0 /tmp/ccj1ktdo.o
+ .data          0x00004000        0x0 /tmp/ccxoD7Fm.o
+ .data          0x00004000        0x0 /tmp/cctZY8UP.o
  *(.data*)
  *(.sdata)
  *(.sdata*)
                 0x00004000                        . = ALIGN (0x4)
                 0x00004000                        _edata = .
-LOAD /tmp/ccLDpFmb.o
-LOAD /tmp/ccj1ktdo.o
+LOAD /tmp/ccxoD7Fm.o
+LOAD /tmp/cctZY8UP.o
 LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/libm.a
 LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
 START GROUP
@@ -64,17 +64,17 @@ END GROUP
 LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
 OUTPUT(./out/mlp_modified_riscv.elf elf32-littleriscv)
 
-.bss            0x00004000        0x0 load address 0x00000ac4
- .bss           0x00004000        0x0 /tmp/ccLDpFmb.o
- .bss           0x00004000        0x0 /tmp/ccj1ktdo.o
+.bss            0x00004000        0x0 load address 0x00000ab0
+ .bss           0x00004000        0x0 /tmp/ccxoD7Fm.o
+ .bss           0x00004000        0x0 /tmp/cctZY8UP.o
 
 .riscv.attributes
                 0x00000000       0x37
  .riscv.attributes
-                0x00000000       0x31 /tmp/ccLDpFmb.o
+                0x00000000       0x31 /tmp/ccxoD7Fm.o
  .riscv.attributes
-                0x00000031       0x37 /tmp/ccj1ktdo.o
+                0x00000031       0x37 /tmp/cctZY8UP.o
 
 .comment        0x00000000       0x10
- .comment       0x00000000       0x10 /tmp/ccj1ktdo.o
+ .comment       0x00000000       0x10 /tmp/cctZY8UP.o
                                  0x11 (size before relaxing)
