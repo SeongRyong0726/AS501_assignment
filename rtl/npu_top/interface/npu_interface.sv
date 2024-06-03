@@ -74,24 +74,24 @@ module NPU_IF #(
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = FALSE;
-                wen_o             = act_state_d inside {StWrite} && (addr_i[31] == NPUAddr);
-                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[31] == NPUAddr);
+                wen_o             = act_state_d inside {StWrite} && (addr_i[28] == NPUAddr);
+                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[28] == NPUAddr);
                 rdata_o           = latched_output;
             end
             StRead: begin
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = TRUE;
-                wen_o             = act_state_d inside {StWrite} && (addr_i[31] == NPUAddr);
-                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[31] == NPUAddr);
+                wen_o             = act_state_d inside {StWrite} && (addr_i[28] == NPUAddr);
+                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[28] == NPUAddr);
                 rdata_o           = rdata_i;
             end
             StWrite: begin
                 act_state_d       = (({sel_i, ready_i} == 2'b11) && (trans_i inside {NONSEQ})) ? (write_i) ? StWrite : StRead : StIdle;
                 {resp_o, ready_o} = SUCCESS;
                 wen_latch         = FALSE;
-                wen_o             = act_state_d inside {StWrite} && (addr_i[31] == NPUAddr);
-                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[31] == NPUAddr);
+                wen_o             = act_state_d inside {StWrite} && (addr_i[28] == NPUAddr);
+                cen_o             = ((act_state_d inside {StWrite}) || (act_state_d inside {StRead})) && (addr_i[28] == NPUAddr);
                 rdata_o           = latched_output;
             end
             default: begin

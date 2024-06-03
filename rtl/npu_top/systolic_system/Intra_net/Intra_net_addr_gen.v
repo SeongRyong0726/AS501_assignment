@@ -29,13 +29,22 @@ module Intra_net_addr_gen #(
                 + end_signal (out)
     Result casting 32 --> 8
 */
-
+reg                 start_signal_d1;
 reg [ADDR_WIDTH-1:0]O_addr_offset;
 reg [ADDR_WIDTH-1:0]A_addr_offset;
-reg [IDX_WIDTH : 0] delay_count;
+reg [IDX_WIDTH+1 : 0] delay_count;
 wire start_signal_a;
 wire start_signal_o;
 
+always @(posedge clk or posedge reset)
+begin
+    if (reset == 1'b1) begin
+        start_signal_d1 <= 1'b0;
+    end
+    else begin
+        start_signal_d1 <= start_signal;
+    end
+end
 
 always @(posedge clk)
 begin
@@ -45,9 +54,9 @@ begin
         delay_count <= 0;
 end
 
-assign start_signal_a = (delay_count > A+(COL_DIM-B)-1)? 1'b1 : 1'b0;  
+assign start_signal_a = (start_signal == 1'b0 && start_signal_d1 == 1'b1)? 1'b0 : (delay_count > A)? 1'b1 : 1'b0;  
 assign A_w_en = {COL_DIM{start_signal_a}};
-assign start_signal_o = (delay_count > 0)? 1'b1 : 1'b0;  
+assign start_signal_o = (delay_count > 0 && delay_count < A+1)? 1'b1 : 1'b0;  
 
 always @(posedge clk)
 begin

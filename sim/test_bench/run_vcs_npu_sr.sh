@@ -42,8 +42,13 @@
 ## Modify to fit your source file names
 ##
     # Simulated rtl list
-    RTL_LIST="                                  \
-                $TB_DIR/tb_systolic_system_one_tile_bias_relu_full.v                                               \
+    RTL_LIST="  $RTL_DIR/common/bus_package.sv                                  \
+                $RTL_DIR/common/core_package.sv                                 \
+                $RTL_DIR/common/memory_map.sv                                   \
+                $RTL_DIR/common/counter.sv                                      \
+                $RTL_DIR/common/d_flip_flop.sv                                  \
+                $TB_DIR/tb_npu.sv                                               \
+                $RTL_DIR/npu_top/npu.sv                                         \
                 $RTL_DIR/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v     \
                 $RTL_DIR/npu_top/systolic_system/buf/address_generator_A.v      \
                 $RTL_DIR/npu_top/systolic_system/buf/address_generator_W.v      \
@@ -56,10 +61,17 @@
                 $RTL_DIR/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v \
                 $RTL_DIR/npu_top/systolic_system/Intra_net/Intra_net_top.v      \
                 $RTL_DIR/npu_top/systolic_system/Intra_net/transpose.v          \
+                $RTL_DIR/npu_top/systolic_system/submodule/max_16.v             \
                 $RTL_DIR/npu_top/systolic_system/submodule/mux_2_to_1.v         \
+                $RTL_DIR/npu_top/systolic_system/submodule/onehot_encoder.sv    \
                 $RTL_DIR/npu_top/systolic_system/submodule/ram.v                \
                 $RTL_DIR/npu_top/systolic_system/submodule/reg_with_sync_en.v   \
-                $RTL_DIR/npu_top/systolic_system/systolic_system_adv.v         "  
+                $RTL_DIR/npu_top/systolic_system/systolic_system_adv.v          \
+                $RTL_DIR/npu_top/npu_controller/npu_controller.sv               \
+                $RTL_DIR/npu_top/npu_controller/npu_decoder/npu_decoder.sv"                    
+              
+
+
     # Timescale
     TIMESCALE="1ns/1ps"
 ##
@@ -71,14 +83,16 @@
     # Run vcs
     vcs -fgp                    \
         -full64                 \
+        -sverilog               \
         $RTL_LIST     \
         -timescale=$TIMESCALE   \
         +incdir+$DC/dw/sim_ver  \
         +define+SIM             \
         -debug_access+all       \
         -kdb                    \
-        -l vcs.log
-    ./simv -fgp=num_threads:1 -fgp=num_fsdb_threads:1 -fgp=fsdb_adjust_cores | tee vcs_sim.log
-    
+        -l vcs.log              \
+        +errormax=50
+    #./simv -fgp=num_threads:1 -fgp=num_fsdb_threads:1 -fgp=fsdb_adjust_cores | tee vcs_sim.log
+    ./simv  -fgp=num_threads:1 -fgp=num_fsdb_threads:1 -fgp=fsdb_adjust_cores | tee vcs_sim.log
 ##
 ################################################################################

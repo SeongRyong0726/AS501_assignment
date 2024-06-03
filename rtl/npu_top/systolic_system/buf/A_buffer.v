@@ -24,6 +24,7 @@ module A_buffer #(
     input wire      [ARRAY_N-1:0]           bram_to_ram_w_en,
     input wire      [ACT_WIDTH-1:0]         bram_to_ram_w_data,
     input wire      [ACT_WIDTH*ARRAY_M-1: 0]input_dataset_from_O,
+    input wire      Intranet_on,
 
     output wire     [IBUF_DATA_WIDTH-1:  0] act_data_set_out     
 );
@@ -31,6 +32,7 @@ module A_buffer #(
 wire [IBUF_DATA_WIDTH-1:0]      _act_data_set_out;
 wire [ARRAY_N*ADDR_WIDTH-1:0]   _address_to_ram;
 wire [ARRAY_N-1:0]                 enable_signal;
+wire [ACT_WIDTH*ARRAY_M-1: 0]   ram_input_set;
 
 // address_generator
 adderss_generator_A #(
@@ -53,6 +55,7 @@ genvar n;
 generate
 for(n=0; n<ARRAY_N; n=n+1)
 begin: RAM_ARRAY
+    assign ram_input_set[ACT_WIDTH*(n+1)-1: ACT_WIDTH*(n)] = (Intranet_on)? input_dataset_from_O[ACT_WIDTH*(n+1)-1: ACT_WIDTH*(n)]:bram_to_ram_w_data;
     ram #(
         .DATA_WIDTH(ACT_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
@@ -65,7 +68,7 @@ begin: RAM_ARRAY
         .read_data(_act_data_set_out[ACT_WIDTH*n+:ACT_WIDTH]),   //output
         .write_req(bram_to_ram_w_en[n]),
         .write_addr(bram_to_ram_w_addr),
-        .write_data(bram_to_ram_w_data)
+        .write_data(ram_input_set[ACT_WIDTH*(n+1)-1: ACT_WIDTH*(n)])
     );
 
     mux_2_to_1 #(

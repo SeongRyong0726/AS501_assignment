@@ -16,6 +16,8 @@
 #include <inttypes.h>
 #include <math.h>
 
+
+/*
 void imem_transfer(volatile int input[], volatile int imem[], int ich_size, int batch_size){
     for (int i = 0; i < ich_size*batch_size; i=i+1){
         imem[(i/ich_size)+(i%ich_size)*batch_size] = input[i];
@@ -40,53 +42,51 @@ void omem_transfer(volatile int omem[], volatile int output[], int output_size){
 
 void layer1_inference(  volatile int fc1_weight[], volatile int fc1_bias[], volatile int wmem[], volatile int bmem[], 
                         volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
-                        volatile int npu_ctrl[]){
+                        volatile int npu_ctrl[], int batch_size){
 
-    // Contrl Signal Transfer
-    npu_ctrl[0] = 0;
-    npu_ctrl[1] = 0; 
+    // Contrl Signal Transfer 
     npu_ctrl[2] = 0; 
-    npu_ctrl[3] = 0; 
+    npu_ctrl[3] = batch_size; //batch 
     npu_ctrl[4] = 0; 
-    npu_ctrl[5] = 0; 
-    npu_ctrl[6] = 0; 
-    npu_ctrl[7] = 0; 
-    npu_ctrl[8] = 0; 
-    npu_ctrl[9] = 0; 
-    npu_ctrl[10] = 0;
-
+    npu_ctrl[5] = 16;  //output ch
+    npu_ctrl[9] = INPUT_SIZE;  //ich
+    
     for (int i = 0; i<HIDDEN1_SIZE/TILE_SIZE; i=i+1){
+        
+        npu_ctrl[6] = 16*i; 
         wmem_transfer(&fc1_weight[INPUT_SIZE*TILE_SIZE*i], wmem, INPUT_SIZE, TILE_SIZE);
         bias_transfer(&fc1_bias[TILE_SIZE*i], bmem, TILE_SIZE);
         tile_start[0] = 0x00000001;
+        
         while(tile_end[0] == 0x00000001){
             ;
         }
     }
-    omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
-    while(omem2imem_end[0] == 0x00000001){
-        ;
+    
+    for (int i = 0; i<HIDDEN1_SIZE/TILE_SIZE; i=i+1){
+        npu_ctrl[7] = i*16; //Intra_O 
+        npu_ctrl[8] = i*16; //Intra_A
+        omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
+        while(omem2imem_end[0] == 0x00000001){
+            ;
+        }
     }
+
 }
 void layer2_inference(  volatile int fc2_weight[], volatile int fc2_bias[], volatile int wmem[], volatile int bmem[], 
                         volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
-                        volatile int npu_ctrl[]){
+                        volatile int npu_ctrl[], int batch_size){
 
     // Contrl Signal Transfer
-    npu_ctrl[0] = 0;
-    npu_ctrl[1] = 0; 
     npu_ctrl[2] = 0; 
-    npu_ctrl[3] = 0; 
+    npu_ctrl[3] = batch_size; //batch 
     npu_ctrl[4] = 0; 
-    npu_ctrl[5] = 0; 
-    npu_ctrl[6] = 0; 
-    npu_ctrl[7] = 0; 
-    npu_ctrl[8] = 0; 
-    npu_ctrl[9] = 0; 
-    npu_ctrl[10] = 0;
+    npu_ctrl[5] = 16;
+    npu_ctrl[9] = HIDDEN1_SIZE; 
 
     // Tile-wise Operation
-    for (int i = 0; i<HIDDEN2_SIZE/16; i=i+1){
+    for (int i = 0; i<HIDDEN2_SIZE/TILE_SIZE; i=i+1){
+        npu_ctrl[6] = 16*i; 
         wmem_transfer(&fc2_weight[HIDDEN1_SIZE*TILE_SIZE*i], wmem, HIDDEN1_SIZE, TILE_SIZE);
         bias_transfer(&fc2_bias[TILE_SIZE*i], bmem, TILE_SIZE);
         tile_start[0] = 0x00000001;
@@ -94,30 +94,31 @@ void layer2_inference(  volatile int fc2_weight[], volatile int fc2_bias[], vola
             ;
         }
     }
-    omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
-    while(omem2imem_end[0] == 0x00000001){
-        ;
+    for (int i = 0; i<HIDDEN2_SIZE/TILE_SIZE; i=i+1){
+        npu_ctrl[7] = i*16; //Intra_O 
+        npu_ctrl[8] = i*16; //Intra_A
+        omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
+        while(omem2imem_end[0] == 0x00000001){
+            ;
+        }
     }
 }
 void layer3_inference(  volatile int fc3_weight[], volatile int fc3_bias[], volatile int wmem[], volatile int bmem[], 
-                        volatile int tile_start[], volatile int tile_end[], volatile int npu_ctrl[]){
+                        volatile int tile_start[], volatile int tile_end[], volatile int npu_ctrl[], int batch_size){
 
     // Contrl Signal Transfer
-    npu_ctrl[0] = 0;
-    npu_ctrl[1] = 0; 
     npu_ctrl[2] = 0; 
-    npu_ctrl[3] = 0; 
+    npu_ctrl[3] = batch_size; //batch 
     npu_ctrl[4] = 0; 
-    npu_ctrl[5] = 0; 
-    npu_ctrl[6] = 0; 
+    npu_ctrl[5] = 10;
     npu_ctrl[7] = 0; 
-    npu_ctrl[8] = 0; 
-    npu_ctrl[9] = 0; 
-    npu_ctrl[10] = 0;
+    npu_ctrl[8] = 0;    
+    npu_ctrl[9] = HIDDEN2_SIZE; 
     
     // Tile-wise Operation
     for (int i = 0; i<OUTPUT_SIZE/16; i=i+1){
-        wmem_transfer(&fc3_weight[HIDDEN2_SIZE*TILE_SIZE*i], wmem, HIDDEN2_SIZE, TILE_SIZE);
+        npu_ctrl[6] = 16*i; 
+        wmem_transfer(&fc3_weight[HIDDEN2_SIZE*10*i], wmem, HIDDEN2_SIZE, 10);
         bias_transfer(&fc3_bias[TILE_SIZE*i], bmem, TILE_SIZE);
         tile_start[0] = 0x00000001;
         while(tile_end[0] == 0x00000001){
@@ -125,49 +126,58 @@ void layer3_inference(  volatile int fc3_weight[], volatile int fc3_bias[], vola
         }
     }
 }
-
+*/
+/*
 void batch_inference(   volatile int input[], volatile int fc1_weight[], volatile int fc2_weight[], volatile int fc3_weight[],
                         volatile int fc1_bias[], volatile int fc2_bias[], volatile int fc3_bias[], volatile int output[], 
                         volatile int imem[], volatile int wmem[], volatile int bmem[], volatile int omem[],
                         volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
                         volatile int npu_ctrl[], int batch_size){
-
-    imem_transfer(input, imem, INPUT_SIZE, batch_size);
-    layer1_inference(fc1_weight, fc1_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl);
-    layer2_inference(fc2_weight, fc2_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl);
-    layer3_inference(fc3_weight, fc3_bias, wmem, bmem, tile_start, tile_end, npu_ctrl);
-    omem_transfer(omem, output, OUTPUT_SIZE*batch_size);
+                            */
+                           /*
+void batch_inference(int input[], int imem[], int batch_size){
+    for (int i = 0; i < INPUT_SIZE*batch_size; i=i+1){
+        //imem[(i/INPUT_SIZE)+(i%INPUT_SIZE)*batch_size] = input[i];
+        imem[i]=input[i];
+    }
 }
+*/
+/*                    
+    //imem_transfer(input, imem, INPUT_SIZE, batch_size);
+    layer1_inference(fc1_weight, fc1_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
+   
+    layer2_inference(fc2_weight, fc2_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
+    layer3_inference(fc3_weight, fc3_bias, wmem, bmem, tile_start, tile_end, npu_ctrl, batch_size);
+    
+    omem_transfer(omem, output, batch_size);
+}*/
 
 int main(void){
-    volatile int* input       = (int*)(INPUT_ADDR);
-    volatile int* fc1_weight  = (int*)(FC1_W_ADDR);
-    volatile int* fc1_bias    = (int*)(FC1_B_ADDR);
-    volatile int* fc1_output  = (int*)(FC1_O_ADDR);
-    volatile int* fc2_weight  = (int*)(FC2_W_ADDR);
-    volatile int* fc2_bias    = (int*)(FC2_B_ADDR);
-    volatile int* fc2_output  = (int*)(FC2_O_ADDR);
-    volatile int* fc3_weight  = (int*)(FC3_W_ADDR);
-    volatile int* fc3_bias    = (int*)(FC3_B_ADDR);
-    volatile int* output      = (int*)(OUTPUT_ADDR);
-    volatile int* label       = (int*)(LABEL_ADDR);
+    volatile int* input       = (volatile int*)(INPUT_ADDR);
+    volatile int* fc1_weight  = (volatile int*)(FC1_W_ADDR);
+    volatile int* fc1_bias    = (volatile int*)(FC1_B_ADDR);
+    volatile int* fc1_output  = (volatile int*)(FC1_O_ADDR);
+    volatile int* fc2_weight  = (volatile int*)(FC2_W_ADDR);
+    volatile int* fc2_bias    = (volatile int*)(FC2_B_ADDR);
+    volatile int* fc2_output  = (volatile int*)(FC2_O_ADDR);
+    volatile int* fc3_weight  = (volatile int*)(FC3_W_ADDR);
+    volatile int* fc3_bias    = (volatile int*)(FC3_B_ADDR);
+    volatile int* output      = (volatile int*)(OUTPUT_ADDR);
+    volatile int* label       = (volatile int*)(LABEL_ADDR);
     
     // JW ADD (24.05.29)
-    volatile int* input_loopback = (int*)(INPUT_LOOPBACK_ADDR);
+    volatile int* input_loopback = (volatile int*)(INPUT_LOOPBACK_ADDR);
 
-    volatile int* imem    = (int*)(IMEM_ADDR);
-    volatile int* wmem    = (int*)(WMEM_ADDR);
-    volatile int* bmem    = (int*)(BMEM_ADDR);
-    volatile int* omem    = (int*)(OMEM_ADDR);
+    volatile int* imem    = (volatile int*)(IMEM_ADDR);
+    volatile int* wmem    = (volatile int*)(WMEM_ADDR);
+    volatile int* bmem    = (volatile int*)(BMEM_ADDR);
+    volatile int* omem    = (volatile int*)(OMEM_ADDR);
 
-    volatile int* tile_start        = (int*)(TILE_START_ADDR);
-    volatile int* tile_end          = (int*)(TILE_END_ADDR);   
-    volatile int* omem2imem_start   = (int*)(OMEM2IMEM_START_ADDR); 
-    volatile int* omem2imem_end     = (int*)(OMEM2IMEM_END_ADDR); 
-    volatile int* layer_start       = (int*)(TILE_START_ADDR);
-    volatile int* layer_end         = (int*)(TILE_END_ADDR);
-    volatile int* npu_ctrl          = (int*)(NPU_CTRL_ADDR);
-    volatile int* max               = (int*)(MAX_ADDR);
+    volatile int* tile_start        = (volatile int*)(TILE_START_ADDR);
+    volatile int* tile_end          = (volatile int*)(TILE_END_ADDR);   
+    volatile int* omem2imem_start   = (volatile int*)(OMEM2IMEM_START_ADDR); 
+    volatile int* omem2imem_end     = (volatile int*)(OMEM2IMEM_END_ADDR); 
+    volatile int* npu_ctrl          = (volatile int*)(NPU_CTRL_ADDR);
     
     int NPUCtrlSize = 16;
 
@@ -231,30 +241,31 @@ int main(void){
     unsigned int batch_idx = 0;
     unsigned int image_idx_offset = 0;
     unsigned int batch_size = 0;
+
     for (batch_idx = 0; batch_idx < NUM_OF_BATCH; ++batch_idx){
-        
         if ((batch_idx == NUM_OF_BATCH-1) && (NUM_OF_TEST%BATCH_SIZE!=0)){
             batch_size = NUM_OF_TEST%BATCH_SIZE;
         }
         else{
             batch_size = 16;
         }
-
-        batch_inference(&input[INPUT_SIZE*BATCH_SIZE*batch_idx], 
+   
+        batch_inference(input, // &input[INPUT_SIZE*BATCH_SIZE*batch_idx], 
                         fc1_weight, fc2_weight, fc3_weight,
                         fc1_bias, fc2_bias, fc3_bias, 
-                        &output[OUTPUT_SIZE*BATCH_SIZE*batch_idx],
+                        &output[BATCH_SIZE*batch_idx],
                         imem, wmem, bmem, omem, 
                         tile_start, tile_end, omem2imem_start, omem2imem_end, 
                         npu_ctrl, batch_size);
 
-        for (image_idx_offset = 0; image_idx_offset < BATCH_SIZE; ++image_idx_offset){
-            if (max[image_idx_offset] == label[image_idx]){
+        for (image_idx_offset = 0; image_idx_offset < batch_size; ++image_idx_offset){
+            if (output[image_idx] == label[image_idx]){
                 ++correct_count;
             }
             ++image_idx;
         }
     }
+    //}
 
     asm volatile("csrrs %0, mcycle, x0" : "=r" (end_clow));
     asm volatile("csrrs %0, mcycleh, x0" : "=r" (end_chigh));
@@ -283,3 +294,132 @@ int main(void){
     return 0;
 };
 
+void imem_transfer(volatile int input[], volatile int imem[], int ich_size, int batch_size, int i_ema_size){
+    for (int i = 0; i < I_EMA_SIZE; i=i+1){
+        imem[i] = input[i];
+        //volatile int temp = (i/ich_size)+(i%ich_size)*BATCH_SIZE;
+        //imem[temp] = input[i];
+    }
+}
+
+void wmem_transfer(volatile int weight[], volatile int wmem[], int ich_size, int tile_size, int w_ema_size){
+    for (volatile int i = 0; i < w_ema_size; i=i+1){
+        wmem[i] = weight[i];
+        //volatile int temp = (i/ich_size)+(i%ich_size)*tile_size;
+        //wmem[temp] = weight[i];
+    }
+}
+void bias_transfer(volatile int bias[], volatile int bmem[], int bias_size){
+    for (volatile int i = 0; i < bias_size; i=i+1){
+        bmem[i] = bias[i];
+    }
+}
+
+void omem_transfer(volatile int omem[], volatile int output[], int output_size){
+    for (volatile int i = 0; i < output_size; i=i+1){
+        output[i] = omem[i];
+    }
+}
+
+
+void layer1_inference(  volatile int fc1_weight[], volatile int fc1_bias[], volatile int wmem[], volatile int bmem[], 
+                        volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
+                        volatile int npu_ctrl[], int batch_size){
+
+    // Contrl Signal Transfer 
+    npu_ctrl[2] = 0; 
+    npu_ctrl[3] = batch_size; //batch 
+    npu_ctrl[4] = 0; 
+    npu_ctrl[5] = 16;  //output ch
+    npu_ctrl[9] = INPUT_SIZE;  //ich
+    
+    for (volatile int i = 0; i<FC1_TILE_ITER; i=i+1){
+        
+        npu_ctrl[6] = 16*i; 
+        wmem_transfer(&fc1_weight[INPUT_SIZE*TILE_SIZE*i], wmem, INPUT_SIZE, TILE_SIZE, W_FC1_TILE_EMA_SIZE);
+        bias_transfer(&fc1_bias[TILE_SIZE*i], bmem, TILE_SIZE);
+        tile_start[0] = 0x00000001;
+        
+        while(tile_end[0] == 0x00000001){
+            ;
+        }
+    }
+    
+    for (volatile int i = 0; i<FC1_TILE_ITER; i=i+1){
+        npu_ctrl[7] = i*16; //Intra_O 
+        npu_ctrl[8] = i*16; //Intra_A
+        omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
+        while(omem2imem_end[0] == 0x00000001){
+            ;
+        }
+    }
+
+}
+void layer2_inference(  volatile int fc2_weight[], volatile int fc2_bias[], volatile int wmem[], volatile int bmem[], 
+                        volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
+                        volatile int npu_ctrl[], int batch_size){
+
+    // Contrl Signal Transfer
+    npu_ctrl[2] = 0; 
+    npu_ctrl[3] = batch_size; //batch 
+    npu_ctrl[4] = 0; 
+    npu_ctrl[5] = 16;
+    npu_ctrl[9] = HIDDEN1_SIZE; 
+
+    // Tile-wise Operation
+    for (volatile int i = 0; i<FC2_TILE_ITER; i=i+1){
+        npu_ctrl[6] = 16*i; 
+        wmem_transfer(&fc2_weight[HIDDEN1_SIZE*TILE_SIZE*i], wmem, HIDDEN1_SIZE, TILE_SIZE, W_FC2_TILE_EMA_SIZE);
+        bias_transfer(&fc2_bias[TILE_SIZE*i], bmem, TILE_SIZE);
+        tile_start[0] = 0x00000001;
+        while(tile_end[0] == 0x00000001){
+            ;
+        }
+    }
+    for (volatile int i = 0; i<FC2_TILE_ITER; i=i+1){
+        npu_ctrl[7] = i*16; //Intra_O 
+        npu_ctrl[8] = i*16; //Intra_A
+        omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
+        while(omem2imem_end[0] == 0x00000001){
+            ;
+        }
+    }
+}
+void layer3_inference(  volatile int fc3_weight[], volatile int fc3_bias[], volatile int wmem[], volatile int bmem[], 
+                        volatile int tile_start[], volatile int tile_end[], volatile int npu_ctrl[], int batch_size){
+
+    // Contrl Signal Transfer
+    npu_ctrl[2] = 0; 
+    npu_ctrl[3] = batch_size; //batch 
+    npu_ctrl[4] = 0; 
+    npu_ctrl[5] = 10;
+    npu_ctrl[7] = 0; 
+    npu_ctrl[8] = 0;    
+    npu_ctrl[9] = HIDDEN2_SIZE; 
+    
+    // Tile-wise Operation
+    for (volatile int i = 0; i<1; i=i+1){
+        npu_ctrl[6] = 16*i; 
+        wmem_transfer(&fc3_weight[HIDDEN2_SIZE*10*i], wmem, HIDDEN2_SIZE, 10, W_FC3_TILE_EMA_SIZE);
+        bias_transfer(&fc3_bias[TILE_SIZE*i], bmem, TILE_SIZE);
+        tile_start[0] = 0x00000001;
+        while(tile_end[0] == 0x00000001){
+            ;
+        }
+    }
+}
+
+void batch_inference(   volatile int input[], volatile int fc1_weight[], volatile int fc2_weight[], volatile int fc3_weight[],
+                        volatile int fc1_bias[], volatile int fc2_bias[], volatile int fc3_bias[], volatile int output[], 
+                        volatile int imem[], volatile int wmem[], volatile int bmem[], volatile int omem[],
+                        volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
+                        volatile int npu_ctrl[], int batch_size){
+                                   
+    imem_transfer(input, imem, INPUT_SIZE, batch_size, I_EMA_SIZE);
+    
+    layer1_inference(fc1_weight, fc1_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
+    layer2_inference(fc2_weight, fc2_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
+    layer3_inference(fc3_weight, fc3_bias, wmem, bmem, tile_start, tile_end, npu_ctrl, batch_size);
+    
+    omem_transfer(omem, output, batch_size);
+}
