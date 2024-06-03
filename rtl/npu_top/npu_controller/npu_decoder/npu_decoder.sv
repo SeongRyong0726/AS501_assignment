@@ -31,9 +31,7 @@ module npu_decoder #(
             end
             else if ((addr_i == NPU_OP_Start + 4) && (cen_i==1'b1) && (wen_i==1'b1)) begin//operation 2 data move
                 op_type = 4'b0001;
-            end else begin
-                op_type = 4'b0000; // 기본값 설정 (필요시)
-            end
+            end 
         end
     end
 endmodule
