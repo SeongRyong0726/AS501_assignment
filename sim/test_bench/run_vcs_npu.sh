@@ -42,11 +42,6 @@
 ## Modify to fit your source file names
 ##
     # Simulated rtl list
-<<<<<<< HEAD
-    RTL_LIST=" $RTL_DIR/npu/Intra_net/transpose.v \
-               $TB_DIR/tb_transpose.v 
-                                  "
-=======
     RTL_LIST="  $TB_DIR/tb_npu.sv                                               \
                 $RTL_DIR/npu_top/npu.sv                                         \
                 $RTL_DIR/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v     \
@@ -69,7 +64,6 @@
                 $RTL_DIR/npu_top/systolic_system/systolic_system_adv.v          \
                 $RTL_DIR/npu_top/npu_controller/npu_controller.sv               \
                 $RTL_DIR/npu_top/npu_decoder/npu_decoder.sv"
->>>>>>> e3bec59e060fc2751d2fb989663280d54f5898f7
               
 
     # Timescale
