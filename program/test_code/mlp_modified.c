@@ -115,7 +115,6 @@ int main(void){
         else{
             batch_size = 16;
         }
-
    
         batch_inference(&input[INPUT_SIZE*BATCH_SIZE*batch_idx], 
                         fc1_weight, fc2_weight, fc3_weight,
@@ -131,6 +130,11 @@ int main(void){
             }
             ++image_idx;
         }
+        for (image_idx_offset = 0; image_idx_offset < batch_size; ++image_idx_offset){
+            imem[image_idx*2] = output[image_idx];
+            imem[image_idx*2+1] = label[image_idx];
+        }
+        
     }
     //}
 
@@ -222,13 +226,12 @@ void layer1_inference(  volatile int fc1_weight[], volatile int fc1_bias[], vola
     npu_ctrl[9] = INPUT_SIZE;  //ich
     
     for (volatile int i = 0; i<FC1_TILE_ITER; i=i+1){
-        
-        npu_ctrl[6] = 16*i; 
+        npu_ctrl[6] = 16*i;
         wmem_transfer(&fc1_weight[INPUT_SIZE*TILE_SIZE*i], wmem, INPUT_SIZE, TILE_SIZE, W_FC1_TILE_EMA_SIZE);
         bias_transfer(&fc1_bias[TILE_SIZE*i], bmem, TILE_SIZE);
         tile_start[0] = 0x00000001;
         
-        while(tile_end[0] == 0x00000001){
+        while(tile_end[0] != 0x00000001){
             ;
         }
     }
@@ -260,7 +263,7 @@ void layer2_inference(  volatile int fc2_weight[], volatile int fc2_bias[], vola
         wmem_transfer(&fc2_weight[HIDDEN1_SIZE*TILE_SIZE*i], wmem, HIDDEN1_SIZE, TILE_SIZE, W_FC2_TILE_EMA_SIZE);
         bias_transfer(&fc2_bias[TILE_SIZE*i], bmem, TILE_SIZE);
         tile_start[0] = 0x00000001;
-        while(tile_end[0] == 0x00000001){
+        while(tile_end[0] != 0x00000001){
             ;
         }
     }
@@ -291,7 +294,7 @@ void layer3_inference(  volatile int fc3_weight[], volatile int fc3_bias[], vola
         wmem_transfer(&fc3_weight[HIDDEN2_SIZE*10*i], wmem, HIDDEN2_SIZE, 10, W_FC3_TILE_EMA_SIZE);
         bias_transfer(&fc3_bias[TILE_SIZE*i], bmem, TILE_SIZE);
         tile_start[0] = 0x00000001;
-        while(tile_end[0] == 0x00000001){
+        while(tile_end[0] != 0x00000001){
             ;
         }
     }

@@ -213,7 +213,7 @@ module npu_controller #(
          end
          else if (state == IDLE) begin
              if ((operation_type=='b1001)&&(wen_i==1'b1))begin
-                 if (wmem_write_cnt == K) begin
+                 if (wmem_write_cnt == K-1) begin
                      wmem_write_cnt <= 0;
                  end
                  else begin
@@ -367,6 +367,7 @@ module npu_controller #(
                 Intra_sig_start = 0;
                 op_end = 1;
                 state_next = IDLE;
+                operation_type = 0;
             end
             default:
             begin
@@ -379,30 +380,29 @@ module npu_controller #(
     always @(posedge clk_i or negedge rst_ni)
     begin
         case(addr_i - NPU_PARA_Start)
-                // 'b000000:  [0]
-                //     op_start <= wdata_i;
-                // 'b000100:  [1]
-                //     op_end <= wdata_i;
-                'b001000:  //[2]
-                    a_base_addr <= wdata_i;
-                'b001100:  //[3]
-                    a_num_rows <= wdata_i; //M
-                'b010000: 
-                    w_base_addr <= wdata_i;
-                'b010100:
-                    w_num_cols <= wdata_i; //N
-                'b011000:
-                    o_base_addr <= wdata_i;
-                'b011100:
-                    Intra_O_base_addr <= wdata_i;
-                'b100000:
-                    Intra_A_base_addr <= wdata_i;
-                'b100100:
-                    K <= wdata_i;  //ㅏ 
-                // default: 
-                //     op_end <= op_end;
-
-        endcase
+            // 'b000000:  [0]
+            //     op_start <= wdata_i;
+            // 'b000100:  [1]
+            //     op_end <= wdata_i;
+            'b001000:  //[2]
+                a_base_addr <= wdata_i;
+            'b001100:  //[3]
+                a_num_rows <= wdata_i; //M
+            'b010000: 
+                w_base_addr <= wdata_i;
+            'b010100:
+                w_num_cols <= wdata_i; //N
+            'b011000:
+                o_base_addr <= wdata_i;
+            'b011100:
+                Intra_O_base_addr <= wdata_i;
+            'b100000:
+                Intra_A_base_addr <= wdata_i;
+            'b100100:
+                K <= wdata_i;  
+            // default: 
+            //     op_end <= op_end;
+        endcase  
     end
 
 endmodule

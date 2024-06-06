@@ -80,8 +80,8 @@ module O_buffer #(
             .write_data(data_in_[OUT_WIDTH*m+:OUT_WIDTH])
         );
         assign data_read = (ram_idx == m)? output_data[DATA_WIDTH-1:0] : {DATA_WIDTH{32'bZ}};
-        assign data_read_set[ACT_WIDTH*(m+1)-1 : ACT_WIDTH*(m)] = (m<num_cols)? output_data[ACT_WIDTH-1:0] : {(ACT_WIDTH){1'b0}};
-        assign debug_output[ACT_WIDTH*(m+1)-1 : ACT_WIDTH*(m)] = output_data[ACT_WIDTH-1:0];
+        assign data_read_set[ACT_WIDTH*(m+1)-1 : ACT_WIDTH*(m)] = (m<num_cols)? ((output_data > 32'b01111111)? 8'b01111111 : output_data[ACT_WIDTH-1:0]) : {(ACT_WIDTH){1'b0}};
+        assign debug_output[ACT_WIDTH*(m+1)-1 : ACT_WIDTH*(m)] = output_data[ACT_WIDTH*2-1:ACT_WIDTH];
     end
     endgenerate
 endmodule
