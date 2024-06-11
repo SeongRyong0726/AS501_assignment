@@ -11,7 +11,7 @@
 //                            Supervised by Wanyeong Jung (wanyeong@kaist.ac.kr)
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "mlp_modified_10.h"
+#include "mlp_modified_1000.h"
 #include <stdint.h>
 #include <inttypes.h>
 #include <math.h>
@@ -50,7 +50,6 @@ int main(void){
     int InputSize     = 784;
     int Hidden1Size   = 128;
     int Hidden2Size   = 64;
-    int OutputSize    = 10;
 
 
 
@@ -73,22 +72,24 @@ int main(void){
     unsigned int batch_idx = 0;
     unsigned int image_idx_offset = 0;
     unsigned int batch_size = 0;
+    unsigned int option = 0;
 
     for (batch_idx = 0; batch_idx < NUM_OF_BATCH; ++batch_idx){
         if ((batch_idx == NUM_OF_BATCH-1) && (NUM_OF_TEST%BATCH_SIZE!=0)){
             batch_size = NUM_OF_TEST%BATCH_SIZE;
+            option = 1;
         }
         else{
             batch_size = 16;
+            option = 0;
         }
-   
         batch_inference(&input[INPUT_SIZE*BATCH_SIZE*batch_idx], 
                         fc1_weight, fc2_weight, fc3_weight,
                         fc1_bias, fc2_bias, fc3_bias, 
                         &output[BATCH_SIZE*batch_idx],
                         imem, wmem, bmem, omem, 
                         tile_start, tile_end, omem2imem_start, omem2imem_end, 
-                        npu_ctrl, batch_size);
+                        npu_ctrl, batch_size, option);
 
         for (image_idx_offset = 0; image_idx_offset < batch_size; ++image_idx_offset){
             if (output[image_idx] == label[image_idx]){
@@ -96,7 +97,6 @@ int main(void){
             }
             ++image_idx;
         }
-        
     }
     //}
 
@@ -132,7 +132,7 @@ void batch_inference(   volatile int input[], volatile int fc1_weight[], volatil
                         volatile int fc1_bias[], volatile int fc2_bias[], volatile int fc3_bias[], volatile int output[], 
                         volatile int imem[], volatile int wmem[], volatile int bmem[], volatile int omem[],
                         volatile int tile_start[], volatile int tile_end[], volatile int omem2imem_start[], volatile int omem2imem_end[],
-                        volatile int npu_ctrl[], int batch_size){
+                        volatile int npu_ctrl[], int batch_size, int option){
     
     npu_ctrl[9] = INPUT_SIZE;  //ich                                                 
     imem_transfer(input, imem, INPUT_SIZE, batch_size, I_EMA_SIZE);
@@ -140,34 +140,78 @@ void batch_inference(   volatile int input[], volatile int fc1_weight[], volatil
     layer1_inference(fc1_weight, fc1_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
     layer2_inference(fc2_weight, fc2_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
     layer3_inference(fc3_weight, fc3_bias, wmem, bmem, tile_start, tile_end, npu_ctrl, batch_size);
+    if(option == 0){
+        output[0] = omem[15];
+        output[1] = omem[14];
+        output[2] = omem[13];
+        output[3] = omem[12];
+        output[4] = omem[11];
+        output[5] = omem[10];
+        output[6] = omem[9];
+        output[7] = omem[8];
+        output[8] = omem[7];
+        output[9] = omem[6];
+        output[10] = omem[5];
+        output[11] = omem[4];
+        output[12] = omem[3];
+        output[13] = omem[2];
+        output[14] = omem[1];
+        output[15] = omem[0];
+    }else{
+        output[7] = omem[0];
+        output[6] = omem[1];
+        output[5] = omem[2];
+        output[4] = omem[3];
+        output[3] = omem[4];
+        output[2] = omem[5];
+        output[1] = omem[6];
+        output[0] = omem[7];
+    }
+    // if(option == 0){ //16
+    //     output[0] = omem[15];
+    //     output[1] = omem[14];
+    //     output[2] = omem[13];
+    //     output[3] = omem[12];
+    //     output[4] = omem[11];
+    //     output[5] = omem[10];
+    //     output[6] = omem[9];
+    //     output[7] = omem[8];
+    //     output[8] = omem[7];
+    //     output[9] = omem[6];
+    //     output[10] = omem[5];
+    //     output[11] = omem[4];
+    //     output[12] = omem[3];
+    //     output[13] = omem[2];
+    //     output[14] = omem[1];
+    //     output[15] = omem[0];
+    // }else if(option == 1){ // 10
+    //     output[9] = omem[0];
+    //     output[8] = omem[1];
+    //     output[7] = omem[2];
+    //     output[6] = omem[3];
+    //     output[5] = omem[4];
+    //     output[4] = omem[5];
+    //     output[3] = omem[6];
+    //     output[2] = omem[7];
+    //     output[1] = omem[8];
+    //     output[0] = omem[9];
+    // }else if(option == 2){ // 100%16 = 4
+    //     output[3] = omem[0];
+    //     output[2] = omem[1];
+    //     output[1] = omem[2];
+    //     output[0] = omem[3];
+    // }else if(option == 3){ //1000%16 = 8
+    //     output[7] = omem[0];
+    //     output[6] = omem[1];
+    //     output[5] = omem[2];
+    //     output[4] = omem[3];
+    //     output[3] = omem[4];
+    //     output[2] = omem[5];
+    //     output[1] = omem[6];
+    //     output[0] = omem[7];
+    // }
     
-    //omem_transfer(omem, output, batch_size);
-    output[9] = omem[0];
-    output[8] = omem[1];
-    output[7] = omem[2];
-    output[6] = omem[3];
-    output[5] = omem[4];
-    output[4] = omem[5];
-    output[3] = omem[6];
-    output[2] = omem[7];
-    output[1] = omem[8];
-    output[0] = omem[9];
-    // output[0] = omem[15];
-    // output[1] = omem[14];
-    // output[2] = omem[13];
-    // output[3] = omem[12];
-    // output[4] = omem[11];
-    // output[5] = omem[10];
-    // output[6] = omem[9];
-    // output[7] = omem[8];
-    // output[8] = omem[7];
-    // output[9] = omem[6];
-    // output[10] = omem[5];
-    // output[11] = omem[4];
-    // output[12] = omem[3];
-    // output[13] = omem[2];
-    // output[14] = omem[1];
-    // output[15] = omem[0];
+    
 }
 
 void imem_transfer(volatile int input[], volatile int imem[], int ich_size, int batch_size, int i_ema_size){

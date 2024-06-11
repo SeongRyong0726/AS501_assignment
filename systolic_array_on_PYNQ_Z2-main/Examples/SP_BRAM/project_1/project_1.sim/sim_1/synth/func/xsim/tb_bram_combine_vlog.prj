@@ -1,7 +1,0 @@
-# compile verilog/system verilog design source files
-verilog xil_defaultlib  \
-"tb_bram_combine_func_synth.v" \
-"../../../../../../tb_example.v" \
-
-# Do not sort compile order
-nosort

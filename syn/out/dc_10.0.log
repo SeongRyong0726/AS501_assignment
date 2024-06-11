@@ -1,17 +1,17 @@
 Initializing gui preferences from file  /home/AS20233757/.synopsys_dc_gui/preferences.tcl
-Current time:       Tue Jun 11 23:05:44 2024
+Current time:       Tue Jun 11 23:40:56 2024
 Hostname:           cpu
 CPU Model:          AMD EPYC 9654 96-Core Processor
 CPU Details:        Cores = 1 : Sockets = 1 : Cache Size = 1024 KB : Freq = 2.40 GHz
 OS:                 Linux 3.10.0-1160.el7.x86_64
-RAM:                1511 GB (Free  41 GB)
+RAM:                1511 GB (Free   2 GB)
 Swap:               127 GB (Free 127 GB)
 Work Filesystem:    /home mounted to 20.20.20.20:/linux_home
 Tmp Filesystem:     / mounted to /dev/nvme0n1p2
 Work Disk:          35840 GB (Free 30334 GB)
 Tmp Disk:           1658 GB (Free 1558 GB)
 
-CPU Load: 1822%, Ram Free: 41 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
+CPU Load: 841%, Ram Free: 2 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
 #!/bin/bash
 ################################################################################
 ## AS501
@@ -446,7 +446,7 @@ Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed infor
 ****************************************
 check_design summary:
 Version:     V-2023.12-SP1
-Date:        Tue Jun 11 23:05:45 2024
+Date:        Tue Jun 11 23:40:57 2024
 ****************************************
 
                    Name                                            Total
