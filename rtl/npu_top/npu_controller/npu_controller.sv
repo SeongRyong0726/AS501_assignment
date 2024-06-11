@@ -352,7 +352,7 @@ module npu_controller #(
                 else begin
                     sa_reset = 0;
                 end    
-                if (count == 3) begin 
+                if (count == 100) begin 
                     state_next <= IDLE;
                 end
             end

@@ -50,7 +50,6 @@ int main(void){
     int InputSize     = 784;
     int Hidden1Size   = 128;
     int Hidden2Size   = 64;
-    int OutputSize    = 100;
 
 
 
@@ -77,10 +76,12 @@ int main(void){
 
     for (batch_idx = 0; batch_idx < NUM_OF_BATCH; ++batch_idx){
         if ((batch_idx == NUM_OF_BATCH-1) && (NUM_OF_TEST%BATCH_SIZE!=0)){
-            batch_size = 10; //NUM_OF_TEST%BATCH_SIZE;
+            batch_size = NUM_OF_TEST%BATCH_SIZE;
+            option = 1;
         }
         else{
-            batch_size = 10;
+            batch_size = 16;
+            option = 0;
         }
         batch_inference(&input[INPUT_SIZE*BATCH_SIZE*batch_idx], 
                         fc1_weight, fc2_weight, fc3_weight,
@@ -139,17 +140,33 @@ void batch_inference(   volatile int input[], volatile int fc1_weight[], volatil
     layer1_inference(fc1_weight, fc1_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
     layer2_inference(fc2_weight, fc2_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
     layer3_inference(fc3_weight, fc3_bias, wmem, bmem, tile_start, tile_end, npu_ctrl, batch_size);
-    
-    output[9] = omem[0];
-    output[8] = omem[1];
-    output[7] = omem[2];
-    output[6] = omem[3];
-    output[5] = omem[4];
-    output[4] = omem[5];
-    output[3] = omem[6];
-    output[2] = omem[7];
-    output[1] = omem[8];
-    output[0] = omem[9];
+    if(option == 0){
+        output[0] = omem[15];
+        output[1] = omem[14];
+        output[2] = omem[13];
+        output[3] = omem[12];
+        output[4] = omem[11];
+        output[5] = omem[10];
+        output[6] = omem[9];
+        output[7] = omem[8];
+        output[8] = omem[7];
+        output[9] = omem[6];
+        output[10] = omem[5];
+        output[11] = omem[4];
+        output[12] = omem[3];
+        output[13] = omem[2];
+        output[14] = omem[1];
+        output[15] = omem[0];
+    }else{
+        output[7] = omem[0];
+        output[6] = omem[1];
+        output[5] = omem[2];
+        output[4] = omem[3];
+        output[3] = omem[4];
+        output[2] = omem[5];
+        output[1] = omem[6];
+        output[0] = omem[7];
+    }
     // if(option == 0){ //16
     //     output[0] = omem[15];
     //     output[1] = omem[14];

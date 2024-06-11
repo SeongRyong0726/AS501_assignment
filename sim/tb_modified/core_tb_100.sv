@@ -33,7 +33,7 @@ module CORE_TB();
     localparam Fc3WAddr      = (Fc2OAddr   + Hidden2Size * 4);
     localparam Fc3BAddr      = (Fc3WAddr   + Hidden2Size * OutputSize  * 4);
     localparam OutputAddr    = (Fc3BAddr   + OutputSize  * 4);
-    localparam LabelAddr     = (OutputAddr + OutputSize  * 4);
+    localparam LabelAddr     = (OutputAddr + NumOfTest  * 4);
 
     localparam ImageInitFile = "../../program/test_code/image/image_100.txt";
     localparam Fc1WInitFile  = "../../program/test_code/parameter/fc1_weight.txt";
@@ -76,6 +76,8 @@ module CORE_TB();
         clk = 1'b0;
         forever #ClkHalf clk = ~clk;
     end
+
+
 
     // Memory Clock generator
     // You can't modify mClkPeriod
@@ -181,10 +183,10 @@ module CORE_TB();
         $finish();
     end
 
-    // Waveform dump
-    // initial begin
-    //     $fsdbDumpfile("./core.fsdb");
-    //     $fsdbDumpvars("+mda", DUT);
-    // end
+    //Waveform dump
+    initial begin
+        $fsdbDumpfile("./core.fsdb");
+        $fsdbDumpvars("+mda", DUT);
+    end
 
 endmodule

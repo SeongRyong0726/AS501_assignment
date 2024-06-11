@@ -1,0 +1,360 @@
+Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nets
+        -max_paths 1
+        -transition_time
+Design : SOC_TOP
+Version: V-2023.12-SP1
+Date   : Tue Jun 11 22:35:04 2024
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1p05v25c   Library: saed32rvt_tt1p05v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: CPU/ICACHE/FF_CACHE_STATE/read_data_o_reg_1_
+              (rising edge-triggered flip-flop clocked by clk_i)
+  Endpoint: CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_data_o_reg_63_
+            (rising edge-triggered flip-flop clocked by clk_i)
+  Path Group: clk_i
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  SOC_TOP            70000                 saed32rvt_tt1p05v25c
+  INSTR_CACHE_DWidth32 35000               saed32rvt_tt1p05v25c
+  CPU_TOP_DWidth32   70000                 saed32rvt_tt1p05v25c
+  DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12 8000 saed32rvt_tt1p05v25c
+  SCALAR_CORE_DWidth32 35000               saed32rvt_tt1p05v25c
+  REGFILE_DWidth32_NumofReg32 16000        saed32rvt_tt1p05v25c
+  MUX4TO1_DWidth32_2 8000                  saed32rvt_tt1p05v25c
+  ALU_DWidth32_OpWidth5 16000              saed32rvt_tt1p05v25c
+  COUNTER_64_0_0     8000                  saed32rvt_tt1p05v25c
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                                                         Fanout     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------------------------------
+  clock clk_i (rise edge)                                                                             0.00       0.00
+  clock network delay (ideal)                                                                         0.00       0.00
+  CPU/ICACHE/FF_CACHE_STATE/read_data_o_reg_1_/CLK (DFFX1_RVT)                              0.16      0.00 #     0.00 r
+  CPU/ICACHE/FF_CACHE_STATE/read_data_o_reg_1_/Q (DFFX1_RVT)                                0.03      0.11       0.11 r
+  CPU/ICACHE/FF_CACHE_STATE/read_data_o[1] (net)                                  5                   0.00       0.11 r
+  CPU/ICACHE/FF_CACHE_STATE/read_data_o[1] (D_FF_2_3)                                                 0.00       0.11 r
+  CPU/ICACHE/cache_state_q[1] (net)                                                                   0.00       0.11 r
+  CPU/ICACHE/U42/Y (AND2X1_RVT)                                                             0.02      0.05       0.16 r
+  CPU/ICACHE/n5 (net)                                                             2                   0.00       0.16 r
+  CPU/ICACHE/U6/Y (INVX2_RVT)                                                               0.05      0.07       0.24 f
+  CPU/ICACHE/n1 (net)                                                            27                   0.00       0.24 f
+  CPU/ICACHE/U4/Y (NBUFFX2_RVT)                                                             0.05      0.12       0.36 f
+  CPU/ICACHE/n3 (net)                                                            24                   0.00       0.36 f
+  CPU/ICACHE/U60/Y (AO22X1_RVT)                                                             0.02      0.09       0.45 f
+  CPU/ICACHE/addr[25] (net)                                                       2                   0.00       0.45 f
+  CPU/ICACHE/U26/Y (INVX0_RVT)                                                              0.02      0.03       0.48 r
+  CPU/ICACHE/n40 (net)                                                            2                   0.00       0.48 r
+  CPU/ICACHE/U84/Y (AOI22X1_RVT)                                                            0.01      0.07       0.55 f
+  CPU/ICACHE/n38 (net)                                                            1                   0.00       0.55 f
+  CPU/ICACHE/U85/Y (OA221X1_RVT)                                                            0.02      0.05       0.60 f
+  CPU/ICACHE/n49 (net)                                                            1                   0.00       0.60 f
+  CPU/ICACHE/U90/Y (NAND4X0_RVT)                                                            0.03      0.04       0.64 r
+  CPU/ICACHE/n51 (net)                                                            1                   0.00       0.64 r
+  CPU/ICACHE/U91/Y (NOR4X1_RVT)                                                             0.02      0.07       0.71 f
+  CPU/ICACHE/n58 (net)                                                            3                   0.00       0.71 f
+  CPU/ICACHE/U92/Y (NAND2X0_RVT)                                                            0.03      0.04       0.75 r
+  CPU/ICACHE/n55 (net)                                                            2                   0.00       0.75 r
+  CPU/ICACHE/U93/Y (OR2X1_RVT)                                                              0.02      0.06       0.81 r
+  CPU/ICACHE/n65 (net)                                                            2                   0.00       0.81 r
+  CPU/ICACHE/U3/Y (INVX2_RVT)                                                               0.06      0.08       0.89 f
+  CPU/ICACHE/n68 (net)                                                           32                   0.00       0.89 f
+  CPU/ICACHE/U38/Y (AO222X1_RVT)                                                            0.03      0.15       1.03 f
+  CPU/ICACHE/instr_o[2] (net)                                                     5                   0.00       1.03 f
+  CPU/ICACHE/instr_o[2] (INSTR_CACHE_DWidth32)                                                        0.00       1.03 f
+  CPU/icache_rdata[2] (net)                                                                           0.00       1.03 f
+  CPU/SCORE/imem_rdata_i[2] (SCALAR_CORE_DWidth32)                                                    0.00       1.03 f
+  CPU/SCORE/imem_rdata_i[2] (net)                                                                     0.00       1.03 f
+  CPU/SCORE/DECODER/imem_rdata_i[2] (DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12)                   0.00       1.03 f
+  CPU/SCORE/DECODER/imem_rdata_i[2] (net)                                                             0.00       1.03 f
+  CPU/SCORE/DECODER/U9/Y (INVX1_RVT)                                                        0.02      0.24       1.27 r
+  CPU/SCORE/DECODER/n15 (net)                                                     3                   0.00       1.27 r
+  CPU/SCORE/DECODER/U44/Y (AND3X1_RVT)                                                      0.03      0.06       1.34 r
+  CPU/SCORE/DECODER/n52 (net)                                                     6                   0.00       1.34 r
+  CPU/SCORE/DECODER/U49/Y (AND2X1_RVT)                                                      0.02      0.06       1.39 r
+  CPU/SCORE/DECODER/n58 (net)                                                     4                   0.00       1.39 r
+  CPU/SCORE/DECODER/U23/Y (NAND3X0_RVT)                                                     0.07      0.07       1.46 f
+  CPU/SCORE/DECODER/n71 (net)                                                     4                   0.00       1.46 f
+  CPU/SCORE/DECODER/U4/Y (INVX1_RVT)                                                        0.06      0.08       1.54 r
+  CPU/SCORE/DECODER/n85 (net)                                                    14                   0.00       1.54 r
+  CPU/SCORE/DECODER/U20/Y (AO22X1_RVT)                                                      0.03      0.08       1.63 r
+  CPU/SCORE/DECODER/n74 (net)                                                     5                   0.00       1.63 r
+  CPU/SCORE/DECODER/U120/Y (AND2X1_RVT)                                                     0.03      0.06       1.69 r
+  CPU/SCORE/DECODER/rf_read1_addr_o[4] (net)                                      8                   0.00       1.69 r
+  CPU/SCORE/DECODER/rf_read1_addr_o[4] (DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12)                0.00       1.69 r
+  CPU/SCORE/dec_read1_addr[4] (net)                                                                   0.00       1.69 r
+  CPU/SCORE/SRF/read1_addr_i[4] (REGFILE_DWidth32_NumofReg32)                                         0.00       1.69 r
+  CPU/SCORE/SRF/read1_addr_i[4] (net)                                                                 0.00       1.69 r
+  CPU/SCORE/SRF/U64/Y (INVX0_RVT)                                                           0.03      0.05       1.74 f
+  CPU/SCORE/SRF/n119 (net)                                                        4                   0.00       1.74 f
+  CPU/SCORE/SRF/U166/Y (AND3X1_RVT)                                                         0.02      0.06       1.80 f
+  CPU/SCORE/SRF/n132 (net)                                                        3                   0.00       1.80 f
+  CPU/SCORE/SRF/U185/Y (AND2X1_RVT)                                                         0.06      0.08       1.88 f
+  CPU/SCORE/SRF/n1438 (net)                                                      16                   0.00       1.88 f
+  CPU/SCORE/SRF/U56/Y (INVX0_RVT)                                                           0.03      0.06       1.93 r
+  CPU/SCORE/SRF/n133 (net)                                                        1                   0.00       1.93 r
+  CPU/SCORE/SRF/U55/Y (INVX0_RVT)                                                           0.09      0.08       2.01 f
+  CPU/SCORE/SRF/n1270 (net)                                                      17                   0.00       2.01 f
+  CPU/SCORE/SRF/U1279/Y (AO22X1_RVT)                                                        0.02      0.09       2.11 f
+  CPU/SCORE/SRF/n1192 (net)                                                       1                   0.00       2.11 f
+  CPU/SCORE/SRF/U1282/Y (NOR4X1_RVT)                                                        0.01      0.08       2.18 r
+  CPU/SCORE/SRF/n1199 (net)                                                       1                   0.00       2.18 r
+  CPU/SCORE/SRF/U1288/Y (NAND4X0_RVT)                                                       0.05      0.05       2.24 f
+  CPU/SCORE/SRF/read1_data_o[5] (net)                                             2                   0.00       2.24 f
+  CPU/SCORE/SRF/read1_data_o[5] (REGFILE_DWidth32_NumofReg32)                                         0.00       2.24 f
+  CPU/SCORE/rf_read1_data[5] (net)                                                                    0.00       2.24 f
+  CPU/SCORE/MUX_ALU_A/data0_i[5] (MUX4TO1_DWidth32_2)                                                 0.00       2.24 f
+  CPU/SCORE/MUX_ALU_A/data0_i[5] (net)                                                                0.00       2.24 f
+  CPU/SCORE/MUX_ALU_A/U8/Y (INVX0_RVT)                                                      0.02      0.03       2.27 r
+  CPU/SCORE/MUX_ALU_A/n3 (net)                                                    1                   0.00       2.27 r
+  CPU/SCORE/MUX_ALU_A/U5/Y (MUX41X2_RVT)                                                    0.05      0.10       2.37 r
+  CPU/SCORE/MUX_ALU_A/data_o[5] (net)                                            13                   0.00       2.37 r
+  CPU/SCORE/MUX_ALU_A/data_o[5] (MUX4TO1_DWidth32_2)                                                  0.00       2.37 r
+  CPU/SCORE/alu_a[5] (net)                                                                            0.00       2.37 r
+  CPU/SCORE/ALU/a_i[5] (ALU_DWidth32_OpWidth5)                                                        0.00       2.37 r
+  CPU/SCORE/ALU/a_i[5] (net)                                                                          0.00       2.37 r
+  CPU/SCORE/ALU/U448/Y (INVX0_RVT)                                                          0.08      0.10       2.47 f
+  CPU/SCORE/ALU/n1773 (net)                                                       8                   0.00       2.47 f
+  CPU/SCORE/ALU/U487/Y (NBUFFX4_RVT)                                                        0.05      0.10       2.57 f
+  CPU/SCORE/ALU/n2087 (net)                                                      30                   0.00       2.57 f
+  CPU/SCORE/ALU/U400/Y (OA22X1_RVT)                                                         0.03      0.12       2.69 f
+  CPU/SCORE/ALU/n63 (net)                                                         3                   0.00       2.69 f
+  CPU/SCORE/ALU/U564/Y (NOR2X0_RVT)                                                         0.02      0.07       2.75 r
+  CPU/SCORE/ALU/n1707 (net)                                                       3                   0.00       2.75 r
+  CPU/SCORE/ALU/U353/Y (INVX2_RVT)                                                          0.06      0.08       2.83 f
+  CPU/SCORE/ALU/n19 (net)                                                        32                   0.00       2.83 f
+  CPU/SCORE/ALU/U573/Y (OA222X1_RVT)                                                        0.03      0.12       2.96 f
+  CPU/SCORE/ALU/n72 (net)                                                         2                   0.00       2.96 f
+  CPU/SCORE/ALU/U575/Y (NAND2X0_RVT)                                                        0.04      0.04       3.00 r
+  CPU/SCORE/ALU/n70 (net)                                                         2                   0.00       3.00 r
+  CPU/SCORE/ALU/U576/Y (NAND2X0_RVT)                                                        0.04      0.04       3.04 f
+  CPU/SCORE/ALU/n68 (net)                                                         2                   0.00       3.04 f
+  CPU/SCORE/ALU/U577/Y (NAND2X0_RVT)                                                        0.04      0.05       3.09 r
+  CPU/SCORE/ALU/n83 (net)                                                         2                   0.00       3.09 r
+  CPU/SCORE/ALU/U598/Y (OR2X1_RVT)                                                          0.02      0.06       3.14 r
+  CPU/SCORE/ALU/n1787 (net)                                                       4                   0.00       3.14 r
+  CPU/SCORE/ALU/U2635/Y (AO221X1_RVT)                                                       0.03      0.08       3.22 r
+  CPU/SCORE/ALU/intadd_1_CI (net)                                                 1                   0.00       3.22 r
+  CPU/SCORE/ALU/intadd_1_U27/S (FADDX1_RVT)                                                 0.03      0.12       3.33 f    mo 
+  CPU/SCORE/ALU/intadd_1_SUM_0_ (net)                                             2                   0.00       3.33 f
+  CPU/SCORE/ALU/U608/SO (HADDX1_RVT)                                                        0.02      0.09       3.42 r
+  CPU/SCORE/ALU/n764 (net)                                                        2                   0.00       3.42 r
+  CPU/SCORE/ALU/U609/Y (NAND2X0_RVT)                                                        0.03      0.04       3.45 f
+  CPU/SCORE/ALU/n762 (net)                                                        2                   0.00       3.45 f
+  CPU/SCORE/ALU/U610/Y (NAND2X0_RVT)                                                        0.05      0.06       3.51 r
+  CPU/SCORE/ALU/n1962 (net)                                                       3                   0.00       3.51 r
+  CPU/SCORE/ALU/U611/Y (AO222X1_RVT)                                                        0.04      0.09       3.60 r
+  CPU/SCORE/ALU/intadd_21_B_0_ (net)                                              1                   0.00       3.60 r
+  CPU/SCORE/ALU/intadd_21_U4/CO (FADDX1_RVT)                                                0.03      0.10       3.70 r    mo 
+  CPU/SCORE/ALU/intadd_21_n3 (net)                                                1                   0.00       3.70 r
+  CPU/SCORE/ALU/intadd_21_U3/CO (FADDX1_RVT)                                                0.03      0.08       3.78 r    mo 
+  CPU/SCORE/ALU/intadd_21_n2 (net)                                                1                   0.00       3.78 r
+  CPU/SCORE/ALU/intadd_21_U2/CO (FADDX1_RVT)                                                0.03      0.09       3.87 r    mo 
+  CPU/SCORE/ALU/intadd_21_n1 (net)                                                3                   0.00       3.87 r
+  CPU/SCORE/ALU/U1240/Y (AO222X1_RVT)                                                       0.04      0.10       3.97 r
+  CPU/SCORE/ALU/n2392 (net)                                                       1                   0.00       3.97 r
+  CPU/SCORE/ALU/U3018/CO (FADDX1_RVT)                                                       0.03      0.10       4.07 r
+  CPU/SCORE/ALU/n2323 (net)                                                       1                   0.00       4.07 r
+  CPU/SCORE/ALU/U2979/CO (FADDX1_RVT)                                                       0.03      0.09       4.16 r
+  CPU/SCORE/ALU/n2485 (net)                                                       3                   0.00       4.16 r
+  CPU/SCORE/ALU/U1241/Y (AO222X1_RVT)                                                       0.04      0.10       4.25 r
+  CPU/SCORE/ALU/n2556 (net)                                                       1                   0.00       4.25 r
+  CPU/SCORE/ALU/U3091/CO (FADDX1_RVT)                                                       0.03      0.10       4.35 r
+  CPU/SCORE/ALU/n2503 (net)                                                       1                   0.00       4.35 r
+  CPU/SCORE/ALU/U3068/CO (FADDX1_RVT)                                                       0.03      0.08       4.43 r
+  CPU/SCORE/ALU/n621 (net)                                                        2                   0.00       4.43 r
+  CPU/SCORE/ALU/U184/Y (INVX0_RVT)                                                          0.02      0.03       4.47 f
+  CPU/SCORE/ALU/n540 (net)                                                        2                   0.00       4.47 f
+  CPU/SCORE/ALU/U1242/Y (OAI222X1_RVT)                                                      0.02      0.09       4.55 r
+  CPU/SCORE/ALU/n2565 (net)                                                       1                   0.00       4.55 r
+  CPU/SCORE/ALU/U3095/CO (FADDX1_RVT)                                                       0.03      0.09       4.64 r
+  CPU/SCORE/ALU/n700 (net)                                                        1                   0.00       4.64 r
+  CPU/SCORE/ALU/U1443/CO (FADDX1_RVT)                                                       0.03      0.09       4.73 r
+  CPU/SCORE/ALU/n573 (net)                                                        3                   0.00       4.73 r
+  CPU/SCORE/ALU/U1275/Y (AO222X1_RVT)                                                       0.04      0.10       4.83 r
+  CPU/SCORE/ALU/n1920 (net)                                                       1                   0.00       4.83 r
+  CPU/SCORE/ALU/U2737/CO (FADDX1_RVT)                                                       0.03      0.10       4.93 r
+  CPU/SCORE/ALU/n2240 (net)                                                       1                   0.00       4.93 r
+  CPU/SCORE/ALU/U2933/CO (FADDX1_RVT)                                                       0.03      0.09       5.02 r
+  CPU/SCORE/ALU/n2128 (net)                                                       3                   0.00       5.02 r
+  CPU/SCORE/ALU/U1279/Y (AO222X1_RVT)                                                       0.04      0.10       5.12 r
+  CPU/SCORE/ALU/n1855 (net)                                                       1                   0.00       5.12 r
+  CPU/SCORE/ALU/U2686/CO (FADDX1_RVT)                                                       0.03      0.10       5.22 r
+  CPU/SCORE/ALU/n2209 (net)                                                       1                   0.00       5.22 r
+  CPU/SCORE/ALU/U2916/CO (FADDX1_RVT)                                                       0.03      0.09       5.31 r
+  CPU/SCORE/ALU/n2191 (net)                                                       3                   0.00       5.31 r
+  CPU/SCORE/ALU/U2687/Y (AO222X1_RVT)                                                       0.03      0.10       5.41 r
+  CPU/SCORE/ALU/intadd_12_CI (net)                                                1                   0.00       5.41 r
+  CPU/SCORE/ALU/intadd_12_U6/CO (FADDX1_RVT)                                                0.03      0.09       5.49 r    mo 
+  CPU/SCORE/ALU/intadd_12_n5 (net)                                                1                   0.00       5.49 r
+  CPU/SCORE/ALU/intadd_12_U5/CO (FADDX1_RVT)                                                0.03      0.08       5.57 r    mo 
+  CPU/SCORE/ALU/intadd_12_n4 (net)                                                1                   0.00       5.57 r
+  CPU/SCORE/ALU/intadd_12_U4/CO (FADDX1_RVT)                                                0.03      0.08       5.66 r    mo 
+  CPU/SCORE/ALU/intadd_12_n3 (net)                                                1                   0.00       5.66 r
+  CPU/SCORE/ALU/intadd_12_U3/CO (FADDX1_RVT)                                                0.03      0.08       5.74 r    mo 
+  CPU/SCORE/ALU/intadd_12_n2 (net)                                                1                   0.00       5.74 r
+  CPU/SCORE/ALU/intadd_12_U2/CO (FADDX1_RVT)                                                0.03      0.08       5.83 r    mo 
+  CPU/SCORE/ALU/intadd_12_n1 (net)                                                2                   0.00       5.83 r
+  CPU/SCORE/ALU/U1381/Y (NAND2X0_RVT)                                                       0.03      0.04       5.86 f
+  CPU/SCORE/ALU/n2285 (net)                                                       2                   0.00       5.86 f
+  CPU/SCORE/ALU/U1382/Y (NAND2X0_RVT)                                                       0.05      0.06       5.92 r
+  CPU/SCORE/ALU/n2451 (net)                                                       3                   0.00       5.92 r
+  CPU/SCORE/ALU/U1383/Y (AO222X1_RVT)                                                       0.03      0.09       6.01 r
+  CPU/SCORE/ALU/n661 (net)                                                        2                   0.00       6.01 r
+  CPU/SCORE/ALU/U1384/Y (AND2X1_RVT)                                                        0.02      0.05       6.06 r
+  CPU/SCORE/ALU/n2165 (net)                                                       3                   0.00       6.06 r
+  CPU/SCORE/ALU/U1495/Y (NAND2X0_RVT)                                                       0.02      0.03       6.09 f
+  CPU/SCORE/ALU/n755 (net)                                                        1                   0.00       6.09 f
+  CPU/SCORE/ALU/U1498/Y (AND2X1_RVT)                                                        0.02      0.05       6.13 f
+  CPU/SCORE/ALU/n2168 (net)                                                       2                   0.00       6.13 f
+  CPU/SCORE/ALU/U1500/Y (AND2X1_RVT)                                                        0.02      0.05       6.18 f
+  CPU/SCORE/ALU/n2098 (net)                                                       2                   0.00       6.18 f
+  CPU/SCORE/ALU/U1501/Y (OA21X1_RVT)                                                        0.02      0.05       6.23 f
+  CPU/SCORE/ALU/n788 (net)                                                        3                   0.00       6.23 f
+  CPU/SCORE/ALU/U1502/Y (OA21X1_RVT)                                                        0.02      0.05       6.28 f
+  CPU/SCORE/ALU/n1861 (net)                                                       3                   0.00       6.28 f
+  CPU/SCORE/ALU/U2691/Y (NAND2X0_RVT)                                                       0.03      0.04       6.32 r
+  CPU/SCORE/ALU/n1957 (net)                                                       2                   0.00       6.32 r
+  CPU/SCORE/ALU/U2694/Y (NAND3X0_RVT)                                                       0.03      0.04       6.36 f
+  CPU/SCORE/ALU/n1866 (net)                                                       1                   0.00       6.36 f
+  CPU/SCORE/ALU/U2695/Y (NAND2X0_RVT)                                                       0.04      0.05       6.41 r
+  CPU/SCORE/ALU/intadd_3_A_22_ (net)                                              1                   0.00       6.41 r
+  CPU/SCORE/ALU/intadd_3_U2/CO (FADDX1_RVT)                                                 0.04      0.11       6.52 r    mo 
+  CPU/SCORE/ALU/intadd_3_n1 (net)                                                 6                   0.00       6.52 r
+  CPU/SCORE/ALU/U1122/Y (NAND2X0_RVT)                                                       0.05      0.05       6.58 f
+  CPU/SCORE/ALU/n2545 (net)                                                       3                   0.00       6.58 f
+  CPU/SCORE/ALU/U53/Y (INVX0_RVT)                                                           0.03      0.04       6.62 r
+  CPU/SCORE/ALU/n2544 (net)                                                       2                   0.00       6.62 r
+  CPU/SCORE/ALU/U1123/Y (AND2X1_RVT)                                                        0.02      0.05       6.66 r
+  CPU/SCORE/ALU/n2523 (net)                                                       2                   0.00       6.66 r
+  CPU/SCORE/ALU/U1124/Y (NAND2X0_RVT)                                                       0.02      0.03       6.69 f
+  CPU/SCORE/ALU/n471 (net)                                                        1                   0.00       6.69 f
+  CPU/SCORE/ALU/U1125/Y (AND2X1_RVT)                                                        0.02      0.05       6.74 f
+  CPU/SCORE/ALU/n2528 (net)                                                       2                   0.00       6.74 f
+  CPU/SCORE/ALU/U1127/Y (NAND2X0_RVT)                                                       0.03      0.04       6.78 r
+  CPU/SCORE/ALU/n617 (net)                                                        2                   0.00       6.78 r
+  CPU/SCORE/ALU/U1128/Y (NAND2X0_RVT)                                                       0.03      0.04       6.81 f
+  CPU/SCORE/ALU/n615 (net)                                                        2                   0.00       6.81 f
+  CPU/SCORE/ALU/U1129/Y (OA21X1_RVT)                                                        0.02      0.05       6.87 f
+  CPU/SCORE/ALU/n2583 (net)                                                       2                   0.00       6.87 f
+  CPU/SCORE/ALU/U1130/Y (OA21X1_RVT)                                                        0.02      0.05       6.91 f
+  CPU/SCORE/ALU/n713 (net)                                                        2                   0.00       6.91 f
+  CPU/SCORE/ALU/U1131/Y (OA21X1_RVT)                                                        0.02      0.05       6.96 f
+  CPU/SCORE/ALU/n505 (net)                                                        2                   0.00       6.96 f
+  CPU/SCORE/ALU/U1132/Y (NAND2X0_RVT)                                                       0.04      0.04       7.00 r
+  CPU/SCORE/ALU/n1933 (net)                                                       3                   0.00       7.00 r
+  CPU/SCORE/ALU/U49/Y (INVX0_RVT)                                                           0.02      0.03       7.04 f
+  CPU/SCORE/ALU/n1932 (net)                                                       2                   0.00       7.04 f
+  CPU/SCORE/ALU/U1133/Y (OA21X1_RVT)                                                        0.02      0.05       7.09 f
+  CPU/SCORE/ALU/n2256 (net)                                                       3                   0.00       7.09 f
+  CPU/SCORE/ALU/U1134/Y (OA21X1_RVT)                                                        0.02      0.05       7.14 f
+  CPU/SCORE/ALU/n2134 (net)                                                       2                   0.00       7.14 f
+  CPU/SCORE/ALU/U1136/Y (NAND2X0_RVT)                                                       0.03      0.04       7.18 r
+  CPU/SCORE/ALU/n593 (net)                                                        2                   0.00       7.18 r
+  CPU/SCORE/ALU/U1137/Y (OR2X1_RVT)                                                         0.02      0.05       7.23 r
+  CPU/SCORE/ALU/n2222 (net)                                                       2                   0.00       7.23 r
+  CPU/SCORE/ALU/U46/Y (INVX0_RVT)                                                           0.01      0.03       7.25 f
+  CPU/SCORE/ALU/n478 (net)                                                        1                   0.00       7.25 f
+  CPU/SCORE/ALU/U1139/Y (NAND2X0_RVT)                                                       0.03      0.03       7.29 r
+  CPU/SCORE/ALU/n2197 (net)                                                       2                   0.00       7.29 r
+  CPU/SCORE/ALU/U45/Y (INVX0_RVT)                                                           0.02      0.03       7.31 f
+  CPU/SCORE/ALU/n479 (net)                                                        1                   0.00       7.31 f
+  CPU/SCORE/ALU/U1141/Y (NAND2X0_RVT)                                                       0.03      0.04       7.35 r
+  CPU/SCORE/ALU/n2647 (net)                                                       2                   0.00       7.35 r
+  CPU/SCORE/ALU/U44/Y (INVX0_RVT)                                                           0.02      0.03       7.38 f
+  CPU/SCORE/ALU/n480 (net)                                                        1                   0.00       7.38 f
+  CPU/SCORE/ALU/U1143/Y (AND2X1_RVT)                                                        0.02      0.04       7.42 f
+  CPU/SCORE/ALU/n482 (net)                                                        2                   0.00       7.42 f
+  CPU/SCORE/ALU/U1144/Y (NAND2X0_RVT)                                                       0.03      0.04       7.46 r
+  CPU/SCORE/ALU/n2037 (net)                                                       2                   0.00       7.46 r
+  CPU/SCORE/ALU/U43/Y (INVX0_RVT)                                                           0.02      0.03       7.49 f
+  CPU/SCORE/ALU/n2613 (net)                                                       2                   0.00       7.49 f
+  CPU/SCORE/ALU/U2817/Y (NAND2X0_RVT)                                                       0.02      0.04       7.52 r
+  CPU/SCORE/ALU/n2045 (net)                                                       1                   0.00       7.52 r
+  CPU/SCORE/ALU/U2822/Y (AND2X1_RVT)                                                        0.02      0.05       7.57 r
+  CPU/SCORE/ALU/n2615 (net)                                                       4                   0.00       7.57 r
+  CPU/SCORE/ALU/U3114/Y (AO222X1_RVT)                                                       0.03      0.09       7.66 r
+  CPU/SCORE/ALU/n2617 (net)                                                       1                   0.00       7.66 r
+  CPU/SCORE/ALU/U3115/Y (OA22X1_RVT)                                                        0.03      0.06       7.72 r
+  CPU/SCORE/ALU/n2634 (net)                                                       1                   0.00       7.72 r
+  CPU/SCORE/ALU/U3123/Y (NAND4X0_RVT)                                                       0.06      0.06       7.78 f
+  CPU/SCORE/ALU/res_o[30] (net)                                                   6                   0.00       7.78 f
+  CPU/SCORE/ALU/U3148/Y (NOR3X0_RVT)                                                        0.01      0.24       8.02 r
+  CPU/SCORE/ALU/n2682 (net)                                                       1                   0.00       8.02 r
+  CPU/SCORE/ALU/U3149/Y (NAND4X0_RVT)                                                       0.04      0.05       8.07 f
+  CPU/SCORE/ALU/n2686 (net)                                                       1                   0.00       8.07 f
+  CPU/SCORE/ALU/U3150/Y (NOR3X0_RVT)                                                        0.02      0.07       8.13 r
+  CPU/SCORE/ALU/zero_o (net)                                                      1                   0.00       8.13 r
+  CPU/SCORE/ALU/zero_o (ALU_DWidth32_OpWidth5)                                                        0.00       8.13 r
+  CPU/SCORE/alu_zero (net)                                                                            0.00       8.13 r
+  CPU/SCORE/DECODER/flag_zero_i (DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12)                       0.00       8.13 r
+  CPU/SCORE/DECODER/flag_zero_i (net)                                                                 0.00       8.13 r
+  CPU/SCORE/DECODER/U15/Y (XOR3X1_RVT)                                                      0.02      0.06       8.19 f
+  CPU/SCORE/DECODER/n7 (net)                                                      1                   0.00       8.19 f
+  CPU/SCORE/DECODER/U59/Y (AO21X1_RVT)                                                      0.02      0.04       8.23 f
+  CPU/SCORE/DECODER/n9 (net)                                                      1                   0.00       8.23 f
+  CPU/SCORE/DECODER/U60/Y (AO221X1_RVT)                                                     0.02      0.06       8.30 f
+  CPU/SCORE/DECODER/n94 (net)                                                     2                   0.00       8.30 f
+  CPU/SCORE/DECODER/U38/Y (NOR2X4_RVT)                                                      0.04      0.09       8.39 r
+  CPU/SCORE/DECODER/pc_br_en_o (net)                                             35                   0.00       8.39 r
+  CPU/SCORE/DECODER/U131/Y (OR2X1_RVT)                                                      0.02      0.12       8.51 r
+  CPU/SCORE/DECODER/n100 (net)                                                    2                   0.00       8.51 r
+  CPU/SCORE/DECODER/U132/Y (AOI21X2_RVT)                                                    0.05      0.08       8.59 f
+  CPU/SCORE/DECODER/n_1_net_ (net)                                               26                   0.00       8.59 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_en_i (COUNTER_64_0_0)                                         0.00       8.59 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_en_i (net)                                                    0.00       8.59 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U72/Y (NAND2X0_RVT)                                     0.04      0.09       8.68 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n188 (net)                                    3                   0.00       8.68 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U7/Y (INVX0_RVT)                                        0.03      0.04       8.71 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n187 (net)                                    3                   0.00       8.71 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U129/Y (AND2X1_RVT)                                     0.01      0.05       8.76 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n63 (net)                                     1                   0.00       8.76 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U130/Y (NAND2X0_RVT)                                    0.03      0.04       8.80 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n64 (net)                                     2                   0.00       8.80 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U6/Y (INVX0_RVT)                                        0.02      0.03       8.83 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n65 (net)                                     2                   0.00       8.83 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U132/Y (NAND2X0_RVT)                                    0.03      0.04       8.87 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n66 (net)                                     2                   0.00       8.87 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U5/Y (INVX0_RVT)                                        0.02      0.03       8.91 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n131 (net)                                    2                   0.00       8.91 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U134/Y (NAND2X0_RVT)                                    0.03      0.04       8.95 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n189 (net)                                    2                   0.00       8.95 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U4/Y (INVX0_RVT)                                        0.02      0.03       8.98 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n190 (net)                                    1                   0.00       8.98 f
+  CPU/SCORE/DECODER/COUNTER_INSTRET/U192/SO (HADDX1_RVT)                                    0.02      0.08       9.06 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/n130 (net)                                    1                   0.00       9.06 r
+  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_data_o_reg_63_/D (DFFARX1_RVT)                      0.02      0.01       9.07 r
+  data arrival time                                                                                              9.07
+
+  clock clk_i (rise edge)                                                                            10.00      10.00
+  clock network delay (ideal)                                                                         0.00      10.00
+  clock uncertainty                                                                                  -0.70       9.30
+  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_data_o_reg_63_/CLK (DFFARX1_RVT)                              0.00       9.30 r
+  library setup time                                                                                 -0.03       9.27
+  data required time                                                                                             9.27
+  -------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                             9.27
+  data arrival time                                                                                             -9.07
+  -------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                    0.20
+
+
+1
