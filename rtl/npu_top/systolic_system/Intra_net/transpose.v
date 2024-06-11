@@ -95,7 +95,7 @@ generate
             begin
                 assign ROW[r].COL[c].V_in = ROW[r+1].COL[c].V_out;
                 assign ROW[r].COL[c].H_in = ROW[r].COL[c- 1].H_out;
-                assign data_out[DATA_WIDTH*(c+1)-1 : DATA_WIDTH*c] = ROW[r].COL[c].V_out;
+                assign data_out[DATA_WIDTH*(c+1)-1 : DATA_WIDTH*c] = (c < A)? ROW[r].COL[c].V_out : {DATA_WIDTH{1'b0}};
                 assign ROW[r].COL[c+1].H_in = ROW[r].COL[c].H_out;
             end
             else if (c==COL_DIM-1)

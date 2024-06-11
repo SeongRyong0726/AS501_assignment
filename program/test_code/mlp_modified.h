@@ -43,7 +43,7 @@ int max(int []);
 #define FC3_W_ADDR  (FC2_O_ADDR  + HIDDEN2_SIZE * sizeof(int)) // 7_6080
 #define FC3_B_ADDR  (FC3_W_ADDR  + HIDDEN2_SIZE * OUTPUT_SIZE  * sizeof(int)) // 7_6a80
 #define OUTPUT_ADDR (FC3_B_ADDR  + OUTPUT_SIZE  * sizeof(int)) // 7_6aa8
-#define LABEL_ADDR  (OUTPUT_ADDR + OUTPUT_SIZE  * sizeof(int))
+#define LABEL_ADDR  (OUTPUT_ADDR + OUTPUT_SIZE  * sizeof(int)) // 7_6ad0
 #define INPUT_LOOPBACK_ADDR  0x01000000
 
 // Define NPU-related Variable & Address

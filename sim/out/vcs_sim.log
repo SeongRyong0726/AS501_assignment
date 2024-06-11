@@ -2,7 +2,7 @@ Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detec
 Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
 Chronologic VCS simulator copyright 1991-2023
 Contains Synopsys proprietary information.
-Compiler version V-2023.12-1_Full64; Runtime version V-2023.12-1_Full64;  Jun  6 21:22 2024
+Compiler version V-2023.12-1_Full64; Runtime version V-2023.12-1_Full64;  Jun 11 13:49 2024
 *Verdi* Loading libsscore_vcs202312.so
 FSDB Dumper for VCS, Release Verdi_V-2023.12-1, Linux x86_64/64bit, 01/10/2024
 (C) 1996 - 2024 by Synopsys, Inc.
@@ -38,12 +38,12 @@ Current correction count = 10
 -------------------------------------------------------
 Accuracy = 100.00
 -------------------------------------------------------
-mcycleh = 00000000, mcycle = 007d4ae0
-minstreth = 00000000, minstret = 001cce32
+mcycleh = 00000000, mcycle = 007d4609
+minstreth = 00000000, minstret = 001ccc96
 -------------------------------------------------------
 $finish called from file "/home/AS20243506/AS501_assignment/sim/tb_modified/core_tb_10.sv", line 179.
-$finish at simulation time         821217750000
+$finish at simulation time         821093850000
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 82121775000000 fs
-CPU Time:     86.590 seconds;       Data structure size:  66.2Mb
-Thu Jun  6 21:23:40 2024
+Time: 82109385000000 fs
+CPU Time:     85.570 seconds;       Data structure size:  66.2Mb
+Tue Jun 11 13:50:11 2024

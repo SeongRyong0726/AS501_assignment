@@ -58,7 +58,16 @@ module NPU_IF #(
         .write_data_i               (rdata_o),
         .read_data_o                (latched_output)
     );
+    logic [DWidth-1 : 0] rdata_i_reg;
 
+    always @(posedge clk_i) begin
+        if(!rst_ni) begin
+            rdata_i_reg = 0;
+        end
+        else begin
+            rdata_i_reg <= rdata_i;
+        end
+    end
 ////////////////////////////////////////////////////////////////////////////////
 // Mealy machine
     // FSM states

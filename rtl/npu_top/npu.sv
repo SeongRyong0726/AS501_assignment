@@ -72,7 +72,7 @@ module NPU #(
         .debug1_o (debug1_o),
         .debug2_o (debug2_o),
         .wdata_i(wdata_i),
-        .rdata_o(rdata_o),
+        .rdata_o(rdata_o), //rdata_o
 
         .a_buf_on(a_buf_on),
         .a_base_addr(a_base_addr),
@@ -99,6 +99,7 @@ module NPU #(
         .o_base_addr(o_base_addr),
         .o_ram_idx(o_ram_idx),
         .o_read_addr(o_read_addr),
+        .cliff_8_on(cliff_8_on),
 
         .Intranet_on(Intranet_on),
         .Intra_sig_start(Intra_sig_start),
@@ -159,7 +160,8 @@ module NPU #(
 
         .data_in_o_bram(data_in_o_bram),
         .max_idx_value(max_idx_value),
-        .debug_output(debug_output)
+        .debug_output(debug_output),
+        .cliff_8_on(cliff_8_on)
     );
 
 ////////////////////////////////////////////////////////////////////////////////

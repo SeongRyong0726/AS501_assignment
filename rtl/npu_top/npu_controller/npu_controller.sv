@@ -53,6 +53,7 @@ module npu_controller #(
     //O_buffer READ ( BUF --> EXT)
     output logic     [$clog2(ARRAY_M)-1:0]   o_ram_idx,
     output logic     [ADDR_WIDTH-1:0]        o_read_addr,
+    output logic                             cliff_8_on,
     //Intra_net  (O_BUF --> A_BUF : FSM)
     output logic                              Intranet_on,
     output logic                              Intra_sig_start,
@@ -166,7 +167,11 @@ module npu_controller #(
     //assign rdata_o = (addr_i == NPU_PARA_Start +'b000100)? op_end : {12'b0,max_idx_value, data_in_o_bram[15:0]};
     //obuf
 
-
+    /*This register for delay output result due to interface operation require delay*/
+    logic [3:0] delay_max_idx_value;
+    always @(posedge clk_i) begin
+        delay_max_idx_value <= max_idx_value;
+    end
     
     assign debug1_o = addr_i;
     assign debug2_o  = (NPU_PARA_Start +32'h4);
@@ -175,8 +180,7 @@ module npu_controller #(
             rdata_o = {31'b0 , op_end};
         end
         else begin
-            rdata_o = {28'h0, max_idx_value};
-            //rdata_o = {12'h000, max_idx_value, 8'h00, data_in_o_bram};
+            rdata_o = {28'h0, delay_max_idx_value};
         end
     end
 
@@ -400,6 +404,8 @@ module npu_controller #(
                 Intra_A_base_addr <= wdata_i;
             'b100100:
                 K <= wdata_i;  
+            'b101000:
+                cliff_8_on <= wdata_i;
             // default: 
             //     op_end <= op_end;
         endcase  

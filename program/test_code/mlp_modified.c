@@ -130,10 +130,6 @@ int main(void){
             }
             ++image_idx;
         }
-        for (image_idx_offset = 0; image_idx_offset < batch_size; ++image_idx_offset){
-            imem[image_idx*2] = output[image_idx];
-            imem[image_idx*2+1] = label[image_idx];
-        }
         
     }
     //}
@@ -179,7 +175,33 @@ void batch_inference(   volatile int input[], volatile int fc1_weight[], volatil
     layer2_inference(fc2_weight, fc2_bias, wmem, bmem, tile_start, tile_end, omem2imem_start, omem2imem_end, npu_ctrl, batch_size);
     layer3_inference(fc3_weight, fc3_bias, wmem, bmem, tile_start, tile_end, npu_ctrl, batch_size);
     
-    omem_transfer(omem, output, batch_size);
+    //omem_transfer(omem, output, batch_size);
+    output[9] = omem[0];
+    output[8] = omem[1];
+    output[7] = omem[2];
+    output[6] = omem[3];
+    output[5] = omem[4];
+    output[4] = omem[5];
+    output[3] = omem[6];
+    output[2] = omem[7];
+    output[1] = omem[8];
+    output[0] = omem[9];
+    //     output[0] = omem[15];
+    // output[1] = omem[14];
+    // output[2] = omem[13];
+    // output[3] = omem[12];
+    // output[4] = omem[11];
+    // output[5] = omem[10];
+    // output[6] = omem[9];
+    // output[7] = omem[8];
+    // output[8] = omem[7];
+    // output[9] = omem[6];
+    // output[10] = omem[5];
+    // output[11] = omem[4];
+    // output[12] = omem[3];
+    // output[13] = omem[2];
+    // output[14] = omem[1];
+    // output[15] = omem[0];
 }
 
 void imem_transfer(volatile int input[], volatile int imem[], int ich_size, int batch_size, int i_ema_size){
@@ -224,6 +246,7 @@ void layer1_inference(  volatile int fc1_weight[], volatile int fc1_bias[], vola
     npu_ctrl[4] = 0; 
     npu_ctrl[5] = 16;  //output ch
     npu_ctrl[9] = INPUT_SIZE;  //ich
+    npu_ctrl[10] = 1; //cliff_8_on
     
     for (volatile int i = 0; i<FC1_TILE_ITER; i=i+1){
         npu_ctrl[6] = 16*i;
@@ -238,7 +261,7 @@ void layer1_inference(  volatile int fc1_weight[], volatile int fc1_bias[], vola
     
     for (volatile int i = 0; i<FC1_TILE_ITER; i=i+1){
         npu_ctrl[7] = (i)*16; //Intra_O 
-        npu_ctrl[8] = (8-1-i)*16; //Intra_A
+        npu_ctrl[8] = (i)*16; //Intra_A
         omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
         while(omem2imem_end[0] == 0x00000001){
             ;
@@ -256,6 +279,7 @@ void layer2_inference(  volatile int fc2_weight[], volatile int fc2_bias[], vola
     npu_ctrl[4] = 0; 
     npu_ctrl[5] = 16;
     npu_ctrl[9] = HIDDEN1_SIZE; 
+    npu_ctrl[10] = 1; //cliff_8_on
 
     // Tile-wise Operation
     for (volatile int i = 0; i<FC2_TILE_ITER; i=i+1){
@@ -269,7 +293,7 @@ void layer2_inference(  volatile int fc2_weight[], volatile int fc2_bias[], vola
     }
     for (volatile int i = 0; i<FC2_TILE_ITER; i=i+1){
         npu_ctrl[7] = i*16; //Intra_O 
-        npu_ctrl[8] = (4-1-i)*16; //Intra_A
+        npu_ctrl[8] = (i)*16; //Intra_A
         omem2imem_start[0] = 0x00000001; // OMEM --> IMEM Transfer
         while(omem2imem_end[0] == 0x00000001){
             ;
@@ -287,6 +311,7 @@ void layer3_inference(  volatile int fc3_weight[], volatile int fc3_bias[], vola
     npu_ctrl[7] = 0; 
     npu_ctrl[8] = 0;    
     npu_ctrl[9] = HIDDEN2_SIZE; 
+    npu_ctrl[10] = 0; //cliff_8_on
     
     // Tile-wise Operation
     for (volatile int i = 0; i<1; i=i+1){
