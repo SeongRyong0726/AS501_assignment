@@ -11,7 +11,7 @@
 //                            Supervised by Wanyeong Jung (wanyeong@kaist.ac.kr)
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "mlp_modified.h"
+#include "mlp_modified_10.h"
 #include <stdint.h>
 #include <inttypes.h>
 #include <math.h>

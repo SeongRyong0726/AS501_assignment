@@ -49,7 +49,7 @@ source -echo ./setup/icc2_common_setup.tcl
 ################################################################################
 ################################################################################
 ## Don't touch
-set DESIGN_NAME                 CPU_TOP
+set DESIGN_NAME                 SOC_TOP
 set LIBRARY_SUFFIX              .dlib
 set DESIGN_LIBRARY              ${DESIGN_NAME}${LIBRARY_SUFFIX}
 ##################################
@@ -149,24 +149,21 @@ init_design
 set CURRENT_STEP $PLACE_OPT_BLOCK_LABEL
 place_opt
 open_lib $DESIGN_LIBRARY
-Error: File 'CPU_TOP.dlib' cannot be found using search_path of: '. .'. (FILE-002)
+Error: File 'SOC_TOP.dlib' cannot be found using search_path of: '. .'. (FILE-002)
 Error: problem in open_lib
         Use error_info for more info. (CMD-013)
-Information: script '/home/AS20243506/AS501_assignment/pnr/scripts/01_place_opt.tcl'
+Information: script '/home/AS20233757/AS501_assignment/pnr/scripts/01_place_opt.tcl'
                 stopped at line 20 due to error. (CMD-081)
 Extended error info:
 problem in open_lib
     while executing
 "open_lib $DESIGN_LIBRARY"
-    (file "/home/AS20243506/AS501_assignment/pnr/scripts/01_place_opt.tcl" line 20)
+    (file "/home/AS20233757/AS501_assignment/pnr/scripts/01_place_opt.tcl" line 20)
  -- End Extended Error Info
-icc2_shell> q
-Error: ambiguous command 'q' matched 13 commands:
-        (query_cell_instances, query_cell_mapped, query_map_power_switch ...) (CMD-006)
-icc2_shell> exit
-Maximum memory usage for this session: 356.51 MB
-Maximum memory usage for this session including child processes: 356.51 MB
-CPU usage for this session:      7 seconds (  0.00 hours)
-Elapsed time for this session:     12 seconds (  0.00 hours)
+icc2_shell> 
+icc2_shell> 
+Maximum memory usage for this session: 358.85 MB
+Maximum memory usage for this session including child processes: 358.85 MB
+CPU usage for this session:      6 seconds (  0.00 hours)
+Elapsed time for this session:     10 seconds (  0.00 hours)
 Thank you for using IC Compiler II.
-

@@ -12,7 +12,7 @@
 
 module CORE_TB();
     localparam DWidth        = 32;
-    localparam InitFile      = "../../program/out/mlp_modified_riscv.hex";
+    localparam InitFile      = "../../program/out/mlp_modified_10_riscv.hex";
     localparam MemDepth      = 32'h02004000;
     localparam IMemStart     = 32'h00000000;
     localparam DMemStart     = 32'h00004000;

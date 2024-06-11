@@ -3,7 +3,11 @@ Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETEC
 Chronologic VCS simulator copyright 1991-2023
 Contains Synopsys proprietary information.
 <<<<<<< HEAD
+<<<<<<< HEAD
 Compiler version V-2023.12-1_Full64; Runtime version V-2023.12-1_Full64;  Jun 11 18:41 2024
+=======
+Compiler version V-2023.12-1_Full64; Runtime version V-2023.12-1_Full64;  Jun 11 23:38 2024
+>>>>>>> jiwon
 *Verdi* Loading libsscore_vcs202312.so
 FSDB Dumper for VCS, Release Verdi_V-2023.12-1, Linux x86_64/64bit, 01/10/2024
 (C) 1996 - 2024 by Synopsys, Inc.
@@ -11,6 +15,7 @@ FSDB Dumper for VCS, Release Verdi_V-2023.12-1, Linux x86_64/64bit, 01/10/2024
 *Verdi* : Begin traversing the scope (CORE_TB.DUT), layer (0).
 *Verdi* : Enable +mda dumping.
 *Verdi* : End of traversing.
+<<<<<<< HEAD
 *Verdi* : Begin traversing the scope (CORE_TB.MEMORY), layer (0).
 *Verdi* : Enable +mda dumping.
 *Verdi* WARNING: Var 'CORE_TB.MEMORY.mem' will be ignored because its total element is larger than or equal to 2097152.
@@ -19,6 +24,8 @@ FSDB Dumper for VCS, Release Verdi_V-2023.12-1, Linux x86_64/64bit, 01/10/2024
 =======
 Compiler version V-2023.12-1_Full64; Runtime version V-2023.12-1_Full64;  Jun 11 22:08 2024
 >>>>>>> 6599d2accabd9246c1ec15447ede5ec72bc43bb6
+=======
+>>>>>>> jiwon
 Inference image #1 
 Current correction count = 1
 Inference image #2 
@@ -67,6 +74,7 @@ Current correction count = 15
 Inference image #16 
 Current correction count = 16
 Inference image #17 
+<<<<<<< HEAD
 Current correction count = 17
 Inference image #18 
 Current correction count = 18
@@ -1316,3 +1324,5 @@ Inference image #640
 Current correction count = 622
 Inference image #641 
 >>>>>>> 6599d2accabd9246c1ec15447ede5ec72bc43bb6
+=======
+>>>>>>> jiwon

@@ -35,8 +35,12 @@
 ## Modify as needed
 ##
     # Synthesized rtl list
-    RTL_LIST=("$RTL_DIR/soc_top/soc_top.sv                                       \
-               $RTL_DIR/common/memory_map.sv                                     \
+    RTL_LIST=("$RTL_DIR/soc_top/soc_top.sv                                      \
+                $RTL_DIR/bus/bus_top.sv                                         \
+                $RTL_DIR/cpu_top/cpu_top.sv                                     \
+                $RTL_DIR/npu_top/npu_top.sv                                     \
+                $RTL_DIR/npu_top/npu.sv                                         \
+               $RTL_DIR/common/memory_map.sv                                    \
               $RTL_DIR/common/bus_package.sv                                    \
               $RTL_DIR/common/core_package.sv                                   \
               $RTL_DIR/common/d_flip_flop.sv                                    \
@@ -45,7 +49,6 @@
               $RTL_DIR/common/mux4to1.sv                                        \
               $RTL_DIR/common/mux5to1.sv                                        \
               $RTL_DIR/common/counter.sv                                        \
-              $RTL_DIR/cpu_top/cpu_top.sv                                       \
               $RTL_DIR/scalar_core_modified/cache/submodule/cache_sram.sv       \
               $RTL_DIR/scalar_core_modified/cache/instr_cache.sv                \
               $RTL_DIR/scalar_core_modified/core/submodule/alu.sv               \
@@ -53,16 +56,13 @@
               $RTL_DIR/scalar_core_modified/core/submodule/decoder.sv           \
               $RTL_DIR/scalar_core_modified/core/submodule/regfile.sv           \
               $RTL_DIR/scalar_core_modified/core/scalar_core.sv                 \
-              $RTL_DIR/npu_top/npu_top.sv                                       \
               $RTL_DIR/npu_top/interface/npu_interface.sv                       \
               $RTL_DIR/memory/memory_top.sv                                     \
               /technology/SAED32/lib/sram/verilog/saed32sram.v                  \
-              $RTL_DIR/bus/bus_top.sv                                           \
               $RTL_DIR/bus/interconnect/interconnect.sv                         \
               $RTL_DIR/bus/interconnect/submodule/decoder.sv                    \
               $RTL_DIR/bus/interconnect/submodule/multiplexer.sv                \
               $RTL_DIR/bus/default/default_slave.sv                             \
-              $RTL_DIR/npu_top/npu.sv                                           \
               $RTL_DIR/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v       \
               $RTL_DIR/npu_top/systolic_system/buf/address_generator_A.v        \
               $RTL_DIR/npu_top/systolic_system/buf/address_generator_W.v        \

@@ -1,17 +1,17 @@
-Initializing gui preferences from file  /home/AS20243506/.synopsys_dc_gui/preferences.tcl
-Current time:       Tue Jun 11 22:33:54 2024
+Initializing gui preferences from file  /home/AS20233757/.synopsys_dc_gui/preferences.tcl
+Current time:       Tue Jun 11 23:40:56 2024
 Hostname:           cpu
 CPU Model:          AMD EPYC 9654 96-Core Processor
 CPU Details:        Cores = 1 : Sockets = 1 : Cache Size = 1024 KB : Freq = 2.40 GHz
 OS:                 Linux 3.10.0-1160.el7.x86_64
-RAM:                1511 GB (Free  77 GB)
+RAM:                1511 GB (Free   2 GB)
 Swap:               127 GB (Free 127 GB)
 Work Filesystem:    /home mounted to 20.20.20.20:/linux_home
 Tmp Filesystem:     / mounted to /dev/nvme0n1p2
 Work Disk:          35840 GB (Free 30334 GB)
 Tmp Disk:           1658 GB (Free 1558 GB)
 
-CPU Load: 769%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
+CPU Load: 841%, Ram Free: 2 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
 #!/bin/bash
 ################################################################################
 ## AS501
@@ -54,29 +54,32 @@ define_design_lib work -path $OUT_DIR/work
 # Read RTL source files
 analyze -format sverilog -define $DEFINE_LIST $RTL_LIST
 Running PRESTO HDLC
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/soc_top/soc_top.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/memory_map.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/bus_package.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/core_package.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/d_flip_flop.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/mux2to1.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/mux3to1.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/mux4to1.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/mux5to1.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/common/counter.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/cpu_top/cpu_top.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/cache/instr_cache.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/alu.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/soc_top/soc_top.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/bus/bus_top.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/cpu_top/cpu_top.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/npu_top/npu_top.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/npu_top/npu.sv
+Warning:  /home/AS20233757/AS501_assignment/syn/../rtl/npu_top/npu.sv:102: the undeclared symbol 'cliff_8_on' assumed to have the default net type, which is 'wire'. (VER-936)
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/memory_map.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/bus_package.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/core_package.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/d_flip_flop.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/mux2to1.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/mux3to1.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/mux4to1.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/mux5to1.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/common/counter.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/cache/instr_cache.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/alu.sv
 Opening include file /tools/Synopsys/dc/V-2023.12-SP1/dw/syn_ver/DW_dp_mult_comb_function.inc
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/csr.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/decoder.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/regfile.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/scalar_core.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/npu_top/npu_top.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/npu_top/interface/npu_interface.sv
-Compiling source file /home/AS20243506/AS501_assignment/syn/../rtl/memory/memory_top.sv
-Error:  /home/AS20243506/AS501_assignment/syn/../rtl/npu_top/interface/npu_interface.sv:63: Variable 'rdata_i_reg' is the target of both blocking and nonblocking assignments in the same always block. (VER-134)
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/csr.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/decoder.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/regfile.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/scalar_core.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/npu_top/interface/npu_interface.sv
+Compiling source file /home/AS20233757/AS501_assignment/syn/../rtl/memory/memory_top.sv
+Error:  /home/AS20233757/AS501_assignment/syn/../rtl/npu_top/interface/npu_interface.sv:63: Variable 'rdata_i_reg' is the target of both blocking and nonblocking assignments in the same always block. (VER-134)
 Error:  Cannot recover from previous errors. (VER-518)
 *** Presto compilation terminated with 2 errors. ***
 Loading db file '/technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db'
@@ -99,7 +102,8 @@ Information: Building the design 'CPU_TOP' instantiated from design 'SOC_TOP' wi
 Presto compilation completed successfully. (CPU_TOP_DWidth32)
 Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
         the parameters "DWidth=32,NumofSlave=2". (HDL-193)
-Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
+Error:  /home/AS20233757/AS501_assignment/syn/../rtl/bus/bus_top.sv:55: Illegal use of unpacked type as an integer or bit-vector operand. (ELAB-929)
+*** Presto compilation terminated with 1 errors. ***
 Information: Building the design 'NPU_TOP' instantiated from design 'SOC_TOP' with
         the parameters "DWidth=32". (HDL-193)
 Presto compilation completed successfully. (NPU_TOP_DWidth32)
@@ -107,7 +111,7 @@ Information: Building the design 'INSTR_CACHE' instantiated from design 'CPU_TOP
         the parameters "DWidth=32". (HDL-193)
 
 Statistics for case statements in always block at line 81 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/cache/instr_cache.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/cache/instr_cache.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -122,13 +126,13 @@ Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWid
 Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
 Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
         the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
+Presto compilation completed successfully. (NPU_DWidth32)
 Information: Building the design 'D_FF' instantiated from design 'INSTR_CACHE_DWidth32' with
         the parameters "DWidth=32,RValue=1'h0". (HDL-193)
 
 Inferred memory devices in process
         in routine D_FF_32_0 line 28 in file
-                '/home/AS20243506/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
+                '/home/AS20233757/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -140,7 +144,7 @@ Information: Building the design 'COUNTER' instantiated from design 'INSTR_CACHE
 
 Inferred memory devices in process
         in routine COUNTER_30_0_127 line 30 in file
-                '/home/AS20243506/AS501_assignment/syn/../rtl/common/counter.sv'.
+                '/home/AS20233757/AS501_assignment/syn/../rtl/common/counter.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -153,7 +157,7 @@ Information: Building the design 'D_FF' instantiated from design 'INSTR_CACHE_DW
 
 Inferred memory devices in process
         in routine D_FF_2_3 line 28 in file
-                '/home/AS20243506/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
+                '/home/AS20233757/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -168,7 +172,7 @@ Information: Building the design 'COUNTER' instantiated from design 'SCALAR_CORE
 
 Inferred memory devices in process
         in routine COUNTER_64_0 line 30 in file
-                '/home/AS20243506/AS501_assignment/syn/../rtl/common/counter.sv'.
+                '/home/AS20233757/AS501_assignment/syn/../rtl/common/counter.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -180,7 +184,7 @@ Information: Building the design 'MUX2TO1' instantiated from design 'SCALAR_CORE
         the parameters "DWidth=32". (HDL-193)
 
 Statistics for case statements in always block at line 24 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/common/mux2to1.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/common/mux2to1.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -191,7 +195,7 @@ Information: Building the design 'DECODER' instantiated from design 'SCALAR_CORE
         the parameters "DWidth=32,OpWidth=5,NumofReg=32,CWidth=12". (HDL-193)
 
 Statistics for case statements in always block at line 131 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/decoder.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/decoder.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -199,7 +203,7 @@ Statistics for case statements in always block at line 131 in file
 ===============================================
 
 Statistics for case statements in always block at line 208 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/decoder.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/decoder.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -223,7 +227,7 @@ Information: Building the design 'CSR' instantiated from design 'SCALAR_CORE_DWi
         the parameters "DWidth=32,AWidth=12". (HDL-193)
 
 Statistics for case statements in always block at line 71 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/csr.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/csr.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -234,7 +238,7 @@ Information: Building the design 'MUX4TO1' instantiated from design 'SCALAR_CORE
         the parameters "DWidth=32". (HDL-193)
 
 Statistics for case statements in always block at line 26 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/common/mux4to1.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/common/mux4to1.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -245,7 +249,7 @@ Information: Building the design 'ALU' instantiated from design 'SCALAR_CORE_DWi
         the parameters "DWidth=32,OpWidth=5". (HDL-193)
 
 Statistics for case statements in always block at line 57 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/alu.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/scalar_core_modified/core/submodule/alu.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -256,7 +260,7 @@ Information: Building the design 'MUX5TO1' instantiated from design 'SCALAR_CORE
         the parameters "DWidth=32". (HDL-193)
 
 Statistics for case statements in always block at line 27 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/common/mux5to1.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/common/mux5to1.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -267,19 +271,25 @@ Information: Building the design 'MUX3TO1' instantiated from design 'SCALAR_CORE
         the parameters "DWidth=32". (HDL-193)
 
 Statistics for case statements in always block at line 25 in file
-        '/home/AS20243506/AS501_assignment/syn/../rtl/common/mux3to1.sv'
+        '/home/AS20233757/AS501_assignment/syn/../rtl/common/mux3to1.sv'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
 |            26            |    user/user     |
 ===============================================
 Presto compilation completed successfully. (MUX3TO1_DWidth32)
+Information: Building the design 'npu_controller' instantiated from design 'NPU_DWidth32' with
+        the parameters "DWidth=32,ADDR_WIDTH=32,ARRAY_N=16,PE_OUT_WIDTH=32". (HDL-193)
+Warning: Cannot find the design 'npu_controller' in the library 'WORK'. (LBR-1)
+Information: Building the design 'systolic_system_adv' instantiated from design 'NPU_DWidth32' with
+        the parameters "ARRAY_N=16,ARRAY_M=16,ACT_WIDTH=8,WGT_WIDTH=8,PE_OUT_WIDTH=32,RAM_SIZE=1024,DATA_WIDTH=32". (HDL-193)
+Warning: Cannot find the design 'systolic_system_adv' in the library 'WORK'. (LBR-1)
 Information: Building the design 'D_FF' instantiated from design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12' with
         the parameters "DWidth=2,RValue=2'h0". (HDL-193)
 
 Inferred memory devices in process
         in routine D_FF_2_0 line 28 in file
-                '/home/AS20243506/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
+                '/home/AS20233757/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -291,43 +301,48 @@ Information: Building the design 'D_FF' instantiated from design 'CSR_DWidth32_A
 
 Inferred memory devices in process
         in routine D_FF_64_0 line 28 in file
-                '/home/AS20243506/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
+                '/home/AS20233757/AS501_assignment/syn/../rtl/common/d_flip_flop.sv'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
 |   read_data_o_reg   | Flip-flop |  64   |  Y  | Y  | N  | N  | N  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully. (D_FF_64_0)
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 link
 
   Linking design 'SOC_TOP'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  * (20 designs)              /home/AS20243506/AS501_assignment/syn/SOC_TOP.db, etc
+  * (21 designs)              /home/AS20233757/AS501_assignment/syn/SOC_TOP.db, etc
   saed32rvt_tt1p05v25c (library) /technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db
   saed32sram_tt1p05v25c (library) /technology/SAED32/lib/sram/db_nldm/saed32sram_tt1p05v25c.db
   dw_foundation.sldb (library) /tools/Synopsys/dc/V-2023.12-SP1/libraries/syn/dw_foundation.sldb
 
 Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
         the parameters "DWidth=32,NumofSlave=2". (HDL-193)
-Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
+Error:  /home/AS20233757/AS501_assignment/syn/../rtl/bus/bus_top.sv:55: Illegal use of unpacked type as an integer or bit-vector operand. (ELAB-929)
+*** Presto compilation terminated with 1 errors. ***
 Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
         the parameters "DWidth=32". (HDL-193)
 Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
+Information: Building the design 'npu_controller' instantiated from design 'NPU_DWidth32' with
+        the parameters "DWidth=32,ADDR_WIDTH=32,ARRAY_N=16,PE_OUT_WIDTH=32". (HDL-193)
+Warning: Cannot find the design 'npu_controller' in the library 'WORK'. (LBR-1)
+Information: Building the design 'systolic_system_adv' instantiated from design 'NPU_DWidth32' with
+        the parameters "ARRAY_N=16,ARRAY_M=16,ACT_WIDTH=8,WGT_WIDTH=8,PE_OUT_WIDTH=32,RAM_SIZE=1024,DATA_WIDTH=32". (HDL-193)
+Warning: Cannot find the design 'systolic_system_adv' in the library 'WORK'. (LBR-1)
 Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
 Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
-Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
+Warning: Unable to resolve reference 'npu_controller' in 'NPU_DWidth32'. (LINK-5)
+Warning: Unable to resolve reference 'systolic_system_adv' in 'NPU_DWidth32'. (LINK-5)
 0
 # Set wire names to lower case
 define_name_rules LOWER_CASE -type net -allowed "a-z 0-9_*"
 1
 change_names -rules verilog -hierarchy
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
 Warning: In the design INSTR_CACHE_DWidth32, net 'imem_addr_o[31]' is connecting multiple ports. (UCN-1)
 Warning: In the design INSTR_CACHE_DWidth32, net 'imem_addr_o[30]' is connecting multiple ports. (UCN-1)
@@ -375,7 +390,7 @@ Warning: In the design DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12, net 'csr_r
 Warning: In the design DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12, net 'csr_read_addr_o[0]' is connecting multiple ports. (UCN-1)
 1
 change_names -rules LOWER_CASE -hierarchy
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[31]' is connecting multiple ports. (UCN-1)
 Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[30]' is connecting multiple ports. (UCN-1)
 Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[29]' is connecting multiple ports. (UCN-1)
@@ -426,18 +441,18 @@ set_fix_multiple_port_nets -all -buffer_constants
 1
 # Check the current design for consistency
 redirect -tee -file $RPT_DIR/1_check_design.rpt {check_design}
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 check_design summary:
 Version:     V-2023.12-SP1
-Date:        Tue Jun 11 22:33:55 2024
+Date:        Tue Jun 11 23:40:57 2024
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                    194
-    Multiply driven inputs (LINT-6)                               105
+Inputs/Outputs                                                    262
+    Multiply driven inputs (LINT-6)                               173
     Unconnected ports (LINT-28)                                    45
     Feedthrough (LINT-29)                                          32
     Shorted outputs (LINT-31)                                      12
@@ -447,11 +462,12 @@ Cells                                                              94
     Connected to power or ground (LINT-32)                         50
     Nets connected to multiple pins on same cell (LINT-33)         35
 
-Nets                                                                1
+Nets                                                              197
+    Unloaded nets (LINT-2)                                        196
     Multiply driven net with constant driver (LINT-54)              1
 
-Tristate                                                           67
-    A tristate bus has a non tri-state driver (LINT-34)            67
+Tristate                                                           68
+    A tristate bus has a non tri-state driver (LINT-34)            68
 --------------------------------------------------------------------------------
 
 Warning: In design 'COUNTER_30_0_127', cell 'C187' does not drive any nets. (LINT-1)
@@ -463,6 +479,202 @@ Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_16' does not drive any nets.
 Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_17' does not drive any nets. (LINT-1)
 Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_18' does not drive any nets. (LINT-1)
 Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_196' driven by pin 'NPU/NPU/debug_output[0]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_195' driven by pin 'NPU/NPU/debug_output[1]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_194' driven by pin 'NPU/NPU/debug_output[2]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_193' driven by pin 'NPU/NPU/debug_output[3]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_192' driven by pin 'NPU/NPU/debug_output[4]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_191' driven by pin 'NPU/NPU/debug_output[5]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_190' driven by pin 'NPU/NPU/debug_output[6]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_189' driven by pin 'NPU/NPU/debug_output[7]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_188' driven by pin 'NPU/NPU/debug_output[8]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_187' driven by pin 'NPU/NPU/debug_output[9]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_186' driven by pin 'NPU/NPU/debug_output[10]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_185' driven by pin 'NPU/NPU/debug_output[11]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_184' driven by pin 'NPU/NPU/debug_output[12]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_183' driven by pin 'NPU/NPU/debug_output[13]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_182' driven by pin 'NPU/NPU/debug_output[14]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_181' driven by pin 'NPU/NPU/debug_output[15]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_180' driven by pin 'NPU/NPU/debug_output[16]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_179' driven by pin 'NPU/NPU/debug_output[17]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_178' driven by pin 'NPU/NPU/debug_output[18]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_177' driven by pin 'NPU/NPU/debug_output[19]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_176' driven by pin 'NPU/NPU/debug_output[20]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_175' driven by pin 'NPU/NPU/debug_output[21]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_174' driven by pin 'NPU/NPU/debug_output[22]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_173' driven by pin 'NPU/NPU/debug_output[23]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_172' driven by pin 'NPU/NPU/debug_output[24]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_171' driven by pin 'NPU/NPU/debug_output[25]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_170' driven by pin 'NPU/NPU/debug_output[26]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_169' driven by pin 'NPU/NPU/debug_output[27]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_168' driven by pin 'NPU/NPU/debug_output[28]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_167' driven by pin 'NPU/NPU/debug_output[29]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_166' driven by pin 'NPU/NPU/debug_output[30]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_165' driven by pin 'NPU/NPU/debug_output[31]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_164' driven by pin 'NPU/NPU/debug_output[32]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_163' driven by pin 'NPU/NPU/debug_output[33]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_162' driven by pin 'NPU/NPU/debug_output[34]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_161' driven by pin 'NPU/NPU/debug_output[35]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_160' driven by pin 'NPU/NPU/debug_output[36]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_159' driven by pin 'NPU/NPU/debug_output[37]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_158' driven by pin 'NPU/NPU/debug_output[38]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_157' driven by pin 'NPU/NPU/debug_output[39]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_156' driven by pin 'NPU/NPU/debug_output[40]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_155' driven by pin 'NPU/NPU/debug_output[41]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_154' driven by pin 'NPU/NPU/debug_output[42]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_153' driven by pin 'NPU/NPU/debug_output[43]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_152' driven by pin 'NPU/NPU/debug_output[44]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_151' driven by pin 'NPU/NPU/debug_output[45]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_150' driven by pin 'NPU/NPU/debug_output[46]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_149' driven by pin 'NPU/NPU/debug_output[47]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_148' driven by pin 'NPU/NPU/debug_output[48]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_147' driven by pin 'NPU/NPU/debug_output[49]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_146' driven by pin 'NPU/NPU/debug_output[50]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_145' driven by pin 'NPU/NPU/debug_output[51]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_144' driven by pin 'NPU/NPU/debug_output[52]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_143' driven by pin 'NPU/NPU/debug_output[53]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_142' driven by pin 'NPU/NPU/debug_output[54]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_141' driven by pin 'NPU/NPU/debug_output[55]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_140' driven by pin 'NPU/NPU/debug_output[56]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_139' driven by pin 'NPU/NPU/debug_output[57]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_138' driven by pin 'NPU/NPU/debug_output[58]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_137' driven by pin 'NPU/NPU/debug_output[59]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_136' driven by pin 'NPU/NPU/debug_output[60]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_135' driven by pin 'NPU/NPU/debug_output[61]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_134' driven by pin 'NPU/NPU/debug_output[62]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_133' driven by pin 'NPU/NPU/debug_output[63]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_132' driven by pin 'NPU/NPU/debug_output[64]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_131' driven by pin 'NPU/NPU/debug_output[65]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_130' driven by pin 'NPU/NPU/debug_output[66]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_129' driven by pin 'NPU/NPU/debug_output[67]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_128' driven by pin 'NPU/NPU/debug_output[68]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_127' driven by pin 'NPU/NPU/debug_output[69]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_126' driven by pin 'NPU/NPU/debug_output[70]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_125' driven by pin 'NPU/NPU/debug_output[71]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_124' driven by pin 'NPU/NPU/debug_output[72]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_123' driven by pin 'NPU/NPU/debug_output[73]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_122' driven by pin 'NPU/NPU/debug_output[74]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_121' driven by pin 'NPU/NPU/debug_output[75]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_120' driven by pin 'NPU/NPU/debug_output[76]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_119' driven by pin 'NPU/NPU/debug_output[77]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_118' driven by pin 'NPU/NPU/debug_output[78]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_117' driven by pin 'NPU/NPU/debug_output[79]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_116' driven by pin 'NPU/NPU/debug_output[80]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_115' driven by pin 'NPU/NPU/debug_output[81]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_114' driven by pin 'NPU/NPU/debug_output[82]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_113' driven by pin 'NPU/NPU/debug_output[83]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_112' driven by pin 'NPU/NPU/debug_output[84]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_111' driven by pin 'NPU/NPU/debug_output[85]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_110' driven by pin 'NPU/NPU/debug_output[86]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_109' driven by pin 'NPU/NPU/debug_output[87]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_108' driven by pin 'NPU/NPU/debug_output[88]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_107' driven by pin 'NPU/NPU/debug_output[89]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_106' driven by pin 'NPU/NPU/debug_output[90]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_105' driven by pin 'NPU/NPU/debug_output[91]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_104' driven by pin 'NPU/NPU/debug_output[92]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_103' driven by pin 'NPU/NPU/debug_output[93]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_102' driven by pin 'NPU/NPU/debug_output[94]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_101' driven by pin 'NPU/NPU/debug_output[95]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_100' driven by pin 'NPU/NPU/debug_output[96]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_99' driven by pin 'NPU/NPU/debug_output[97]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_98' driven by pin 'NPU/NPU/debug_output[98]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_97' driven by pin 'NPU/NPU/debug_output[99]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_96' driven by pin 'NPU/NPU/debug_output[100]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_95' driven by pin 'NPU/NPU/debug_output[101]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_94' driven by pin 'NPU/NPU/debug_output[102]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_93' driven by pin 'NPU/NPU/debug_output[103]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_92' driven by pin 'NPU/NPU/debug_output[104]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_91' driven by pin 'NPU/NPU/debug_output[105]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_90' driven by pin 'NPU/NPU/debug_output[106]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_89' driven by pin 'NPU/NPU/debug_output[107]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_88' driven by pin 'NPU/NPU/debug_output[108]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_87' driven by pin 'NPU/NPU/debug_output[109]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_86' driven by pin 'NPU/NPU/debug_output[110]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_85' driven by pin 'NPU/NPU/debug_output[111]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_84' driven by pin 'NPU/NPU/debug_output[112]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_83' driven by pin 'NPU/NPU/debug_output[113]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_82' driven by pin 'NPU/NPU/debug_output[114]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_81' driven by pin 'NPU/NPU/debug_output[115]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_80' driven by pin 'NPU/NPU/debug_output[116]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_79' driven by pin 'NPU/NPU/debug_output[117]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_78' driven by pin 'NPU/NPU/debug_output[118]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_77' driven by pin 'NPU/NPU/debug_output[119]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_76' driven by pin 'NPU/NPU/debug_output[120]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_75' driven by pin 'NPU/NPU/debug_output[121]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_74' driven by pin 'NPU/NPU/debug_output[122]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_73' driven by pin 'NPU/NPU/debug_output[123]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_72' driven by pin 'NPU/NPU/debug_output[124]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_71' driven by pin 'NPU/NPU/debug_output[125]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_70' driven by pin 'NPU/NPU/debug_output[126]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_69' driven by pin 'NPU/NPU/debug_output[127]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_68' driven by pin 'NPU/NPU/debug3_o[0]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_67' driven by pin 'NPU/NPU/debug3_o[1]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_66' driven by pin 'NPU/NPU/debug3_o[2]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_65' driven by pin 'NPU/NPU/debug3_o[3]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_64' driven by pin 'NPU/NPU/debug2_o[0]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_63' driven by pin 'NPU/NPU/debug2_o[1]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_62' driven by pin 'NPU/NPU/debug2_o[2]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_61' driven by pin 'NPU/NPU/debug2_o[3]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_60' driven by pin 'NPU/NPU/debug2_o[4]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_59' driven by pin 'NPU/NPU/debug2_o[5]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_58' driven by pin 'NPU/NPU/debug2_o[6]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_57' driven by pin 'NPU/NPU/debug2_o[7]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_56' driven by pin 'NPU/NPU/debug2_o[8]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_55' driven by pin 'NPU/NPU/debug2_o[9]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_54' driven by pin 'NPU/NPU/debug2_o[10]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_53' driven by pin 'NPU/NPU/debug2_o[11]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_52' driven by pin 'NPU/NPU/debug2_o[12]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_51' driven by pin 'NPU/NPU/debug2_o[13]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_50' driven by pin 'NPU/NPU/debug2_o[14]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_49' driven by pin 'NPU/NPU/debug2_o[15]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_48' driven by pin 'NPU/NPU/debug2_o[16]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_47' driven by pin 'NPU/NPU/debug2_o[17]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_46' driven by pin 'NPU/NPU/debug2_o[18]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_45' driven by pin 'NPU/NPU/debug2_o[19]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_44' driven by pin 'NPU/NPU/debug2_o[20]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_43' driven by pin 'NPU/NPU/debug2_o[21]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_42' driven by pin 'NPU/NPU/debug2_o[22]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_41' driven by pin 'NPU/NPU/debug2_o[23]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_40' driven by pin 'NPU/NPU/debug2_o[24]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_39' driven by pin 'NPU/NPU/debug2_o[25]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_38' driven by pin 'NPU/NPU/debug2_o[26]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_37' driven by pin 'NPU/NPU/debug2_o[27]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_36' driven by pin 'NPU/NPU/debug2_o[28]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_35' driven by pin 'NPU/NPU/debug2_o[29]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_34' driven by pin 'NPU/NPU/debug2_o[30]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_33' driven by pin 'NPU/NPU/debug2_o[31]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_32' driven by pin 'NPU/NPU/debug1_o[0]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_31' driven by pin 'NPU/NPU/debug1_o[1]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_30' driven by pin 'NPU/NPU/debug1_o[2]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_29' driven by pin 'NPU/NPU/debug1_o[3]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_28' driven by pin 'NPU/NPU/debug1_o[4]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_27' driven by pin 'NPU/NPU/debug1_o[5]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_26' driven by pin 'NPU/NPU/debug1_o[6]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_25' driven by pin 'NPU/NPU/debug1_o[7]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_24' driven by pin 'NPU/NPU/debug1_o[8]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_23' driven by pin 'NPU/NPU/debug1_o[9]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_22' driven by pin 'NPU/NPU/debug1_o[10]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_21' driven by pin 'NPU/NPU/debug1_o[11]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_20' driven by pin 'NPU/NPU/debug1_o[12]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_19' driven by pin 'NPU/NPU/debug1_o[13]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_18' driven by pin 'NPU/NPU/debug1_o[14]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_17' driven by pin 'NPU/NPU/debug1_o[15]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_16' driven by pin 'NPU/NPU/debug1_o[16]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_15' driven by pin 'NPU/NPU/debug1_o[17]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_14' driven by pin 'NPU/NPU/debug1_o[18]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_13' driven by pin 'NPU/NPU/debug1_o[19]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_12' driven by pin 'NPU/NPU/debug1_o[20]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_11' driven by pin 'NPU/NPU/debug1_o[21]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_10' driven by pin 'NPU/NPU/debug1_o[22]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_9' driven by pin 'NPU/NPU/debug1_o[23]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_8' driven by pin 'NPU/NPU/debug1_o[24]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_7' driven by pin 'NPU/NPU/debug1_o[25]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_6' driven by pin 'NPU/NPU/debug1_o[26]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_5' driven by pin 'NPU/NPU/debug1_o[27]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_4' driven by pin 'NPU/NPU/debug1_o[28]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_3' driven by pin 'NPU/NPU/debug1_o[29]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_2' driven by pin 'NPU/NPU/debug1_o[30]' has no loads. (LINT-2)
+Warning: In design 'SOC_TOP', net 'NPU/synopsys_unconnected_1' driven by pin 'NPU/NPU/debug1_o[31]' has no loads. (LINT-2)
 Warning: In design 'SOC_TOP', input port 'clk_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
 Warning: In design 'SOC_TOP', input port 'rst_ni' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
 Warning: In design 'SOC_TOP', input port 'dmem_ready_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
@@ -568,6 +780,74 @@ Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[3]' drives wired logi
 Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
 Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
 Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'clk_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'rst_ni' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'cen_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wen_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'addr_i[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_DWidth32', input port 'wdata_i[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
 Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[11]' is not connected to any nets. (LINT-28)
 Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[10]' is not connected to any nets. (LINT-28)
 Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[9]' is not connected to any nets. (LINT-28)
@@ -894,12 +1174,13 @@ Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[29]' has non three-s
 Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[30]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_30'. (LINT-34)
 Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[31]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_31'. (LINT-34)
 Warning: In design 'SOC_TOP', three-state bus 'n_logic0_' has non three-state driver 'U1/**logic_0**'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'NPU/NPU/n_0_net_' has non three-state driver 'NPU/NPU/I_0/Z'. (LINT-34)
 Warning: In design 'SOC_TOP', multiply-driven net 'n_logic0_' is driven by constant 0. (LINT-54)
 1
 # In/out port constraints
 # Remove all user-defined attributes from the current design
 reset_design
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 # Set operating condition
 set_operating_conditions tt1p05v25c
@@ -907,33 +1188,34 @@ Using operating conditions 'tt1p05v25c' found in library 'saed32rvt_tt1p05v25c'.
 1
 # Create clock
 create_clock -period $CLOCK_PERIOD [get_ports $TOP_CLK]
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 # Set clock skew + jitter + setup margin
 set_clock_uncertainty -setup [expr 0.07 * $CLOCK_PERIOD] [get_clocks $TOP_CLK]
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 # Set clock transition (How long it takes to be recognized as 0 to 1)
 set_clock_transition [expr 0.016 * $CLOCK_PERIOD] [get_clocks $TOP_CLK]
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 # Assume the core is connected to SRAM
 # Set input delay (Assume ta = 0.6)
 set INPUTS_EX_GLOBAL [remove_from_collection [all_inputs] [get_ports "$TOP_CLK $TOP_RST"]]
 {imem_ready_i imem_rdata_i[31] imem_rdata_i[30] imem_rdata_i[29] imem_rdata_i[28] imem_rdata_i[27] imem_rdata_i[26] imem_rdata_i[25] imem_rdata_i[24] imem_rdata_i[23] imem_rdata_i[22] imem_rdata_i[21] imem_rdata_i[20] imem_rdata_i[19] imem_rdata_i[18] imem_rdata_i[17] imem_rdata_i[16] imem_rdata_i[15] imem_rdata_i[14] imem_rdata_i[13] imem_rdata_i[12] imem_rdata_i[11] imem_rdata_i[10] imem_rdata_i[9] imem_rdata_i[8] imem_rdata_i[7] imem_rdata_i[6] imem_rdata_i[5] imem_rdata_i[4] imem_rdata_i[3] imem_rdata_i[2] imem_rdata_i[1] imem_rdata_i[0] dmem_ready_i dmem_rdata_i[31] dmem_rdata_i[30] dmem_rdata_i[29] dmem_rdata_i[28] dmem_rdata_i[27] dmem_rdata_i[26] dmem_rdata_i[25] dmem_rdata_i[24] dmem_rdata_i[23] dmem_rdata_i[22] dmem_rdata_i[21] dmem_rdata_i[20] dmem_rdata_i[19] dmem_rdata_i[18] dmem_rdata_i[17] dmem_rdata_i[16] dmem_rdata_i[15] dmem_rdata_i[14] dmem_rdata_i[13] dmem_rdata_i[12] dmem_rdata_i[11] dmem_rdata_i[10] dmem_rdata_i[9] dmem_rdata_i[8] dmem_rdata_i[7] dmem_rdata_i[6] dmem_rdata_i[5] dmem_rdata_i[4] dmem_rdata_i[3] dmem_rdata_i[2] dmem_rdata_i[1] dmem_rdata_i[0]}
 set_input_delay -max 0.6 -clock $TOP_CLK $INPUTS_EX_GLOBAL
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 # Set output delay (Assume tas, tcss, twes, tds = 1.0)
 set_output_delay -max 1.0 -clock $TOP_CLK [all_outputs]
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 # Report clock
 redirect -tee -file $RPT_DIR/2_check_clock.rpt {report_clock}
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Changed wire load model for 'NPU_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'NPU_TOP_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'MUX2TO1_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'MUX4TO1_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
@@ -993,1070 +1275,4 @@ Information: Changed wire load model for 'COUNTER_30_0_127' from '(none)' to 'Fo
 Information: Changed wire load model for 'D_FF_32_0' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'INSTR_CACHE_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'CPU_TOP_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'alt1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'apparch' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'alt1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'astr' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'alt1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'astr' from '(none)' to 'ForQA'. (OPT-170)
-Information: Updating graph... (UID-83)
-Warning: Design 'SOC_TOP' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
- 
-****************************************
-Report : clocks
-Design : SOC_TOP
-Version: V-2023.12-SP1
-Date   : Tue Jun 11 22:33:56 2024
-****************************************
-
-Attributes:
-    d - dont_touch_network
-    f - fix_hold
-    p - propagated_clock
-    G - generated_clock
-    g - lib_generated_clock
-
-Clock          Period   Waveform            Attrs     Sources
---------------------------------------------------------------------------------
-clk_i           10.00   {0 5}                         {clk_i}
---------------------------------------------------------------------------------
-1
-# Compile the Design
-redirect -tee -file $RPT_DIR/3_compile.rpt {eval "compile_ultra -no_autoungroup"}
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-Information: Performing leakage power optimization. (PWR-850)
-CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
-Analyzing: "/technology/SAED32/lib/sram/db_nldm/saed32sram_tt1p05v25c.db"
-Analyzing: "/technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db"
-Library analysis succeeded.
-Information: Running optimization using a maximum of 8 cores. (OPT-1500)
-Information: Evaluating DesignWare library utilization. (UISN-27)
-
-============================================================================
-| DesignWare Building Block Library  |         Version         | Available |
-============================================================================
-| Basic DW Building Blocks           | V-2023.12-DWBB_202312.1 |     *     |
-| Licensed DW Building Blocks        | V-2023.12-DWBB_202312.1 |     *     |
-============================================================================
-
-====================================================================================================
-| Flow Information                                                                                 |
-----------------------------------------------------------------------------------------------------
-| Flow         | Design Compiler WLM                                                               |
-| Command Line | compile_ultra -no_autoungroup                                                     |
-====================================================================================================
-| Design Information                                      | Value                                  |
-====================================================================================================
-| Number of Scenarios                                     | 0                                      |
-| Leaf Cell Count                                         | 2842                                   |
-| Number of User Hierarchies                              | 59                                     |
-| Sequential Cell Count                                   | 1415                                   |
-| Macro Count                                             | 0                                      |
-| Number of Power Domains                                 | 0                                      |
-| Number of Path Groups                                   | 2                                      |
-| Number of VT Class                                      | 1                                      |
-| Number of Clocks                                        | 1                                      |
-| Number of Dont Touch Cells                              | 366                                    |
-| Number of Dont Touch Nets                               | 0                                      |
-| Number of Size Only Cells                               | 3                                      |
-| Design with UPF Data                                    | false                                  |
-----------------------------------------------------------------------------------------------------
-| Variables                                               | Value                                  |
-----------------------------------------------------------------------------------------------------
-| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
-====================================================================================================
-Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
-
-Information: There are 357 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
-
-Information: Uniquified 35 instances of design 'D_FF_32_0'. (OPT-1056)
-Information: Uniquified 2 instances of design 'COUNTER_64_0'. (OPT-1056)
-Information: Uniquified 3 instances of design 'MUX2TO1_DWidth32'. (OPT-1056)
-Information: Uniquified 3 instances of design 'MUX4TO1_DWidth32'. (OPT-1056)
-Information: Uniquified 2 instances of design 'D_FF_64_0'. (OPT-1056)
-  Simplifying Design 'SOC_TOP'
-Information: The register 'CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_done_o_reg' will be removed. (OPT-1207)
-Information: The register 'CPU/SCORE/COUNTER_CYCLE/cnt_done_o_reg' will be removed. (OPT-1207)
-
-  Loading target library 'saed32sram_tt1p05v25c'
-Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
-        the parameters "DWidth=32,NumofSlave=2". (HDL-193)
-Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
-Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
-Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
-Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
-Loaded alib file './alib-52/saed32rvt_tt1p05v25c.db.alib'
-Loaded alib file './alib-52/saed32sram_tt1p05v25c.db.alib' (placeholder)
-CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
-Information: State dependent leakage is now switched from on to off.
-
-  Beginning Pass 1 Mapping
-  ------------------------
-  Processing 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12'
-  Processing 'D_FF_64_0_0'
-  Processing 'SOC_TOP'
-  Processing 'D_FF_32_0_0'
-  Processing 'MUX5TO1_DWidth32'
-  Processing 'MUX4TO1_DWidth32_0'
-  Processing 'MUX2TO1_DWidth32_2'
-  Processing 'ALU_DWidth32_OpWidth5'
- Implement Synthetic for 'ALU_DWidth32_OpWidth5'.
-Information: Added key list 'DesignWare' to design 'ALU_DWidth32_OpWidth5'. (DDB-72)
-  Processing 'INSTR_CACHE_DWidth32'
-Information: Added key list 'DesignWare' to design 'INSTR_CACHE_DWidth32'. (DDB-72)
-  Processing 'COUNTER_64_0_1'
- Implement Synthetic for 'COUNTER_64_0_1'.
-  Processing 'COUNTER_30_0_127'
- Implement Synthetic for 'COUNTER_30_0_127'.
-  Processing 'CPU_TOP_DWidth32'
-  Processing 'MUX4TO1_DWidth32_1'
-  Processing 'CACHE_SRAM_DWidth56_Depth128'
-  Processing 'D_FF_2_3'
-  Processing 'REGFILE_DWidth32_NumofReg32'
-  Processing 'MUX2TO1_DWidth32_1'
-  Processing 'SCALAR_CORE_DWidth32'
- Implement Synthetic for 'SCALAR_CORE_DWidth32'.
-  Processing 'COUNTER_64_0_0'
- Implement Synthetic for 'COUNTER_64_0_0'.
-  Processing 'CSR_DWidth32_AWidth12'
-  Processing 'D_FF_32_0_1'
-  Processing 'NPU_TOP_DWidth32'
-  Processing 'MUX3TO1_DWidth32'
-  Processing 'D_FF_2_0'
-  Processing 'MUX2TO1_DWidth32_0'
-Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
-        the parameters "DWidth=32,NumofSlave=2". (HDL-193)
-Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
-Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
-Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
-Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
-
-  Updating timing information
-Information: Updating design information... (UID-85)
-Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
-Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
-Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
-Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
-Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
-Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
-Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
-Information: Removing unused design 'MUX2TO1_DWidth32_0'. (OPT-1055)
-
-Threshold voltage group cell usage:
->> saed32cell_svt 100.00%
-
-  Beginning Mapping Optimizations  (Ultra High effort)
-  -------------------------------
-Information: Added key list 'DesignWare' to design 'SCALAR_CORE_DWidth32'. (DDB-72)
-Information: Added key list 'DesignWare' to design 'COUNTER_30_0_127'. (DDB-72)
-Information: Added key list 'DesignWare' to design 'COUNTER_64_0_1'. (DDB-72)
-Information: Added key list 'DesignWare' to design 'COUNTER_64_0_0'. (DDB-72)
-  Mapping Optimization (Phase 1)
-
-                                  TOTAL                                                
-   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
-    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
-  --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:18   68670.5      0.00       0.0     104.5                           11454927872.0000
-    0:00:18   68665.9      0.00       0.0     104.5                           11454768128.0000
-
-Threshold voltage group cell usage:
->> saed32cell_svt 100.00%
-
-  Beginning Constant Register Removal
-  -----------------------------------
-
-Threshold voltage group cell usage:
->> saed32cell_svt 100.00%
-
-  Beginning Global Optimizations
-  ------------------------------
-  Numerical Synthesis (Phase 1)
-  Numerical Synthesis (Phase 2)
-  Global Optimization (Phase 1)
-  Global Optimization (Phase 2)
-  Global Optimization (Phase 3)
-  Global Optimization (Phase 4)
-  Global Optimization (Phase 5)
-  Global Optimization (Phase 6)
-  Global Optimization (Phase 7)
-  Global Optimization (Phase 8)
-  Global Optimization (Phase 9)
-  Global Optimization (Phase 10)
-  Global Optimization (Phase 11)
-  Global Optimization (Phase 12)
-  Global Optimization (Phase 13)
-  Global Optimization (Phase 14)
-  Global Optimization (Phase 15)
-  Global Optimization (Phase 16)
-  Global Optimization (Phase 17)
-  Global Optimization (Phase 18)
-  Global Optimization (Phase 19)
-  Global Optimization (Phase 20)
-  Global Optimization (Phase 21)
-  Global Optimization (Phase 22)
-  Global Optimization (Phase 23)
-  Global Optimization (Phase 24)
-  Global Optimization (Phase 25)
-  Global Optimization (Phase 26)
-  Global Optimization (Phase 27)
-  Global Optimization (Phase 28)
-  Global Optimization (Phase 29)
-  Global Optimization (Phase 30)
-  Global Optimization (Phase 31)
-
-Threshold voltage group cell usage:
->> saed32cell_svt 100.00%
-
-  Beginning Isolate Ports
-  -----------------------
-
-Threshold voltage group cell usage:
->> saed32cell_svt 100.00%
-
-  Beginning Delay Optimization
-  ----------------------------
-    0:00:21   57467.3      0.25       0.6    4930.0                           3396811264.0000
-    0:00:22   57488.2      0.05       0.1    4859.3                           3403822848.0000
-    0:00:22   57488.2      0.05       0.1    4859.3                           3403822848.0000
-    0:00:22   57488.7      0.05       0.1    4859.3                           3403659008.0000
-
-Threshold voltage group cell usage:
->> saed32cell_svt 100.00%
-    0:00:23   57487.4      0.05       0.1    4854.4                           3403662336.0000
-    0:00:23   57487.4      0.05       0.1    4854.4                           3403662336.0000
-
-  Beginning WLM Backend Optimization
-  --------------------------------------
-    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
-    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
-    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
-    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
-    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-
-
-  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
-  ----------------------------
-
-                                  TOTAL                                                
-   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
-    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
-  --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
-  Global Optimization (Phase 32)
-  Global Optimization (Phase 33)
-  Global Optimization (Phase 34)
-    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
-    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
-
-Threshold voltage group cell usage:
->> saed32cell_svt 100.00%
-
-
-  Beginning Leakage Power Optimization  (max_leakage_power 0)
-  ------------------------------------
-
-                                  TOTAL                                                
-   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
-    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
-  --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
-    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
-    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
-    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
-
-                                  TOTAL                                                
-   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
-    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
-  --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:27   57670.4      0.00       0.0       0.0                           3251783424.0000
-    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
-    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
-    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
-    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
-    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
-    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
-    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
-    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
-    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
-    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
-    0:00:29   56999.7      0.00       0.0      15.8                           3170937856.0000
-CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
-Loading db file '/technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db'
-Loading db file '/technology/SAED32/lib/sram/db_nldm/saed32sram_tt1p05v25c.db'
-
-
-Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
-
-
-  Optimization Complete
-  ---------------------
-Warning: Design 'SOC_TOP' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
-     Net 'CPU/SCORE/FF_PC/clk_i': 1413 load(s), 1 driver(s), 3 inout(s)
-  Loading target library 'saed32sram_tt1p05v25c'
-Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
-        the parameters "DWidth=32,NumofSlave=2". (HDL-193)
-Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
-Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
-Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
-Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
-Information: State dependent leakage is now switched from off to on.
-Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
-Warning: Design has unannotated black box outputs. (PWR-428)
-CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
-Information: Total number of MV cells in the design.
-----------------------------------------------------------------------------------------------------
- MV Cells                                           Total Number                                   
-----------------------------------------------------------------------------------------------------
- Level Shifter:                                     0                                             
- Enable Level Shifter:                              0                                             
- Isolation Cell:                                    0                                             
- Retention Cell:                                    0                                             
- Retention Clamp Cell:                              0                                             
- Switch Cell:                                       0                                             
- Always-On Cell:                                    0                                             
- Repeater Cell:                                     0                                             
-
-----------------------------------------------------------------------------------------------------
-Unmapped MV Cells 
-----------------------------------------------------------------------------------------------------
-0 Isolation Cells are unmapped 
-0 Retention Clamp Cells are unmapped 
-----------------------------------------------------------------------------------------------------
-1
-# Write Out Final Design and Reports
-# .ddc: Recommended binary format used for subsequent Design Compiler sessions
-# .v  : Verilog netlist for ASCII flow (Formality, PrimeTime, VCS)
-# .sdf: SDF backannotated topographical mode timing for PrimeTime
-# .sdc: SDC constraints for ASCII flow
-write_file -format ddc -hierarchy -output $OUT_DIR/$TOP_NAME.mapped.ddc
-Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
-        the parameters "DWidth=32,NumofSlave=2". (HDL-193)
-Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
-Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
-        the parameters "DWidth=32". (HDL-193)
-Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
-Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
-Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
-Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
-Writing ddc file '/home/AS20243506/AS501_assignment/syn/out/SOC_TOP.mapped.ddc'.
-1
-set_app_var verilogout_no_tri true
-true
-change_names -rules verilog -hierarchy
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[31]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[30]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[29]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[28]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[27]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[26]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[25]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[24]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[23]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[22]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[21]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[20]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[19]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[18]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[17]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[16]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[15]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[14]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[13]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[12]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[11]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[10]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[9]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[8]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[7]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[6]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[5]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[4]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[3]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[2]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[1]' is connecting multiple ports. (UCN-1)
-Warning: In the design INSTR_CACHE_DWidth32, net 'addr_i[0]' is connecting multiple ports. (UCN-1)
-1
-write_file -format verilog -hierarchy -output $OUT_DIR/$TOP_NAME.mapped.v
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-Writing verilog file '/home/AS20243506/AS501_assignment/syn/out/SOC_TOP.mapped.v'.
-Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
-1
-write_sdf $OUT_DIR/$TOP_NAME.mapped.sdf
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
-Information: Writing timing information to file '/home/AS20243506/AS501_assignment/syn/out/SOC_TOP.mapped.sdf'. (WT-3)
-Information: Updating design information... (UID-85)
-Warning: Design 'SOC_TOP' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
-Warning: Design contains black-box components.  These cells will have no timing information. (WT-7)
-1
-write_sdc $OUT_DIR/$TOP_NAME.mapped.sdc
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
-1
-# Write and close SVF file and make it available for immediate use
-set_svf -off
-1
-# Generate Final Reports
-redirect -tee -file $RPT_DIR/4_report_timing.rpt {report_timing -transition_time -nets -attributes -nosplit}
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
- 
-****************************************
-Report : timing
-        -path full
-        -delay max
-        -nets
-        -max_paths 1
-        -transition_time
-Design : SOC_TOP
-Version: V-2023.12-SP1
-Date   : Tue Jun 11 22:35:04 2024
-****************************************
-
- # A fanout number of 1000 was used for high fanout net computations.
-
-Operating Conditions: tt1p05v25c   Library: saed32rvt_tt1p05v25c
-Wire Load Model Mode: enclosed
-
-  Startpoint: CPU/ICACHE/FF_CACHE_STATE/read_data_o_reg_1_
-              (rising edge-triggered flip-flop clocked by clk_i)
-  Endpoint: CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_data_o_reg_63_
-            (rising edge-triggered flip-flop clocked by clk_i)
-  Path Group: clk_i
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  SOC_TOP            70000                 saed32rvt_tt1p05v25c
-  INSTR_CACHE_DWidth32 35000               saed32rvt_tt1p05v25c
-  CPU_TOP_DWidth32   70000                 saed32rvt_tt1p05v25c
-  DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12 8000 saed32rvt_tt1p05v25c
-  SCALAR_CORE_DWidth32 35000               saed32rvt_tt1p05v25c
-  REGFILE_DWidth32_NumofReg32 16000        saed32rvt_tt1p05v25c
-  MUX4TO1_DWidth32_2 8000                  saed32rvt_tt1p05v25c
-  ALU_DWidth32_OpWidth5 16000              saed32rvt_tt1p05v25c
-  COUNTER_64_0_0     8000                  saed32rvt_tt1p05v25c
-
-Attributes:
-    d - dont_touch
-    u - dont_use
-   mo - map_only
-   so - size_only
-    i - ideal_net or ideal_network
-  inf - infeasible path
-
-  Point                                                                         Fanout     Trans      Incr       Path      Attributes
-  -------------------------------------------------------------------------------------------------------------------------------------------
-  clock clk_i (rise edge)                                                                             0.00       0.00
-  clock network delay (ideal)                                                                         0.00       0.00
-  CPU/ICACHE/FF_CACHE_STATE/read_data_o_reg_1_/CLK (DFFX1_RVT)                              0.16      0.00 #     0.00 r
-  CPU/ICACHE/FF_CACHE_STATE/read_data_o_reg_1_/Q (DFFX1_RVT)                                0.03      0.11       0.11 r
-  CPU/ICACHE/FF_CACHE_STATE/read_data_o[1] (net)                                  5                   0.00       0.11 r
-  CPU/ICACHE/FF_CACHE_STATE/read_data_o[1] (D_FF_2_3)                                                 0.00       0.11 r
-  CPU/ICACHE/cache_state_q[1] (net)                                                                   0.00       0.11 r
-  CPU/ICACHE/U42/Y (AND2X1_RVT)                                                             0.02      0.05       0.16 r
-  CPU/ICACHE/n5 (net)                                                             2                   0.00       0.16 r
-  CPU/ICACHE/U6/Y (INVX2_RVT)                                                               0.05      0.07       0.24 f
-  CPU/ICACHE/n1 (net)                                                            27                   0.00       0.24 f
-  CPU/ICACHE/U4/Y (NBUFFX2_RVT)                                                             0.05      0.12       0.36 f
-  CPU/ICACHE/n3 (net)                                                            24                   0.00       0.36 f
-  CPU/ICACHE/U60/Y (AO22X1_RVT)                                                             0.02      0.09       0.45 f
-  CPU/ICACHE/addr[25] (net)                                                       2                   0.00       0.45 f
-  CPU/ICACHE/U26/Y (INVX0_RVT)                                                              0.02      0.03       0.48 r
-  CPU/ICACHE/n40 (net)                                                            2                   0.00       0.48 r
-  CPU/ICACHE/U84/Y (AOI22X1_RVT)                                                            0.01      0.07       0.55 f
-  CPU/ICACHE/n38 (net)                                                            1                   0.00       0.55 f
-  CPU/ICACHE/U85/Y (OA221X1_RVT)                                                            0.02      0.05       0.60 f
-  CPU/ICACHE/n49 (net)                                                            1                   0.00       0.60 f
-  CPU/ICACHE/U90/Y (NAND4X0_RVT)                                                            0.03      0.04       0.64 r
-  CPU/ICACHE/n51 (net)                                                            1                   0.00       0.64 r
-  CPU/ICACHE/U91/Y (NOR4X1_RVT)                                                             0.02      0.07       0.71 f
-  CPU/ICACHE/n58 (net)                                                            3                   0.00       0.71 f
-  CPU/ICACHE/U92/Y (NAND2X0_RVT)                                                            0.03      0.04       0.75 r
-  CPU/ICACHE/n55 (net)                                                            2                   0.00       0.75 r
-  CPU/ICACHE/U93/Y (OR2X1_RVT)                                                              0.02      0.06       0.81 r
-  CPU/ICACHE/n65 (net)                                                            2                   0.00       0.81 r
-  CPU/ICACHE/U3/Y (INVX2_RVT)                                                               0.06      0.08       0.89 f
-  CPU/ICACHE/n68 (net)                                                           32                   0.00       0.89 f
-  CPU/ICACHE/U38/Y (AO222X1_RVT)                                                            0.03      0.15       1.03 f
-  CPU/ICACHE/instr_o[2] (net)                                                     5                   0.00       1.03 f
-  CPU/ICACHE/instr_o[2] (INSTR_CACHE_DWidth32)                                                        0.00       1.03 f
-  CPU/icache_rdata[2] (net)                                                                           0.00       1.03 f
-  CPU/SCORE/imem_rdata_i[2] (SCALAR_CORE_DWidth32)                                                    0.00       1.03 f
-  CPU/SCORE/imem_rdata_i[2] (net)                                                                     0.00       1.03 f
-  CPU/SCORE/DECODER/imem_rdata_i[2] (DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12)                   0.00       1.03 f
-  CPU/SCORE/DECODER/imem_rdata_i[2] (net)                                                             0.00       1.03 f
-  CPU/SCORE/DECODER/U9/Y (INVX1_RVT)                                                        0.02      0.24       1.27 r
-  CPU/SCORE/DECODER/n15 (net)                                                     3                   0.00       1.27 r
-  CPU/SCORE/DECODER/U44/Y (AND3X1_RVT)                                                      0.03      0.06       1.34 r
-  CPU/SCORE/DECODER/n52 (net)                                                     6                   0.00       1.34 r
-  CPU/SCORE/DECODER/U49/Y (AND2X1_RVT)                                                      0.02      0.06       1.39 r
-  CPU/SCORE/DECODER/n58 (net)                                                     4                   0.00       1.39 r
-  CPU/SCORE/DECODER/U23/Y (NAND3X0_RVT)                                                     0.07      0.07       1.46 f
-  CPU/SCORE/DECODER/n71 (net)                                                     4                   0.00       1.46 f
-  CPU/SCORE/DECODER/U4/Y (INVX1_RVT)                                                        0.06      0.08       1.54 r
-  CPU/SCORE/DECODER/n85 (net)                                                    14                   0.00       1.54 r
-  CPU/SCORE/DECODER/U20/Y (AO22X1_RVT)                                                      0.03      0.08       1.63 r
-  CPU/SCORE/DECODER/n74 (net)                                                     5                   0.00       1.63 r
-  CPU/SCORE/DECODER/U120/Y (AND2X1_RVT)                                                     0.03      0.06       1.69 r
-  CPU/SCORE/DECODER/rf_read1_addr_o[4] (net)                                      8                   0.00       1.69 r
-  CPU/SCORE/DECODER/rf_read1_addr_o[4] (DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12)                0.00       1.69 r
-  CPU/SCORE/dec_read1_addr[4] (net)                                                                   0.00       1.69 r
-  CPU/SCORE/SRF/read1_addr_i[4] (REGFILE_DWidth32_NumofReg32)                                         0.00       1.69 r
-  CPU/SCORE/SRF/read1_addr_i[4] (net)                                                                 0.00       1.69 r
-  CPU/SCORE/SRF/U64/Y (INVX0_RVT)                                                           0.03      0.05       1.74 f
-  CPU/SCORE/SRF/n119 (net)                                                        4                   0.00       1.74 f
-  CPU/SCORE/SRF/U166/Y (AND3X1_RVT)                                                         0.02      0.06       1.80 f
-  CPU/SCORE/SRF/n132 (net)                                                        3                   0.00       1.80 f
-  CPU/SCORE/SRF/U185/Y (AND2X1_RVT)                                                         0.06      0.08       1.88 f
-  CPU/SCORE/SRF/n1438 (net)                                                      16                   0.00       1.88 f
-  CPU/SCORE/SRF/U56/Y (INVX0_RVT)                                                           0.03      0.06       1.93 r
-  CPU/SCORE/SRF/n133 (net)                                                        1                   0.00       1.93 r
-  CPU/SCORE/SRF/U55/Y (INVX0_RVT)                                                           0.09      0.08       2.01 f
-  CPU/SCORE/SRF/n1270 (net)                                                      17                   0.00       2.01 f
-  CPU/SCORE/SRF/U1279/Y (AO22X1_RVT)                                                        0.02      0.09       2.11 f
-  CPU/SCORE/SRF/n1192 (net)                                                       1                   0.00       2.11 f
-  CPU/SCORE/SRF/U1282/Y (NOR4X1_RVT)                                                        0.01      0.08       2.18 r
-  CPU/SCORE/SRF/n1199 (net)                                                       1                   0.00       2.18 r
-  CPU/SCORE/SRF/U1288/Y (NAND4X0_RVT)                                                       0.05      0.05       2.24 f
-  CPU/SCORE/SRF/read1_data_o[5] (net)                                             2                   0.00       2.24 f
-  CPU/SCORE/SRF/read1_data_o[5] (REGFILE_DWidth32_NumofReg32)                                         0.00       2.24 f
-  CPU/SCORE/rf_read1_data[5] (net)                                                                    0.00       2.24 f
-  CPU/SCORE/MUX_ALU_A/data0_i[5] (MUX4TO1_DWidth32_2)                                                 0.00       2.24 f
-  CPU/SCORE/MUX_ALU_A/data0_i[5] (net)                                                                0.00       2.24 f
-  CPU/SCORE/MUX_ALU_A/U8/Y (INVX0_RVT)                                                      0.02      0.03       2.27 r
-  CPU/SCORE/MUX_ALU_A/n3 (net)                                                    1                   0.00       2.27 r
-  CPU/SCORE/MUX_ALU_A/U5/Y (MUX41X2_RVT)                                                    0.05      0.10       2.37 r
-  CPU/SCORE/MUX_ALU_A/data_o[5] (net)                                            13                   0.00       2.37 r
-  CPU/SCORE/MUX_ALU_A/data_o[5] (MUX4TO1_DWidth32_2)                                                  0.00       2.37 r
-  CPU/SCORE/alu_a[5] (net)                                                                            0.00       2.37 r
-  CPU/SCORE/ALU/a_i[5] (ALU_DWidth32_OpWidth5)                                                        0.00       2.37 r
-  CPU/SCORE/ALU/a_i[5] (net)                                                                          0.00       2.37 r
-  CPU/SCORE/ALU/U448/Y (INVX0_RVT)                                                          0.08      0.10       2.47 f
-  CPU/SCORE/ALU/n1773 (net)                                                       8                   0.00       2.47 f
-  CPU/SCORE/ALU/U487/Y (NBUFFX4_RVT)                                                        0.05      0.10       2.57 f
-  CPU/SCORE/ALU/n2087 (net)                                                      30                   0.00       2.57 f
-  CPU/SCORE/ALU/U400/Y (OA22X1_RVT)                                                         0.03      0.12       2.69 f
-  CPU/SCORE/ALU/n63 (net)                                                         3                   0.00       2.69 f
-  CPU/SCORE/ALU/U564/Y (NOR2X0_RVT)                                                         0.02      0.07       2.75 r
-  CPU/SCORE/ALU/n1707 (net)                                                       3                   0.00       2.75 r
-  CPU/SCORE/ALU/U353/Y (INVX2_RVT)                                                          0.06      0.08       2.83 f
-  CPU/SCORE/ALU/n19 (net)                                                        32                   0.00       2.83 f
-  CPU/SCORE/ALU/U573/Y (OA222X1_RVT)                                                        0.03      0.12       2.96 f
-  CPU/SCORE/ALU/n72 (net)                                                         2                   0.00       2.96 f
-  CPU/SCORE/ALU/U575/Y (NAND2X0_RVT)                                                        0.04      0.04       3.00 r
-  CPU/SCORE/ALU/n70 (net)                                                         2                   0.00       3.00 r
-  CPU/SCORE/ALU/U576/Y (NAND2X0_RVT)                                                        0.04      0.04       3.04 f
-  CPU/SCORE/ALU/n68 (net)                                                         2                   0.00       3.04 f
-  CPU/SCORE/ALU/U577/Y (NAND2X0_RVT)                                                        0.04      0.05       3.09 r
-  CPU/SCORE/ALU/n83 (net)                                                         2                   0.00       3.09 r
-  CPU/SCORE/ALU/U598/Y (OR2X1_RVT)                                                          0.02      0.06       3.14 r
-  CPU/SCORE/ALU/n1787 (net)                                                       4                   0.00       3.14 r
-  CPU/SCORE/ALU/U2635/Y (AO221X1_RVT)                                                       0.03      0.08       3.22 r
-  CPU/SCORE/ALU/intadd_1_CI (net)                                                 1                   0.00       3.22 r
-  CPU/SCORE/ALU/intadd_1_U27/S (FADDX1_RVT)                                                 0.03      0.12       3.33 f    mo 
-  CPU/SCORE/ALU/intadd_1_SUM_0_ (net)                                             2                   0.00       3.33 f
-  CPU/SCORE/ALU/U608/SO (HADDX1_RVT)                                                        0.02      0.09       3.42 r
-  CPU/SCORE/ALU/n764 (net)                                                        2                   0.00       3.42 r
-  CPU/SCORE/ALU/U609/Y (NAND2X0_RVT)                                                        0.03      0.04       3.45 f
-  CPU/SCORE/ALU/n762 (net)                                                        2                   0.00       3.45 f
-  CPU/SCORE/ALU/U610/Y (NAND2X0_RVT)                                                        0.05      0.06       3.51 r
-  CPU/SCORE/ALU/n1962 (net)                                                       3                   0.00       3.51 r
-  CPU/SCORE/ALU/U611/Y (AO222X1_RVT)                                                        0.04      0.09       3.60 r
-  CPU/SCORE/ALU/intadd_21_B_0_ (net)                                              1                   0.00       3.60 r
-  CPU/SCORE/ALU/intadd_21_U4/CO (FADDX1_RVT)                                                0.03      0.10       3.70 r    mo 
-  CPU/SCORE/ALU/intadd_21_n3 (net)                                                1                   0.00       3.70 r
-  CPU/SCORE/ALU/intadd_21_U3/CO (FADDX1_RVT)                                                0.03      0.08       3.78 r    mo 
-  CPU/SCORE/ALU/intadd_21_n2 (net)                                                1                   0.00       3.78 r
-  CPU/SCORE/ALU/intadd_21_U2/CO (FADDX1_RVT)                                                0.03      0.09       3.87 r    mo 
-  CPU/SCORE/ALU/intadd_21_n1 (net)                                                3                   0.00       3.87 r
-  CPU/SCORE/ALU/U1240/Y (AO222X1_RVT)                                                       0.04      0.10       3.97 r
-  CPU/SCORE/ALU/n2392 (net)                                                       1                   0.00       3.97 r
-  CPU/SCORE/ALU/U3018/CO (FADDX1_RVT)                                                       0.03      0.10       4.07 r
-  CPU/SCORE/ALU/n2323 (net)                                                       1                   0.00       4.07 r
-  CPU/SCORE/ALU/U2979/CO (FADDX1_RVT)                                                       0.03      0.09       4.16 r
-  CPU/SCORE/ALU/n2485 (net)                                                       3                   0.00       4.16 r
-  CPU/SCORE/ALU/U1241/Y (AO222X1_RVT)                                                       0.04      0.10       4.25 r
-  CPU/SCORE/ALU/n2556 (net)                                                       1                   0.00       4.25 r
-  CPU/SCORE/ALU/U3091/CO (FADDX1_RVT)                                                       0.03      0.10       4.35 r
-  CPU/SCORE/ALU/n2503 (net)                                                       1                   0.00       4.35 r
-  CPU/SCORE/ALU/U3068/CO (FADDX1_RVT)                                                       0.03      0.08       4.43 r
-  CPU/SCORE/ALU/n621 (net)                                                        2                   0.00       4.43 r
-  CPU/SCORE/ALU/U184/Y (INVX0_RVT)                                                          0.02      0.03       4.47 f
-  CPU/SCORE/ALU/n540 (net)                                                        2                   0.00       4.47 f
-  CPU/SCORE/ALU/U1242/Y (OAI222X1_RVT)                                                      0.02      0.09       4.55 r
-  CPU/SCORE/ALU/n2565 (net)                                                       1                   0.00       4.55 r
-  CPU/SCORE/ALU/U3095/CO (FADDX1_RVT)                                                       0.03      0.09       4.64 r
-  CPU/SCORE/ALU/n700 (net)                                                        1                   0.00       4.64 r
-  CPU/SCORE/ALU/U1443/CO (FADDX1_RVT)                                                       0.03      0.09       4.73 r
-  CPU/SCORE/ALU/n573 (net)                                                        3                   0.00       4.73 r
-  CPU/SCORE/ALU/U1275/Y (AO222X1_RVT)                                                       0.04      0.10       4.83 r
-  CPU/SCORE/ALU/n1920 (net)                                                       1                   0.00       4.83 r
-  CPU/SCORE/ALU/U2737/CO (FADDX1_RVT)                                                       0.03      0.10       4.93 r
-  CPU/SCORE/ALU/n2240 (net)                                                       1                   0.00       4.93 r
-  CPU/SCORE/ALU/U2933/CO (FADDX1_RVT)                                                       0.03      0.09       5.02 r
-  CPU/SCORE/ALU/n2128 (net)                                                       3                   0.00       5.02 r
-  CPU/SCORE/ALU/U1279/Y (AO222X1_RVT)                                                       0.04      0.10       5.12 r
-  CPU/SCORE/ALU/n1855 (net)                                                       1                   0.00       5.12 r
-  CPU/SCORE/ALU/U2686/CO (FADDX1_RVT)                                                       0.03      0.10       5.22 r
-  CPU/SCORE/ALU/n2209 (net)                                                       1                   0.00       5.22 r
-  CPU/SCORE/ALU/U2916/CO (FADDX1_RVT)                                                       0.03      0.09       5.31 r
-  CPU/SCORE/ALU/n2191 (net)                                                       3                   0.00       5.31 r
-  CPU/SCORE/ALU/U2687/Y (AO222X1_RVT)                                                       0.03      0.10       5.41 r
-  CPU/SCORE/ALU/intadd_12_CI (net)                                                1                   0.00       5.41 r
-  CPU/SCORE/ALU/intadd_12_U6/CO (FADDX1_RVT)                                                0.03      0.09       5.49 r    mo 
-  CPU/SCORE/ALU/intadd_12_n5 (net)                                                1                   0.00       5.49 r
-  CPU/SCORE/ALU/intadd_12_U5/CO (FADDX1_RVT)                                                0.03      0.08       5.57 r    mo 
-  CPU/SCORE/ALU/intadd_12_n4 (net)                                                1                   0.00       5.57 r
-  CPU/SCORE/ALU/intadd_12_U4/CO (FADDX1_RVT)                                                0.03      0.08       5.66 r    mo 
-  CPU/SCORE/ALU/intadd_12_n3 (net)                                                1                   0.00       5.66 r
-  CPU/SCORE/ALU/intadd_12_U3/CO (FADDX1_RVT)                                                0.03      0.08       5.74 r    mo 
-  CPU/SCORE/ALU/intadd_12_n2 (net)                                                1                   0.00       5.74 r
-  CPU/SCORE/ALU/intadd_12_U2/CO (FADDX1_RVT)                                                0.03      0.08       5.83 r    mo 
-  CPU/SCORE/ALU/intadd_12_n1 (net)                                                2                   0.00       5.83 r
-  CPU/SCORE/ALU/U1381/Y (NAND2X0_RVT)                                                       0.03      0.04       5.86 f
-  CPU/SCORE/ALU/n2285 (net)                                                       2                   0.00       5.86 f
-  CPU/SCORE/ALU/U1382/Y (NAND2X0_RVT)                                                       0.05      0.06       5.92 r
-  CPU/SCORE/ALU/n2451 (net)                                                       3                   0.00       5.92 r
-  CPU/SCORE/ALU/U1383/Y (AO222X1_RVT)                                                       0.03      0.09       6.01 r
-  CPU/SCORE/ALU/n661 (net)                                                        2                   0.00       6.01 r
-  CPU/SCORE/ALU/U1384/Y (AND2X1_RVT)                                                        0.02      0.05       6.06 r
-  CPU/SCORE/ALU/n2165 (net)                                                       3                   0.00       6.06 r
-  CPU/SCORE/ALU/U1495/Y (NAND2X0_RVT)                                                       0.02      0.03       6.09 f
-  CPU/SCORE/ALU/n755 (net)                                                        1                   0.00       6.09 f
-  CPU/SCORE/ALU/U1498/Y (AND2X1_RVT)                                                        0.02      0.05       6.13 f
-  CPU/SCORE/ALU/n2168 (net)                                                       2                   0.00       6.13 f
-  CPU/SCORE/ALU/U1500/Y (AND2X1_RVT)                                                        0.02      0.05       6.18 f
-  CPU/SCORE/ALU/n2098 (net)                                                       2                   0.00       6.18 f
-  CPU/SCORE/ALU/U1501/Y (OA21X1_RVT)                                                        0.02      0.05       6.23 f
-  CPU/SCORE/ALU/n788 (net)                                                        3                   0.00       6.23 f
-  CPU/SCORE/ALU/U1502/Y (OA21X1_RVT)                                                        0.02      0.05       6.28 f
-  CPU/SCORE/ALU/n1861 (net)                                                       3                   0.00       6.28 f
-  CPU/SCORE/ALU/U2691/Y (NAND2X0_RVT)                                                       0.03      0.04       6.32 r
-  CPU/SCORE/ALU/n1957 (net)                                                       2                   0.00       6.32 r
-  CPU/SCORE/ALU/U2694/Y (NAND3X0_RVT)                                                       0.03      0.04       6.36 f
-  CPU/SCORE/ALU/n1866 (net)                                                       1                   0.00       6.36 f
-  CPU/SCORE/ALU/U2695/Y (NAND2X0_RVT)                                                       0.04      0.05       6.41 r
-  CPU/SCORE/ALU/intadd_3_A_22_ (net)                                              1                   0.00       6.41 r
-  CPU/SCORE/ALU/intadd_3_U2/CO (FADDX1_RVT)                                                 0.04      0.11       6.52 r    mo 
-  CPU/SCORE/ALU/intadd_3_n1 (net)                                                 6                   0.00       6.52 r
-  CPU/SCORE/ALU/U1122/Y (NAND2X0_RVT)                                                       0.05      0.05       6.58 f
-  CPU/SCORE/ALU/n2545 (net)                                                       3                   0.00       6.58 f
-  CPU/SCORE/ALU/U53/Y (INVX0_RVT)                                                           0.03      0.04       6.62 r
-  CPU/SCORE/ALU/n2544 (net)                                                       2                   0.00       6.62 r
-  CPU/SCORE/ALU/U1123/Y (AND2X1_RVT)                                                        0.02      0.05       6.66 r
-  CPU/SCORE/ALU/n2523 (net)                                                       2                   0.00       6.66 r
-  CPU/SCORE/ALU/U1124/Y (NAND2X0_RVT)                                                       0.02      0.03       6.69 f
-  CPU/SCORE/ALU/n471 (net)                                                        1                   0.00       6.69 f
-  CPU/SCORE/ALU/U1125/Y (AND2X1_RVT)                                                        0.02      0.05       6.74 f
-  CPU/SCORE/ALU/n2528 (net)                                                       2                   0.00       6.74 f
-  CPU/SCORE/ALU/U1127/Y (NAND2X0_RVT)                                                       0.03      0.04       6.78 r
-  CPU/SCORE/ALU/n617 (net)                                                        2                   0.00       6.78 r
-  CPU/SCORE/ALU/U1128/Y (NAND2X0_RVT)                                                       0.03      0.04       6.81 f
-  CPU/SCORE/ALU/n615 (net)                                                        2                   0.00       6.81 f
-  CPU/SCORE/ALU/U1129/Y (OA21X1_RVT)                                                        0.02      0.05       6.87 f
-  CPU/SCORE/ALU/n2583 (net)                                                       2                   0.00       6.87 f
-  CPU/SCORE/ALU/U1130/Y (OA21X1_RVT)                                                        0.02      0.05       6.91 f
-  CPU/SCORE/ALU/n713 (net)                                                        2                   0.00       6.91 f
-  CPU/SCORE/ALU/U1131/Y (OA21X1_RVT)                                                        0.02      0.05       6.96 f
-  CPU/SCORE/ALU/n505 (net)                                                        2                   0.00       6.96 f
-  CPU/SCORE/ALU/U1132/Y (NAND2X0_RVT)                                                       0.04      0.04       7.00 r
-  CPU/SCORE/ALU/n1933 (net)                                                       3                   0.00       7.00 r
-  CPU/SCORE/ALU/U49/Y (INVX0_RVT)                                                           0.02      0.03       7.04 f
-  CPU/SCORE/ALU/n1932 (net)                                                       2                   0.00       7.04 f
-  CPU/SCORE/ALU/U1133/Y (OA21X1_RVT)                                                        0.02      0.05       7.09 f
-  CPU/SCORE/ALU/n2256 (net)                                                       3                   0.00       7.09 f
-  CPU/SCORE/ALU/U1134/Y (OA21X1_RVT)                                                        0.02      0.05       7.14 f
-  CPU/SCORE/ALU/n2134 (net)                                                       2                   0.00       7.14 f
-  CPU/SCORE/ALU/U1136/Y (NAND2X0_RVT)                                                       0.03      0.04       7.18 r
-  CPU/SCORE/ALU/n593 (net)                                                        2                   0.00       7.18 r
-  CPU/SCORE/ALU/U1137/Y (OR2X1_RVT)                                                         0.02      0.05       7.23 r
-  CPU/SCORE/ALU/n2222 (net)                                                       2                   0.00       7.23 r
-  CPU/SCORE/ALU/U46/Y (INVX0_RVT)                                                           0.01      0.03       7.25 f
-  CPU/SCORE/ALU/n478 (net)                                                        1                   0.00       7.25 f
-  CPU/SCORE/ALU/U1139/Y (NAND2X0_RVT)                                                       0.03      0.03       7.29 r
-  CPU/SCORE/ALU/n2197 (net)                                                       2                   0.00       7.29 r
-  CPU/SCORE/ALU/U45/Y (INVX0_RVT)                                                           0.02      0.03       7.31 f
-  CPU/SCORE/ALU/n479 (net)                                                        1                   0.00       7.31 f
-  CPU/SCORE/ALU/U1141/Y (NAND2X0_RVT)                                                       0.03      0.04       7.35 r
-  CPU/SCORE/ALU/n2647 (net)                                                       2                   0.00       7.35 r
-  CPU/SCORE/ALU/U44/Y (INVX0_RVT)                                                           0.02      0.03       7.38 f
-  CPU/SCORE/ALU/n480 (net)                                                        1                   0.00       7.38 f
-  CPU/SCORE/ALU/U1143/Y (AND2X1_RVT)                                                        0.02      0.04       7.42 f
-  CPU/SCORE/ALU/n482 (net)                                                        2                   0.00       7.42 f
-  CPU/SCORE/ALU/U1144/Y (NAND2X0_RVT)                                                       0.03      0.04       7.46 r
-  CPU/SCORE/ALU/n2037 (net)                                                       2                   0.00       7.46 r
-  CPU/SCORE/ALU/U43/Y (INVX0_RVT)                                                           0.02      0.03       7.49 f
-  CPU/SCORE/ALU/n2613 (net)                                                       2                   0.00       7.49 f
-  CPU/SCORE/ALU/U2817/Y (NAND2X0_RVT)                                                       0.02      0.04       7.52 r
-  CPU/SCORE/ALU/n2045 (net)                                                       1                   0.00       7.52 r
-  CPU/SCORE/ALU/U2822/Y (AND2X1_RVT)                                                        0.02      0.05       7.57 r
-  CPU/SCORE/ALU/n2615 (net)                                                       4                   0.00       7.57 r
-  CPU/SCORE/ALU/U3114/Y (AO222X1_RVT)                                                       0.03      0.09       7.66 r
-  CPU/SCORE/ALU/n2617 (net)                                                       1                   0.00       7.66 r
-  CPU/SCORE/ALU/U3115/Y (OA22X1_RVT)                                                        0.03      0.06       7.72 r
-  CPU/SCORE/ALU/n2634 (net)                                                       1                   0.00       7.72 r
-  CPU/SCORE/ALU/U3123/Y (NAND4X0_RVT)                                                       0.06      0.06       7.78 f
-  CPU/SCORE/ALU/res_o[30] (net)                                                   6                   0.00       7.78 f
-  CPU/SCORE/ALU/U3148/Y (NOR3X0_RVT)                                                        0.01      0.24       8.02 r
-  CPU/SCORE/ALU/n2682 (net)                                                       1                   0.00       8.02 r
-  CPU/SCORE/ALU/U3149/Y (NAND4X0_RVT)                                                       0.04      0.05       8.07 f
-  CPU/SCORE/ALU/n2686 (net)                                                       1                   0.00       8.07 f
-  CPU/SCORE/ALU/U3150/Y (NOR3X0_RVT)                                                        0.02      0.07       8.13 r
-  CPU/SCORE/ALU/zero_o (net)                                                      1                   0.00       8.13 r
-  CPU/SCORE/ALU/zero_o (ALU_DWidth32_OpWidth5)                                                        0.00       8.13 r
-  CPU/SCORE/alu_zero (net)                                                                            0.00       8.13 r
-  CPU/SCORE/DECODER/flag_zero_i (DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12)                       0.00       8.13 r
-  CPU/SCORE/DECODER/flag_zero_i (net)                                                                 0.00       8.13 r
-  CPU/SCORE/DECODER/U15/Y (XOR3X1_RVT)                                                      0.02      0.06       8.19 f
-  CPU/SCORE/DECODER/n7 (net)                                                      1                   0.00       8.19 f
-  CPU/SCORE/DECODER/U59/Y (AO21X1_RVT)                                                      0.02      0.04       8.23 f
-  CPU/SCORE/DECODER/n9 (net)                                                      1                   0.00       8.23 f
-  CPU/SCORE/DECODER/U60/Y (AO221X1_RVT)                                                     0.02      0.06       8.30 f
-  CPU/SCORE/DECODER/n94 (net)                                                     2                   0.00       8.30 f
-  CPU/SCORE/DECODER/U38/Y (NOR2X4_RVT)                                                      0.04      0.09       8.39 r
-  CPU/SCORE/DECODER/pc_br_en_o (net)                                             35                   0.00       8.39 r
-  CPU/SCORE/DECODER/U131/Y (OR2X1_RVT)                                                      0.02      0.12       8.51 r
-  CPU/SCORE/DECODER/n100 (net)                                                    2                   0.00       8.51 r
-  CPU/SCORE/DECODER/U132/Y (AOI21X2_RVT)                                                    0.05      0.08       8.59 f
-  CPU/SCORE/DECODER/n_1_net_ (net)                                               26                   0.00       8.59 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_en_i (COUNTER_64_0_0)                                         0.00       8.59 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_en_i (net)                                                    0.00       8.59 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U72/Y (NAND2X0_RVT)                                     0.04      0.09       8.68 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n188 (net)                                    3                   0.00       8.68 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U7/Y (INVX0_RVT)                                        0.03      0.04       8.71 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n187 (net)                                    3                   0.00       8.71 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U129/Y (AND2X1_RVT)                                     0.01      0.05       8.76 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n63 (net)                                     1                   0.00       8.76 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U130/Y (NAND2X0_RVT)                                    0.03      0.04       8.80 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n64 (net)                                     2                   0.00       8.80 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U6/Y (INVX0_RVT)                                        0.02      0.03       8.83 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n65 (net)                                     2                   0.00       8.83 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U132/Y (NAND2X0_RVT)                                    0.03      0.04       8.87 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n66 (net)                                     2                   0.00       8.87 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U5/Y (INVX0_RVT)                                        0.02      0.03       8.91 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n131 (net)                                    2                   0.00       8.91 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U134/Y (NAND2X0_RVT)                                    0.03      0.04       8.95 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n189 (net)                                    2                   0.00       8.95 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U4/Y (INVX0_RVT)                                        0.02      0.03       8.98 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n190 (net)                                    1                   0.00       8.98 f
-  CPU/SCORE/DECODER/COUNTER_INSTRET/U192/SO (HADDX1_RVT)                                    0.02      0.08       9.06 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/n130 (net)                                    1                   0.00       9.06 r
-  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_data_o_reg_63_/D (DFFARX1_RVT)                      0.02      0.01       9.07 r
-  data arrival time                                                                                              9.07
-
-  clock clk_i (rise edge)                                                                            10.00      10.00
-  clock network delay (ideal)                                                                         0.00      10.00
-  clock uncertainty                                                                                  -0.70       9.30
-  CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_data_o_reg_63_/CLK (DFFARX1_RVT)                              0.00       9.30 r
-  library setup time                                                                                 -0.03       9.27
-  data required time                                                                                             9.27
-  -------------------------------------------------------------------------------------------------------------------------------------------
-  data required time                                                                                             9.27
-  data arrival time                                                                                             -9.07
-  -------------------------------------------------------------------------------------------------------------------------------------------
-  slack (MET)                                                                                                    0.20
-
-
-1
-redirect -tee -file $RPT_DIR/5_report_area.rpt {report_area -physical -hierarchy -nosplit}
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
- 
-****************************************
-Report : area
-Design : SOC_TOP
-Version: V-2023.12-SP1
-Date   : Tue Jun 11 22:35:04 2024
-****************************************
-
-Library(s) Used:
-
-    saed32rvt_tt1p05v25c (File: /technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db)
-    saed32sram_tt1p05v25c (File: /technology/SAED32/lib/sram/db_nldm/saed32sram_tt1p05v25c.db)
-
-Number of ports:                         5289
-Number of nets:                         14596
-Number of cells:                         9168
-Number of combinational cells:           7690
-Number of sequential cells:              1414
-Number of macros/black boxes:               2
-Number of buf/inv:                        832
-Number of references:                       4
-
-Combinational area:              19231.584798
-Buf/Inv area:                     1132.719816
-Noncombinational area:            9404.853155
-Macro/Black Box area:            28363.267578
-Net Interconnect area:           12564.595373
-
-Total cell area:                 56999.705532
-Total area:                      69564.300905
-
-Information: This design contains black box (unknown) components. (RPT-8)
-
-The above information was reported from the logical library. The following are from the physical library:
-
-Hierarchical area distribution
-------------------------------
-
-                                  Global cell area              Local cell area
-                                  -------------------  --------------------------------- 
-Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-  Black-
-                                  Total       Total    national    national   boxes       Design
---------------------------------  ----------  -------  ----------  ---------  ----------  ---------------------------------------------
-SOC_TOP                           56999.7055    100.0      4.0663     0.0000      0.0000  SOC_TOP
-CPU                               56995.6392    100.0      0.0000     0.0000      0.0000  CPU_TOP_DWidth32
-CPU/ICACHE                        29492.9377     51.7    402.3100     0.0000      0.0000  INSTR_CACHE_DWidth32
-CPU/ICACHE/COUNTER_ICACHE           410.1884      0.7    189.5914   220.5970      0.0000  COUNTER_30_0_127
-CPU/ICACHE/FF_CACHE_STATE            18.5525      0.0      5.3370    13.2155      0.0000  D_FF_2_3
-CPU/ICACHE/FF_INSTR                 298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_34
-CPU/ICACHE/ICACHE_SRAM            28363.2676     49.8      0.0000     0.0000  28363.2676  CACHE_SRAM_DWidth56_Depth128
-CPU/SCORE                         27502.7016     48.3    315.6468     0.0000      0.0000  SCALAR_CORE_DWidth32
-CPU/SCORE/ALU                      8741.2829     15.3   8741.2829     0.0000      0.0000  ALU_DWidth32_OpWidth5
-CPU/SCORE/COUNTER_CYCLE             788.1006      1.4    332.6745   455.4261      0.0000  COUNTER_64_0_1
-CPU/SCORE/CSR                      1709.6267      3.0    327.0833     0.0000      0.0000  CSR_DWidth32_AWidth12
-CPU/SCORE/CSR/FF_MCYCLE             553.0174      1.0    130.1217   422.8956      0.0000  D_FF_64_0_1
-CPU/SCORE/CSR/FF_MINSTRET           553.0174      1.0    130.1217   422.8956      0.0000  D_FF_64_0_0
-CPU/SCORE/CSR/FF_RDATA              276.5087      0.5     65.0609   211.4478      0.0000  D_FF_32_0_0
-CPU/SCORE/DECODER                  1249.1178      2.2    383.7574     0.0000      0.0000  DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12
-CPU/SCORE/DECODER/COUNTER_INSTRET   847.5703      1.5    392.1442   455.4261      0.0000  COUNTER_64_0_0
-CPU/SCORE/DECODER/FF_DEC_STATE       17.7901      0.0      4.0663    13.7238      0.0000  D_FF_2_0
-CPU/SCORE/FF_IADDR                  298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_32
-CPU/SCORE/FF_PC                     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_33
-CPU/SCORE/MUX_ALU_A                 224.1550      0.4    224.1550     0.0000      0.0000  MUX4TO1_DWidth32_2
-CPU/SCORE/MUX_ALU_B                 232.0335      0.4    232.0335     0.0000      0.0000  MUX4TO1_DWidth32_1
-CPU/SCORE/MUX_BR                     84.3758      0.1     84.3758     0.0000      0.0000  MUX2TO1_DWidth32_1
-CPU/SCORE/MUX_LD                     97.8454      0.2     97.8454     0.0000      0.0000  MUX5TO1_DWidth32
-CPU/SCORE/MUX_PC                     82.3427      0.1     82.3427     0.0000      0.0000  MUX2TO1_DWidth32_2
-CPU/SCORE/MUX_ST                     93.7791      0.2     93.7791     0.0000      0.0000  MUX3TO1_DWidth32
-CPU/SCORE/MUX_WB                    210.1771      0.4    210.1771     0.0000      0.0000  MUX4TO1_DWidth32_0
-CPU/SCORE/SRF                     13076.9798     22.9   3819.7843     0.0000      0.0000  REGFILE_DWidth32_NumofReg32
-CPU/SCORE/SRF/gen_gpr_10__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_22
-CPU/SCORE/SRF/gen_gpr_11__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_21
-CPU/SCORE/SRF/gen_gpr_12__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_20
-CPU/SCORE/SRF/gen_gpr_13__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_19
-CPU/SCORE/SRF/gen_gpr_14__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_18
-CPU/SCORE/SRF/gen_gpr_15__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_17
-CPU/SCORE/SRF/gen_gpr_16__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_16
-CPU/SCORE/SRF/gen_gpr_17__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_15
-CPU/SCORE/SRF/gen_gpr_18__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_14
-CPU/SCORE/SRF/gen_gpr_19__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_13
-CPU/SCORE/SRF/gen_gpr_1__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_31
-CPU/SCORE/SRF/gen_gpr_20__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_12
-CPU/SCORE/SRF/gen_gpr_21__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_11
-CPU/SCORE/SRF/gen_gpr_22__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_10
-CPU/SCORE/SRF/gen_gpr_23__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_9
-CPU/SCORE/SRF/gen_gpr_24__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_8
-CPU/SCORE/SRF/gen_gpr_25__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_7
-CPU/SCORE/SRF/gen_gpr_26__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_6
-CPU/SCORE/SRF/gen_gpr_27__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_5
-CPU/SCORE/SRF/gen_gpr_28__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_4
-CPU/SCORE/SRF/gen_gpr_29__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_3
-CPU/SCORE/SRF/gen_gpr_2__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_30
-CPU/SCORE/SRF/gen_gpr_30__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_2
-CPU/SCORE/SRF/gen_gpr_31__FF_GPR    298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_1
-CPU/SCORE/SRF/gen_gpr_3__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_29
-CPU/SCORE/SRF/gen_gpr_4__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_28
-CPU/SCORE/SRF/gen_gpr_5__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_27
-CPU/SCORE/SRF/gen_gpr_6__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_26
-CPU/SCORE/SRF/gen_gpr_7__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_25
-CPU/SCORE/SRF/gen_gpr_8__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_24
-CPU/SCORE/SRF/gen_gpr_9__FF_GPR     298.6192      0.5     87.1714   211.4478      0.0000  D_FF_32_0_23
-NPU                                   0.0000      0.0      0.0000     0.0000      0.0000  NPU_TOP_DWidth32
---------------------------------  ----------  -------  ----------  ---------  ----------  ---------------------------------------------
-Total                                                  19231.5848  9404.8532  28363.2676
-
-1
-redirect -tee -file $RPT_DIR/6_report_power.rpt {report_power -nosplit}
-Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
-Warning: Design has unannotated primary inputs. (PWR-414)
-Warning: Design has unannotated sequential cell outputs. (PWR-415)
-Warning: Design has unannotated black box outputs. (PWR-428)
- 
-****************************************
-Report : power
-        -analysis_effort low
-Design : SOC_TOP
-Version: V-2023.12-SP1
-Date   : Tue Jun 11 22:35:05 2024
-****************************************
-
-
-Library(s) Used:
-
-    saed32rvt_tt1p05v25c (File: /technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db)
-    saed32sram_tt1p05v25c (File: /technology/SAED32/lib/sram/db_nldm/saed32sram_tt1p05v25c.db)
-
-
-Operating Conditions: tt1p05v25c   Library: saed32rvt_tt1p05v25c
-Wire Load Model Mode: enclosed
-
-Design        Wire Load Model            Library
-------------------------------------------------
-SOC_TOP                70000             saed32rvt_tt1p05v25c
-CPU_TOP_DWidth32       70000             saed32rvt_tt1p05v25c
-NPU_TOP_DWidth32       ForQA             saed32rvt_tt1p05v25c
-INSTR_CACHE_DWidth32   35000             saed32rvt_tt1p05v25c
-SCALAR_CORE_DWidth32   35000             saed32rvt_tt1p05v25c
-D_FF_32_0_34           8000              saed32rvt_tt1p05v25c
-COUNTER_30_0_127       8000              saed32rvt_tt1p05v25c
-D_FF_2_3               ForQA             saed32rvt_tt1p05v25c
-CACHE_SRAM_DWidth56_Depth128 35000       saed32rvt_tt1p05v25c
-COUNTER_64_0_1         8000              saed32rvt_tt1p05v25c
-MUX2TO1_DWidth32_2     ForQA             saed32rvt_tt1p05v25c
-DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12 8000 saed32rvt_tt1p05v25c
-REGFILE_DWidth32_NumofReg32 16000        saed32rvt_tt1p05v25c
-CSR_DWidth32_AWidth12  8000              saed32rvt_tt1p05v25c
-MUX4TO1_DWidth32_2     8000              saed32rvt_tt1p05v25c
-ALU_DWidth32_OpWidth5  16000             saed32rvt_tt1p05v25c
-MUX2TO1_DWidth32_1     ForQA             saed32rvt_tt1p05v25c
-MUX5TO1_DWidth32       ForQA             saed32rvt_tt1p05v25c
-MUX3TO1_DWidth32       ForQA             saed32rvt_tt1p05v25c
-MUX4TO1_DWidth32_0     8000              saed32rvt_tt1p05v25c
-D_FF_2_0               ForQA             saed32rvt_tt1p05v25c
-COUNTER_64_0_0         8000              saed32rvt_tt1p05v25c
-D_FF_32_0_0            8000              saed32rvt_tt1p05v25c
-D_FF_64_0_1            8000              saed32rvt_tt1p05v25c
-D_FF_64_0_0            8000              saed32rvt_tt1p05v25c
-MUX4TO1_DWidth32_1     8000              saed32rvt_tt1p05v25c
-D_FF_32_0_1            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_2            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_3            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_4            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_5            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_6            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_7            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_8            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_9            8000              saed32rvt_tt1p05v25c
-D_FF_32_0_10           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_11           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_12           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_13           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_14           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_15           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_16           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_17           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_18           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_19           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_20           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_21           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_22           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_23           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_24           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_25           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_26           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_27           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_28           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_29           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_30           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_31           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_32           8000              saed32rvt_tt1p05v25c
-D_FF_32_0_33           8000              saed32rvt_tt1p05v25c
-
-
-Global Operating Voltage = 1.05 
-Power-specific unit information :
-    Voltage Units = 1V
-    Capacitance Units = 1.000000ff
-    Time Units = 1ns
-    Dynamic Power Units = 1uW    (derived from V,C,T units)
-    Leakage Power Units = 1pW
-
-
-Attributes
-----------
-i - Including register clock pin internal power
-
-
-  Cell Internal Power  =   1.4458 mW    (2%)
-  Net Switching Power  =  82.6993 mW   (98%)
-                         ---------
-Total Dynamic Power    =  84.1451 mW  (100%)
-
-Cell Leakage Power     =   2.7895 mW
-
-
-                 Internal         Switching           Leakage            Total
-Power Group      Power            Power               Power              Power   (   %    )  Attrs
---------------------------------------------------------------------------------------------------
-io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
-memory            92.5491            0.2450            0.0000           92.7941  (   0.11%)
-black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
-clock_network  1.3496e+03        8.2698e+04        2.2683e+08        8.4274e+04  (  96.94%)  i
-register           1.0291            0.3323        1.4367e+09        1.4381e+03  (   1.65%)
-sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational      2.6304            0.4316        1.1260e+09        1.1290e+03  (   1.30%)
---------------------------------------------------------------------------------------------------
-Total          1.4458e+03 uW     8.2699e+04 uW     2.7895e+09 pW     8.6934e+04 uW
-1
-# gui_start
-exit
-
-Memory usage for this session 326 Mbytes.
-Memory usage for this session including child processes 582 Mbytes.
-CPU usage for this session 114 seconds ( 0.03 hours ).
-Elapsed time for this session 73 seconds ( 0.02 hours ).
-
-Thank you...
-
+#line 522

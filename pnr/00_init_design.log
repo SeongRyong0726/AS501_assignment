@@ -155,7 +155,7 @@ Information: Loading technology file '/technology/SAED32/tech/milkyway/saed32nm_
 # Load netlist
 read_verilog -top $DESIGN_NAME $VERILOG_NETLIST_FILE
 Information: Reading Verilog into new design 'SOC_TOP' in library 'SOC_TOP.dlib'. (VR-012)
-Loading verilog file '/home/AS20243506/AS501_assignment/syn/out/SOC_TOP.mapped.v'
+Loading verilog file '/home/AS20233757/AS501_assignment/syn/out/SOC_TOP.mapped.v'
 Number of modules read: 59
 Top level ports: 167
 Total ports in all modules: 5289
@@ -211,21 +211,124 @@ set_ignored_layers -max_routing_layer $MAX_ROUTING_LAYER
 ## Load UPF, Floorplan
 ##################################
 load_upf $UPF_FILE
-Error: File './design_data/SOC_TOP.upf' cannot be found using search_path of: '.'. (FILE-002)
-Error: problem in load_upf
+Information: Loading UPF file '/home/AS20233757/AS501_assignment/pnr/design_data/SOC_TOP.upf' (FILE-007)
+################################################################################
+## AS501
+## Final Project
+## Unified Power Format (UPF)
+################################################################################
+## Copyright (c) 2024 by Smart Energy-Efficient Design Lab. (SEED), KAIST
+## All rights reserved.
+##
+##                            Written by Jihwan Cho (jihwancho@kaist.ac.kr)
+##                            Supervised by Wanyeong Jung (wanyeong@kaist.ac.kr)
+################################################################################
+################################################################################
+# Create Supply Nets
+create_supply_net VSS
+create_supply_net VDD
+# Create Supply Sets
+create_supply_set SS_TOP -function {power VDD} -function {ground VSS}
+# Create Power Domains
+create_power_domain PD_TOP -supply {primary SS_TOP}
+# Create Supply Ports
+create_supply_port VSS -domain PD_TOP -direction in
+create_supply_port VDD -domain PD_TOP -direction in
+# Connect Supply Nets to Supply Ports
+connect_supply_net VSS -ports VSS
+connect_supply_net VDD -ports VDD
+# Set Supply States
+add_power_state -supply SS_TOP -state {ON -supply_expr {power == {FULL_ON 0.95} && ground == {FULL_ON 0.0}}}
+1
+commit_upf
+Information: Related supplies are not explicitly specified on 167 port(s) and primary supplies (VDD, VSS) of top power domain will be assumed as the related supply. (UPF-467)
+Information: Power intent has been successfully committed. (UPF-072)
+Information: Total 0 isolation cell(s) in the design. (MV-021)
+Information: Total 0 level shifter cell(s) in the design. (MV-021)
+Information: Total 0 enable level shifter cell(s) in the design. (MV-021)
+Information: Total 0 repeater cell(s) in the design. (MV-021)
+Information: Total 0 retention cell(s) in the design. (MV-021)
+Information: Total 0 power switch cell(s) in the design. (MV-021)
+Information: Total 0 netlist change(s) and disconnections have been made to resolve conflicts between power intent and PG netlist. (UPF-073)
+1
+connect_pg_net
+****************************************
+Report : Power/Ground Connection Summary
+Design : SOC_TOP
+Version: V-2023.12
+Date   : Tue Jun 11 22:55:28 2024
+****************************************
+P/G net name                  P/G pin count(previous/current)
+--------------------------------------------------------------------------------
+Power net VDD                 0/9103
+Ground net VSS                0/9103
+--------------------------------------------------------------------------------
+Information: connections of 18206 power/ground pin(s) are created or changed.
+1
+source -echo $TCL_FLOORPLAN
+################################################################################
+## AS501
+## Final Project
+## Floorplan
+################################################################################
+## Copyright (c) 2024 by Smart Energy-Efficient Design Lab. (SEED), KAIST
+## All rights reserved.
+##
+##                            Written by Jihwan Cho (jihwancho@kaist.ac.kr)
+##                            Supervised by Wanyeong Jung (wanyeong@kaist.ac.kr)
+################################################################################
+################################################################################
+## Don't touch
+# Floorplan Initialization : Core area
+set CORE_WIDTH 300
+set CORE_HEIGHT 300
+set CORE_OFFSET 20
+initialize_floorplan -side_length [list $CORE_WIDTH $CORE_HEIGHT] -core_offset $CORE_OFFSET
+Removing existing floorplan objects
+Creating core...
+Core utilization ratio = 63.25%
+Unplacing all cells...
+Creating site array...
+Creating routing tracks...
+Initializing floorplan completed.
+# Place Hard macros
+set CORE_REGION [get_attribute [get_core_area] -name bbox]
+set SRAM48_WIDTH [get_attribute ICACHE/ICACHE_SRAM/SRAM48 -name width]
+Warning: Nothing implicitly matched 'ICACHE/ICACHE_SRAM/SRAM48' (SEL-003)
+set SRAM48_HEIGHT [get_attribute ICACHE/ICACHE_SRAM/SRAM48 -name height]
+Warning: Nothing implicitly matched 'ICACHE/ICACHE_SRAM/SRAM48' (SEL-003)
+set SRAM48_LOCATION [list [expr [lindex $CORE_REGION 1 0] - $SRAM48_HEIGHT] [expr [lindex $CORE_REGION 1 1] - $SRAM48_WIDTH]]
+Error: missing operand at _@_
+      in expression "319.8960 -_@_"
         Use error_info for more info. (CMD-013)
-Information: script '/home/AS20243506/AS501_assignment/pnr/scripts/00_init_design.tcl'
-                stopped at line 47 due to error. (CMD-081)
+Information: script '/home/AS20233757/AS501_assignment/pnr/scripts_user/floorplan.tcl'
+                stopped at line 28 due to error. (CMD-081)
 Extended error info:
-problem in load_upf
-    while executing
-"load_upf $UPF_FILE"
-    (file "/home/AS20243506/AS501_assignment/pnr/scripts/00_init_design.tcl" line 47)
+missing operand at _@_
+in expression "319.8960 -_@_"
+    (parsing expression "319.8960 -")
+    invoked from within
+"expr [lindex $CORE_REGION 1 0] - $SRAM48_HEIGHT"
+    invoked from within
+"list [expr [lindex $CORE_REGION 1 0] - $SRAM48_HEIGHT] [expr [lindex $CORE_REGION 1 1] - $SRAM48_WIDTH]"
+    invoked from within
+"set SRAM48_LOCATION [list [expr [lindex $CORE_REGION 1 0] - $SRAM48_HEIGHT] [expr [lindex $CORE_REGION 1 1] - $SRAM48_WIDTH]]"
+    (file "/home/AS20233757/AS501_assignment/pnr/scripts_user/floorplan.tcl" line 28)
  -- End Extended Error Info
-icc2_shell> exit
-Maximum memory usage for this session: 433.45 MB
-Maximum memory usage for this session including child processes: 433.45 MB
-CPU usage for this session:      7 seconds (  0.00 hours)
-Elapsed time for this session:    248 seconds (  0.07 hours)
-Thank you for using IC Compiler II.
-
+Information: script '/home/AS20233757/AS501_assignment/pnr/scripts/00_init_design.tcl'
+                stopped at line 51 due to error. (CMD-081)
+Extended error info:
+missing operand at _@_
+in expression "319.8960 -_@_"
+    (parsing expression "319.8960 -")
+    invoked from within
+"expr [lindex $CORE_REGION 1 0] - $SRAM48_HEIGHT"
+    invoked from within
+"list [expr [lindex $CORE_REGION 1 0] - $SRAM48_HEIGHT] [expr [lindex $CORE_REGION 1 1] - $SRAM48_WIDTH]"
+    invoked from within
+"set SRAM48_LOCATION [list [expr [lindex $CORE_REGION 1 0] - $SRAM48_HEIGHT] [expr [lindex $CORE_REGION 1 1] - $SRAM48_WIDTH]]"
+    (file "/home/AS20233757/AS501_assignment/pnr/scripts_user/floorplan.tcl" line 28)
+    invoked from within
+"source -echo $TCL_FLOORPLAN"
+    (file "/home/AS20233757/AS501_assignment/pnr/scripts/00_init_design.tcl" line 51)
+ -- End Extended Error Info

@@ -13,7 +13,7 @@
 ################################################################################
 ## Don't touch
 
-set DESIGN_NAME 		CPU_TOP
+set DESIGN_NAME 		SOC_TOP
 set LIBRARY_SUFFIX		.dlib
 set DESIGN_LIBRARY 		${DESIGN_NAME}${LIBRARY_SUFFIX}
 

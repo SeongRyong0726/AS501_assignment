@@ -49,7 +49,7 @@ source -echo ./setup/icc2_common_setup.tcl
 ################################################################################
 ################################################################################
 ## Don't touch
-set DESIGN_NAME                 CPU_TOP
+set DESIGN_NAME                 SOC_TOP
 set LIBRARY_SUFFIX              .dlib
 set DESIGN_LIBRARY              ${DESIGN_NAME}${LIBRARY_SUFFIX}
 ##################################
@@ -149,62 +149,19 @@ place_opt
 set CURRENT_STEP $CLOCK_OPT_BLOCK_LABEL
 clock_opt
 open_lib $DESIGN_LIBRARY
-Error: File 'CPU_TOP.dlib' cannot be found using search_path of: '. .'. (FILE-002)
+Error: File 'SOC_TOP.dlib' cannot be found using search_path of: '. .'. (FILE-002)
 Error: problem in open_lib
         Use error_info for more info. (CMD-013)
-Information: script '/home/AS20243506/AS501_assignment/pnr/scripts/02_clock_opt.tcl'
+Information: script '/home/AS20233757/AS501_assignment/pnr/scripts/02_clock_opt.tcl'
                 stopped at line 20 due to error. (CMD-081)
 Extended error info:
 problem in open_lib
     while executing
 "open_lib $DESIGN_LIBRARY"
-    (file "/home/AS20243506/AS501_assignment/pnr/scripts/02_clock_opt.tcl" line 20)
+    (file "/home/AS20233757/AS501_assignment/pnr/scripts/02_clock_opt.tcl" line 20)
  -- End Extended Error Info
-icc2_shell> 
-icc2_shell> 
-icc2_shell> 
-Segmentation fault encountered. (Bad read from 0x0)
-
-Stack trace for crashing thread
--------------------------------
-SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
-SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+156
-SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2085
-SNPSee_3da1e8e388eef22c4cad96049bb507e323902e731626b6f85a1de23e01dcfb84+984
-_L_unlock_13+52
-SNPSee_23a871427c2f73e4+175
-SNPSee_5d373cd896410e630e5be4cb01b4f045+424
-SNPSee_84819e9227b2e0aa9cae34dc8be3b8a5cd8f264d30f37d0c6a8e358e8cb885004984e24a8c4868b7af29ce1919d3f9852683413c29440db55976ece412914bf7aae086d558d8e56cf6aad19cb919f4191408ebcf3080fe7b+137
-SNPSee_3ed686e8d4a659b5b71ddd12e447f33917cbb8a33ac076760fc4c1bbbacc2de678ec65c28e5937c601c2ef47280b3679+127
-SNPSee_e52978fb95288b35702010462a2fb7521b19e6c7de02e749f68bb351c5fdf77d77dcb6d7ca3d86dfab86a645dee82a58b2bd32436fe9252678dfa79a3e0c83bf+189
-SNPSee_b81f4656f0d7d3ca1b0bca755b60caea2cb50375ef5e9df280c2a7ba1e2ca19f7750e3d580600edd04a01dc4363d697fcd6b18c4d0ab558c+710
-SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+989
-SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+19711
-main+2112
-__libc_start_main+245
-SNPSee_d06eed713327be76+41
-
-A detailed stack trace has been captured in /home/AS20243506/AS501_assignment/pnr/Synopsys_stack_trace_450561.txt.
-
-The tool has just encountered a fatal error:
-
-If you encountered this fatal error when using the most recent
-Synopsys release, submit the above stack trace and a test case that
-reproduces the problem to the Synopsys Support Center by using
-Enter A Call at http://solvnet.synopsys.com/EnterACall.
-
-* For information about the latest software releases, go to the Synopsys
-  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
-
-* For information about required Operating System patches, go to
-  http://www.synopsys.com/support
-
-
-Fatal: Internal system error, cannot recover.
-Error code=11
-CPU time=24
-
-Release = 'V-2023.12'  Architecture = 'linux64'  Program = 'IC Compiler II'
-Exec = '/tools/Synopsys/icc2/V-2023.12/linux64/nwtn/bin/dgcom_exec'
-
-'1077090981 1038046386 140666697074224 1153278671 1038013672 1149160809 519211535 519193773 515519334 1072721661 270962415 270970320 140665898034517 270880809'
+Maximum memory usage for this session: 354.91 MB
+Maximum memory usage for this session including child processes: 354.91 MB
+CPU usage for this session:      6 seconds (  0.00 hours)
+Elapsed time for this session:     10 seconds (  0.00 hours)
+Thank you for using IC Compiler II.
