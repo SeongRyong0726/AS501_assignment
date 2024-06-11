@@ -1,45 +1,49 @@
-Command: vcs -fgp -full64 -sverilog /home/AS20233757/AS501_assignment/sim/../rtl/common/memory_map.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/common/bus_package.sv /home/AS20233757/AS501_assignment/sim/../rtl/common/core_package.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/common/d_flip_flop.sv /home/AS20233757/AS501_assignment/sim/../rtl/common/mux2to1.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/common/mux3to1.sv /home/AS20233757/AS501_assignment/sim/../rtl/common/mux4to1.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/common/mux5to1.sv /home/AS20233757/AS501_assignment/sim/../rtl/common/counter.sv \
-/home/AS20233757/AS501_assignment/sim/tb_modified/core_tb_10.sv /home/AS20233757/AS501_assignment/sim/../rtl/soc_top/soc_top.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/cpu_top/cpu_top.sv /home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/instr_cache.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/csr.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/decoder.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/regfile.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/scalar_core.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_top.sv /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/interface/npu_interface.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/memory/memory_top.sv /technology/SAED32/lib/sram/verilog/saed32sram.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/bus/bus_top.sv /home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/interconnect.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/decoder.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/multiplexer.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/bus/default/default_slave.sv /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_A.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_W.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_O.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/A_buffer.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/W_buffer.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/O_buffer.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/pe.v /home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/systolic_array.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_top.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/transpose.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/max_16.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/mux_2_to_1.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/onehot_encoder.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/ram.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/reg_with_sync_en.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/systolic_system_adv.v \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv \
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_decoder/npu_decoder.sv \
+Command: vcs -fgp -full64 -sverilog /home/AS20243506/AS501_assignment/sim/../rtl/common/memory_map.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/common/bus_package.sv /home/AS20243506/AS501_assignment/sim/../rtl/common/core_package.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/common/d_flip_flop.sv /home/AS20243506/AS501_assignment/sim/../rtl/common/mux2to1.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/common/mux3to1.sv /home/AS20243506/AS501_assignment/sim/../rtl/common/mux4to1.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/common/mux5to1.sv /home/AS20243506/AS501_assignment/sim/../rtl/common/counter.sv \
+/home/AS20243506/AS501_assignment/sim/tb_modified/core_tb_1000.sv /home/AS20243506/AS501_assignment/sim/../rtl/soc_top/soc_top.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/cpu_top/cpu_top.sv /home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/cache/instr_cache.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/csr.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/decoder.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/regfile.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/scalar_core.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_top.sv /home/AS20243506/AS501_assignment/sim/../rtl/npu_top/interface/npu_interface.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/memory/memory_top.sv /technology/SAED32/lib/sram/verilog/saed32sram.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/bus/bus_top.sv /home/AS20243506/AS501_assignment/sim/../rtl/bus/interconnect/interconnect.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/bus/interconnect/submodule/decoder.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/bus/interconnect/submodule/multiplexer.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/bus/default/default_slave.sv /home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_A.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_W.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_O.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/A_buffer.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/W_buffer.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/O_buffer.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/pe.v /home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/systolic_array.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_top.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/transpose.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/max_16.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/mux_2_to_1.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/onehot_encoder.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/ram.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/reg_with_sync_en.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/systolic_system_adv.v \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv \
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_decoder/npu_decoder.sv \
 -timescale=1ns/1ps +incdir+/tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver +define+SIM \
 -debug_access+all -kdb -l vcs.log
                          Chronologic VCS (TM)
+<<<<<<< HEAD
         Version V-2023.12-1_Full64 -- Tue Jun 11 18:41:43 2024
+=======
+        Version V-2023.12-1_Full64 -- Tue Jun 11 22:08:33 2024
+>>>>>>> 6599d2accabd9246c1ec15447ede5ec72bc43bb6
 
                     Copyright (c) 1991 - 2024 Synopsys, Inc.
    This software and the associated documentation are proprietary to Synopsys,
@@ -57,32 +61,30 @@ Command: vcs -fgp -full64 -sverilog /home/AS20233757/AS501_assignment/sim/../rtl
             Inclusivity and Diversity" (Refer to article 000036315 at
                         https://solvnetplus.synopsys.com)
 
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/memory_map.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/bus_package.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/core_package.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/d_flip_flop.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux2to1.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux3to1.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux4to1.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/mux5to1.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/common/counter.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/tb_modified/core_tb_10.sv'
-Parsing included file '../compare_memory.sv'.
-Back to file '/home/AS20233757/AS501_assignment/sim/tb_modified/core_tb_10.sv'.
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/soc_top/soc_top.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/cpu_top/cpu_top.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/cache/instr_cache.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/memory_map.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/bus_package.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/core_package.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/d_flip_flop.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/mux2to1.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/mux3to1.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/mux4to1.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/mux5to1.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/common/counter.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/tb_modified/core_tb_1000.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/soc_top/soc_top.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/cpu_top/cpu_top.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/cache/submodule/cache_sram.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/cache/instr_cache.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv'
 Parsing included file '/tools/Synopsys/dc/V-2023.12-SP1/dw/sim_ver/DW_dp_mult_comb_function.inc'.
-Back to file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv'.
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/csr.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/decoder.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/regfile.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/scalar_core_modified/core/scalar_core.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_top.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/interface/npu_interface.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/memory/memory_top.sv'
+Back to file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/alu.sv'.
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/csr.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/decoder.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/submodule/regfile.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/scalar_core_modified/core/scalar_core.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_top.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/interface/npu_interface.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/memory/memory_top.sv'
 Parsing design file '/technology/SAED32/lib/sram/verilog/saed32sram.v'
 
 Warning-[TMR] Text macro redefined
@@ -552,72 +554,72 @@ Warning-[TMR] Text macro redefined
   /technology/SAED32/lib/sram/verilog/saed32sram.v, 4136.
   Previous value: 4
 
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/bus/bus_top.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/interconnect.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/decoder.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/bus/interconnect/submodule/multiplexer.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/bus/default/default_slave.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_A.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_W.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_O.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/A_buffer.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/W_buffer.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/O_buffer.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/pe.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/systolic_array.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_top.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/transpose.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/max_16.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/mux_2_to_1.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/onehot_encoder.sv'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/ram.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/reg_with_sync_en.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/systolic_system/systolic_system_adv.v'
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/bus/bus_top.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/bus/interconnect/interconnect.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/bus/interconnect/submodule/decoder.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/bus/interconnect/submodule/multiplexer.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/bus/default/default_slave.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Bias_ReLU/Bias_ReLU_simd.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_A.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_W.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/address_generator_O.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/A_buffer.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/W_buffer.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/buf/O_buffer.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/pe.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/core/systolic_array.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_addr_gen.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/Intra_net_top.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/Intra_net/transpose.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/max_16.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/mux_2_to_1.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/onehot_encoder.sv'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/ram.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/submodule/reg_with_sync_en.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/systolic_system/systolic_system_adv.v'
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv'
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 145
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 146
   Second declaration for identifier 'w_ram_w_en_pre' ignored
   Identifier 'w_ram_w_en_pre' previously declared as logic. 
-  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
-  93]
-
-
-Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 146
-  Second declaration for identifier 'w_en_bias_pre' ignored
-  Identifier 'w_en_bias_pre' previously declared as logic. 
-  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+  [/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
   94]
 
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 147
-  Second declaration for identifier 'a_ram_w_en_pre' ignored
-  Identifier 'a_ram_w_en_pre' previously declared as logic. 
-  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 147
+  Second declaration for identifier 'w_en_bias_pre' ignored
+  Identifier 'w_en_bias_pre' previously declared as logic. 
+  [/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
   95]
 
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 148
-  Second declaration for identifier 'decoder_in' ignored
-  Identifier 'decoder_in' previously declared as logic. 
-  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 148
+  Second declaration for identifier 'a_ram_w_en_pre' ignored
+  Identifier 'a_ram_w_en_pre' previously declared as logic. 
+  [/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
   96]
 
 
 Warning-[IPDW] Identifier previously declared
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 149
-  Second declaration for identifier 'decoder_out' ignored
-  Identifier 'decoder_out' previously declared as logic. 
-  [/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 149
+  Second declaration for identifier 'decoder_in' ignored
+  Identifier 'decoder_in' previously declared as logic. 
+  [/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
   97]
 
-Parsing design file '/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_decoder/npu_decoder.sv'
+
+Warning-[IPDW] Identifier previously declared
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 150
+  Second declaration for identifier 'decoder_out' ignored
+  Identifier 'decoder_out' previously declared as logic. 
+  [/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv,
+  98]
+
+Parsing design file '/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_decoder/npu_decoder.sv'
 Top Level Modules:
        CORE_TB
        SRAM1RW1024x8
@@ -656,7 +658,7 @@ Top Level Modules:
 TimeScale is 1 ns / 100 fs
 
 Warning-[TFIPC] Too few instance port connections
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_top.sv, 66
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_top.sv, 66
 NPU_TOP, "NPU #(.DWidth(DWidth)) NPU( .clk_i (clk_i),  .rst_ni (rst_ni),  .cen_i (cen),  .wen_i (wen),  .addr_i (addr),  .wdata_i (wdata),  .rdata_o (rdata));"
   The above instance has fewer port connections than the module definition.
   Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
@@ -664,21 +666,21 @@ NPU_TOP, "NPU #(.DWidth(DWidth)) NPU( .clk_i (clk_i),  .rst_ni (rst_ni),  .cen_i
 
 
 Warning-[CWUC] Concatenations with unsized constants
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 163
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 164
 "'bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
   An unsized constant ''bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz' is used in the 
   concatenation. The unsized constant will be used as a 32-bit constant.
 
 
 Warning-[CWUC] Concatenations with unsized constants
-/home/AS20233757/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 164
+/home/AS20243506/AS501_assignment/sim/../rtl/npu_top/npu_controller/npu_controller.sv, 165
 "'bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
   An unsized constant ''bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz' is used in the 
   concatenation. The unsized constant will be used as a 32-bit constant.
 
 Starting vcs inline pass...
 
-62 modules and 0 UDP read.
+60 modules and 0 UDP read.
 recompiling package pkg_memorymap
 recompiling package pkg_trans
 recompiling package pkg_resp
@@ -690,7 +692,6 @@ recompiling module MUX3TO1
 recompiling module MUX4TO1
 recompiling module MUX5TO1
 recompiling module CORE_TB
-recompiling module SOC_TOP
 recompiling module ALU
 recompiling module CSR
 recompiling module SCALAR_CORE
@@ -729,8 +730,8 @@ recompiling module SRAM2RW32x8
 recompiling module SRAM2RW64x16
 recompiling module SRAM2RW64x32
 recompiling module SRAM2RW64x4
-50 of 62 modules done
 recompiling module SRAM2RW64x8
+50 of 60 modules done
 recompiling module BUS_TOP
 recompiling module INTERCONNECT
 recompiling module BUS_DECODER
@@ -741,18 +742,25 @@ recompiling module pe
 recompiling module systolic_array
 recompiling module Intra_net_top
 recompiling module max_16
-recompiling module npu_controller
-All of 62 modules done
+All of 60 modules done
 rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
 if [ -x ../simv ]; then chmod a-x ../simv; fi
 g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
 -Wl,-rpath=/tools/Synopsys/vcs/V-2023.12-1/linux64/lib -L/tools/Synopsys/vcs/V-2023.12-1/linux64/lib \
+<<<<<<< HEAD
 -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _230987_archive_1.so \
+=======
+-Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _416685_archive_1.so \
+>>>>>>> 6599d2accabd9246c1ec15447ede5ec72bc43bb6
 SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
 -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_tls.o \
 -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   \
 /tools/Synopsys/vcs/V-2023.12-1/linux64/lib/vcs_save_restore_new.o /tools/Synopsys/verdi/V-2023.12-1/share/PLI/VCS/LINUX64/pli.a \
 -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
+<<<<<<< HEAD
 CPU time: 4.800 seconds to compile + .336 seconds to elab + .249 seconds to link
+=======
+CPU time: 4.835 seconds to compile + .325 seconds to elab + .268 seconds to link
+>>>>>>> 6599d2accabd9246c1ec15447ede5ec72bc43bb6
 Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)

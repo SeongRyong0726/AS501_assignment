@@ -53,6 +53,7 @@ module npu_controller #(
     //O_buffer READ ( BUF --> EXT)
     output logic     [$clog2(ARRAY_M)-1:0]   o_ram_idx,
     output logic     [ADDR_WIDTH-1:0]        o_read_addr,
+    output logic                             cliff_8_on,
     //Intra_net  (O_BUF --> A_BUF : FSM)
     output logic                              Intranet_on,
     output logic                              Intra_sig_start,
@@ -166,7 +167,11 @@ module npu_controller #(
     //assign rdata_o = (addr_i == NPU_PARA_Start +'b000100)? op_end : {12'b0,max_idx_value, data_in_o_bram[15:0]};
     //obuf
 
-
+    /*This register for delay output result due to interface operation require delay*/
+    logic [3:0] delay_max_idx_value;
+    always @(posedge clk_i) begin
+        delay_max_idx_value <= max_idx_value;
+    end
     
     assign debug1_o = addr_i;
     assign debug2_o  = (NPU_PARA_Start +32'h4);
@@ -175,8 +180,7 @@ module npu_controller #(
             rdata_o = {31'b0 , op_end};
         end
         else begin
-            rdata_o = {28'h0, max_idx_value};
-            //rdata_o = {12'h000, max_idx_value, 8'h00, data_in_o_bram};
+            rdata_o = {28'h0, delay_max_idx_value};
         end
     end
 
@@ -213,7 +217,7 @@ module npu_controller #(
          end
          else if (state == IDLE) begin
              if ((operation_type=='b1001)&&(wen_i==1'b1))begin
-                 if (wmem_write_cnt == K) begin
+                 if (wmem_write_cnt == K-1) begin
                      wmem_write_cnt <= 0;
                  end
                  else begin
@@ -348,7 +352,7 @@ module npu_controller #(
                 else begin
                     sa_reset = 0;
                 end    
-                if (count == 3) begin 
+                if (count == 100) begin 
                     state_next <= IDLE;
                 end
             end
@@ -367,6 +371,7 @@ module npu_controller #(
                 Intra_sig_start = 0;
                 op_end = 1;
                 state_next = IDLE;
+                operation_type = 0;
             end
             default:
             begin
@@ -379,30 +384,31 @@ module npu_controller #(
     always @(posedge clk_i or negedge rst_ni)
     begin
         case(addr_i - NPU_PARA_Start)
-                // 'b000000:  [0]
-                //     op_start <= wdata_i;
-                // 'b000100:  [1]
-                //     op_end <= wdata_i;
-                'b001000:  //[2]
-                    a_base_addr <= wdata_i;
-                'b001100:  //[3]
-                    a_num_rows <= wdata_i; //M
-                'b010000: 
-                    w_base_addr <= wdata_i;
-                'b010100:
-                    w_num_cols <= wdata_i; //N
-                'b011000:
-                    o_base_addr <= wdata_i;
-                'b011100:
-                    Intra_O_base_addr <= wdata_i;
-                'b100000:
-                    Intra_A_base_addr <= wdata_i;
-                'b100100:
-                    K <= wdata_i;  //ㅏ 
-                // default: 
-                //     op_end <= op_end;
-
-        endcase
+            // 'b000000:  [0]
+            //     op_start <= wdata_i;
+            // 'b000100:  [1]
+            //     op_end <= wdata_i;
+            'b001000:  //[2]
+                a_base_addr <= wdata_i;
+            'b001100:  //[3]
+                a_num_rows <= wdata_i; //M
+            'b010000: 
+                w_base_addr <= wdata_i;
+            'b010100:
+                w_num_cols <= wdata_i; //N
+            'b011000:
+                o_base_addr <= wdata_i;
+            'b011100:
+                Intra_O_base_addr <= wdata_i;
+            'b100000:
+                Intra_A_base_addr <= wdata_i;
+            'b100100:
+                K <= wdata_i;  
+            'b101000:
+                cliff_8_on <= wdata_i;
+            // default: 
+            //     op_end <= op_end;
+        endcase  
     end
 
 endmodule

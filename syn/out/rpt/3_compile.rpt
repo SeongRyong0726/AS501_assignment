@@ -1,0 +1,359 @@
+Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Performing leakage power optimization. (PWR-850)
+CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
+Analyzing: "/technology/SAED32/lib/sram/db_nldm/saed32sram_tt1p05v25c.db"
+Analyzing: "/technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db"
+Library analysis succeeded.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | V-2023.12-DWBB_202312.1 |     *     |
+| Licensed DW Building Blocks        | V-2023.12-DWBB_202312.1 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Command Line | compile_ultra -no_autoungroup                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 2842                                   |
+| Number of User Hierarchies                              | 59                                     |
+| Sequential Cell Count                                   | 1415                                   |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 366                                    |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 3                                      |
+| Design with UPF Data                                    | false                                  |
+----------------------------------------------------------------------------------------------------
+| Variables                                               | Value                                  |
+----------------------------------------------------------------------------------------------------
+| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 357 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 35 instances of design 'D_FF_32_0'. (OPT-1056)
+Information: Uniquified 2 instances of design 'COUNTER_64_0'. (OPT-1056)
+Information: Uniquified 3 instances of design 'MUX2TO1_DWidth32'. (OPT-1056)
+Information: Uniquified 3 instances of design 'MUX4TO1_DWidth32'. (OPT-1056)
+Information: Uniquified 2 instances of design 'D_FF_64_0'. (OPT-1056)
+  Simplifying Design 'SOC_TOP'
+Information: The register 'CPU/SCORE/DECODER/COUNTER_INSTRET/cnt_done_o_reg' will be removed. (OPT-1207)
+Information: The register 'CPU/SCORE/COUNTER_CYCLE/cnt_done_o_reg' will be removed. (OPT-1207)
+
+  Loading target library 'saed32sram_tt1p05v25c'
+Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
+	the parameters "DWidth=32,NumofSlave=2". (HDL-193)
+Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
+Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
+	the parameters "DWidth=32". (HDL-193)
+Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
+Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
+	the parameters "DWidth=32". (HDL-193)
+Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
+Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
+Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
+Loaded alib file './alib-52/saed32rvt_tt1p05v25c.db.alib'
+Loaded alib file './alib-52/saed32sram_tt1p05v25c.db.alib' (placeholder)
+CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12'
+  Processing 'D_FF_64_0_0'
+  Processing 'SOC_TOP'
+  Processing 'D_FF_32_0_0'
+  Processing 'MUX5TO1_DWidth32'
+  Processing 'MUX4TO1_DWidth32_0'
+  Processing 'MUX2TO1_DWidth32_2'
+  Processing 'ALU_DWidth32_OpWidth5'
+ Implement Synthetic for 'ALU_DWidth32_OpWidth5'.
+Information: Added key list 'DesignWare' to design 'ALU_DWidth32_OpWidth5'. (DDB-72)
+  Processing 'INSTR_CACHE_DWidth32'
+Information: Added key list 'DesignWare' to design 'INSTR_CACHE_DWidth32'. (DDB-72)
+  Processing 'COUNTER_64_0_1'
+ Implement Synthetic for 'COUNTER_64_0_1'.
+  Processing 'COUNTER_30_0_127'
+ Implement Synthetic for 'COUNTER_30_0_127'.
+  Processing 'CPU_TOP_DWidth32'
+  Processing 'MUX4TO1_DWidth32_1'
+  Processing 'CACHE_SRAM_DWidth56_Depth128'
+  Processing 'D_FF_2_3'
+  Processing 'REGFILE_DWidth32_NumofReg32'
+  Processing 'MUX2TO1_DWidth32_1'
+  Processing 'SCALAR_CORE_DWidth32'
+ Implement Synthetic for 'SCALAR_CORE_DWidth32'.
+  Processing 'COUNTER_64_0_0'
+ Implement Synthetic for 'COUNTER_64_0_0'.
+  Processing 'CSR_DWidth32_AWidth12'
+  Processing 'D_FF_32_0_1'
+  Processing 'NPU_TOP_DWidth32'
+  Processing 'MUX3TO1_DWidth32'
+  Processing 'D_FF_2_0'
+  Processing 'MUX2TO1_DWidth32_0'
+Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
+	the parameters "DWidth=32,NumofSlave=2". (HDL-193)
+Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
+Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
+	the parameters "DWidth=32". (HDL-193)
+Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
+Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
+	the parameters "DWidth=32". (HDL-193)
+Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
+Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
+Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
+Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_tt1p05v25c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Removing unused design 'MUX2TO1_DWidth32_0'. (OPT-1055)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'SCALAR_CORE_DWidth32'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'COUNTER_30_0_127'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'COUNTER_64_0_1'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'COUNTER_64_0_0'. (DDB-72)
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:18   68670.5      0.00       0.0     104.5                           11454927872.0000
+    0:00:18   68665.9      0.00       0.0     104.5                           11454768128.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:21   57467.3      0.25       0.6    4930.0                           3396811264.0000
+    0:00:22   57488.2      0.05       0.1    4859.3                           3403822848.0000
+    0:00:22   57488.2      0.05       0.1    4859.3                           3403822848.0000
+    0:00:22   57488.7      0.05       0.1    4859.3                           3403659008.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+    0:00:23   57487.4      0.05       0.1    4854.4                           3403662336.0000
+    0:00:23   57487.4      0.05       0.1    4854.4                           3403662336.0000
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
+    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
+    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
+    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
+    0:00:25   57331.6      0.00       0.0    4771.0                           3364568832.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:25   57151.2      0.00       0.0    4647.6                           3204504576.0000
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
+    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
+    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
+    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
+    0:00:26   57682.1      0.00       0.0       0.0                           3263000576.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:26   57670.4      0.00       0.0       0.0                           3251783424.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:27   57670.4      0.00       0.0       0.0                           3251783424.0000
+    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
+    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
+    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
+    0:00:28   57014.4      0.00       0.0       0.0                           3174240768.0000
+    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
+    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
+    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
+    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
+    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
+    0:00:28   57002.8      0.00       0.0       0.0                           3173024512.0000
+    0:00:29   56999.7      0.00       0.0      15.8                           3170937856.0000
+CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
+Loading db file '/technology/SAED32/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v25c.db'
+Loading db file '/technology/SAED32/lib/sram/db_nldm/saed32sram_tt1p05v25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'SOC_TOP' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'CPU/SCORE/FF_PC/clk_i': 1413 load(s), 1 driver(s), 3 inout(s)
+  Loading target library 'saed32sram_tt1p05v25c'
+Information: Building the design 'BUS_TOP' instantiated from design 'SOC_TOP' with
+	the parameters "DWidth=32,NumofSlave=2". (HDL-193)
+Warning: Cannot find the design 'BUS_TOP' in the library 'WORK'. (LBR-1)
+Information: Building the design 'NPU_IF' instantiated from design 'NPU_TOP_DWidth32' with
+	the parameters "DWidth=32". (HDL-193)
+Warning: Cannot find the design 'NPU_IF' in the library 'WORK'. (LBR-1)
+Information: Building the design 'NPU' instantiated from design 'NPU_TOP_DWidth32' with
+	the parameters "DWidth=32". (HDL-193)
+Warning: Cannot find the design 'NPU' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'BUS_TOP' in 'SOC_TOP'. (LINK-5)
+Warning: Unable to resolve reference 'NPU_IF' in 'NPU_TOP_DWidth32'. (LINK-5)
+Warning: Unable to resolve reference 'NPU' in 'NPU_TOP_DWidth32'. (LINK-5)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated black box outputs. (PWR-428)
+CPU Load: 2%, Ram Free: 77 GB, Swap Free: 127 GB, Work Disk Free: 30334 GB, Tmp Disk Free: 1558 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1

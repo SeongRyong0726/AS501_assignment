@@ -88,7 +88,9 @@ module systolic_system_adv #(
     //O_buf WRITE
     output wire [8-1:0]         data_in_o_bram,
     output wire [$clog2(ARRAY_N)-1 : 0] max_idx_value,
-    output wire [8*16-1 : 0] debug_output
+    output wire [8*16-1 : 0] debug_output,
+    // option tmp
+    input wire cliff_8_on
 
     // DEBUG
     // output wire [ACT_WIDTH*ARRAY_M-1: 0] Intra_net_data_out_DEBUG,
@@ -219,7 +221,8 @@ module systolic_system_adv #(
         //.data_read(data_in_o_bram), //TODO 
         .data_read_set(data_read_set), // goto max and Intra_net
         //.DEBUG_enable_set(DEBUG_enable_set)
-        .debug_output(debug_output)
+        .debug_output(debug_output),
+        .cliff_8_on(cliff_8_on)
     ); 
 
     max_16 #(

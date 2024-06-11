@@ -19,8 +19,8 @@ int max(int []);
 #define HIDDEN1_SIZE 128
 #define HIDDEN2_SIZE 64
 #define OUTPUT_SIZE  10
-#define NUM_OF_TEST  10
-#define I_EMA_SIZE 7840
+#define NUM_OF_TEST  1000 //#
+#define I_EMA_SIZE 784*16 //#
 #define W_FC1_TILE_EMA_SIZE 12544
 #define W_FC2_TILE_EMA_SIZE 2048
 #define W_FC3_TILE_EMA_SIZE 640
@@ -31,7 +31,7 @@ int max(int []);
 // Define the HW Characteristics
 #define BATCH_SIZE   16
 #define TILE_SIZE    16
-#define NUM_OF_BATCH 1//(NUM_OF_TEST+BATCH_SIZE-1)/(BATCH_SIZE) 
+#define NUM_OF_BATCH 63//(NUM_OF_TEST+BATCH_SIZE-1)/(BATCH_SIZE) 
 
 #define INPUT_ADDR  0x00004000
 #define FC1_W_ADDR  (INPUT_ADDR  + INPUT_SIZE   * NUM_OF_TEST  * sizeof(int)) // ba80
@@ -43,7 +43,7 @@ int max(int []);
 #define FC3_W_ADDR  (FC2_O_ADDR  + HIDDEN2_SIZE * sizeof(int)) // 7_6080
 #define FC3_B_ADDR  (FC3_W_ADDR  + HIDDEN2_SIZE * OUTPUT_SIZE  * sizeof(int)) // 7_6a80
 #define OUTPUT_ADDR (FC3_B_ADDR  + OUTPUT_SIZE  * sizeof(int)) // 7_6aa8
-#define LABEL_ADDR  (OUTPUT_ADDR + OUTPUT_SIZE  * sizeof(int))
+#define LABEL_ADDR  (OUTPUT_ADDR + NUM_OF_TEST  * sizeof(int)) // 7_6ad0
 #define INPUT_LOOPBACK_ADDR  0x01000000
 
 // Define NPU-related Variable & Address
@@ -68,9 +68,9 @@ int max(int []);
 #define OMEM_ADDR_END (OMEM_ADDR_BASE+OMEM_SIZE)
 
 #define TILE_START_ADDR 0x10020c00
-#define TILE_END_ADDR 0x10020A04
+#define TILE_END_ADDR 0x10020a04
 #define OMEM2IMEM_START_ADDR 0x10020c04
-#define OMEM2IMEM_END_ADDR 0x10020A04
+#define OMEM2IMEM_END_ADDR 0x10020a04
 #define NPU_CTRL_ADDR 0x10020a00
 #define NPU_CTRL_SIZE 0x200
 

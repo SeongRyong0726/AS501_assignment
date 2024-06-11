@@ -1,0 +1,470 @@
+Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP1
+Date:        Tue Jun 11 22:33:55 2024
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    194
+    Multiply driven inputs (LINT-6)                               105
+    Unconnected ports (LINT-28)                                    45
+    Feedthrough (LINT-29)                                          32
+    Shorted outputs (LINT-31)                                      12
+
+Cells                                                              94
+    Cells do not drive (LINT-1)                                     9
+    Connected to power or ground (LINT-32)                         50
+    Nets connected to multiple pins on same cell (LINT-33)         35
+
+Nets                                                                1
+    Multiply driven net with constant driver (LINT-54)              1
+
+Tristate                                                           67
+    A tristate bus has a non tri-state driver (LINT-34)            67
+--------------------------------------------------------------------------------
+
+Warning: In design 'COUNTER_30_0_127', cell 'C187' does not drive any nets. (LINT-1)
+Warning: In design 'COUNTER_64_0', cell 'C382' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_15' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DWidth32_OpWidth5', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'SOC_TOP', input port 'clk_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'rst_ni' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_ready_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'SOC_TOP', input port 'dmem_rdata_i[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'clk_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'rst_ni' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'sel_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'trans_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'ready_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'write_i' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'addr_i[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'NPU_TOP_DWidth32', input port 'wdata_i[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_addr_i[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_data_i[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'CSR_DWidth32_AWidth12', port 'write_en_i' is not connected to any nets. (LINT-28)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[31]' is connected directly to output port 'imem_addr_o[31]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[30]' is connected directly to output port 'imem_addr_o[30]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[29]' is connected directly to output port 'imem_addr_o[29]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[28]' is connected directly to output port 'imem_addr_o[28]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[27]' is connected directly to output port 'imem_addr_o[27]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[26]' is connected directly to output port 'imem_addr_o[26]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[25]' is connected directly to output port 'imem_addr_o[25]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[24]' is connected directly to output port 'imem_addr_o[24]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[23]' is connected directly to output port 'imem_addr_o[23]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[22]' is connected directly to output port 'imem_addr_o[22]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[21]' is connected directly to output port 'imem_addr_o[21]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[20]' is connected directly to output port 'imem_addr_o[20]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[19]' is connected directly to output port 'imem_addr_o[19]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[18]' is connected directly to output port 'imem_addr_o[18]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[17]' is connected directly to output port 'imem_addr_o[17]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[16]' is connected directly to output port 'imem_addr_o[16]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[15]' is connected directly to output port 'imem_addr_o[15]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[14]' is connected directly to output port 'imem_addr_o[14]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[13]' is connected directly to output port 'imem_addr_o[13]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[12]' is connected directly to output port 'imem_addr_o[12]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[11]' is connected directly to output port 'imem_addr_o[11]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[10]' is connected directly to output port 'imem_addr_o[10]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[9]' is connected directly to output port 'imem_addr_o[9]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[8]' is connected directly to output port 'imem_addr_o[8]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[7]' is connected directly to output port 'imem_addr_o[7]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[6]' is connected directly to output port 'imem_addr_o[6]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[5]' is connected directly to output port 'imem_addr_o[5]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[4]' is connected directly to output port 'imem_addr_o[4]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[3]' is connected directly to output port 'imem_addr_o[3]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[2]' is connected directly to output port 'imem_addr_o[2]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[1]' is connected directly to output port 'imem_addr_o[1]'. (LINT-29)
+Warning: In design 'INSTR_CACHE_DWidth32', input port 'addr_i[0]' is connected directly to output port 'imem_addr_o[0]'. (LINT-29)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[11]' is connected directly to output port 'csr_write_addr_o[11]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[10]' is connected directly to output port 'csr_write_addr_o[10]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[9]' is connected directly to output port 'csr_write_addr_o[9]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[8]' is connected directly to output port 'csr_write_addr_o[8]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[7]' is connected directly to output port 'csr_write_addr_o[7]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[6]' is connected directly to output port 'csr_write_addr_o[6]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[5]' is connected directly to output port 'csr_write_addr_o[5]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[4]' is connected directly to output port 'csr_write_addr_o[4]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[3]' is connected directly to output port 'csr_write_addr_o[3]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[2]' is connected directly to output port 'csr_write_addr_o[2]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[1]' is connected directly to output port 'csr_write_addr_o[1]'. (LINT-31)
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', output port 'csr_read_addr_o[0]' is connected directly to output port 'csr_write_addr_o[0]'. (LINT-31)
+Warning: In design 'INSTR_CACHE_DWidth32', a pin on submodule 'FF_CACHE_STATE' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'write_en_i' is connected to logic 1. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'COUNTER_CYCLE' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cnt_en_i' is connected to logic 1. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_PC' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data0_i[1]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_PC' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data0_i[0]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[31]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[30]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[29]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[28]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[27]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[26]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[25]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[24]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[23]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[22]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[21]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[20]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[19]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[18]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[17]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[16]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[15]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[14]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[13]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[12]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[11]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[10]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[9]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data3_i[8]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[31]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[30]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[29]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[28]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[27]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[26]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[25]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[24]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[23]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[22]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[21]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[20]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[19]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[18]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[17]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_LD' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data4_i[16]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_WB' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data2_i[1]' is connected to logic 0. 
+Warning: In design 'SCALAR_CORE_DWidth32', a pin on submodule 'MUX_WB' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'data2_i[0]' is connected to logic 0. 
+Warning: In design 'DECODER_DWidth32_OpWidth5_NumofReg32_CWidth12', a pin on submodule 'FF_DEC_STATE' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'write_en_i' is connected to logic 1. 
+Warning: In design 'CSR_DWidth32_AWidth12', a pin on submodule 'FF_RDATA' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'write_en_i' is connected to logic 1. 
+Warning: In design 'CSR_DWidth32_AWidth12', a pin on submodule 'FF_MCYCLE' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'write_en_i' is connected to logic 1. 
+Warning: In design 'CSR_DWidth32_AWidth12', a pin on submodule 'FF_MINSTRET' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'write_en_i' is connected to logic 1. 
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_PC'. (LINT-33)
+   Net 'n_logic0_' is connected to pins 'data0_i[1]', 'data0_i[0]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[7]' is connected to pins 'data0_i[31]', 'data0_i[30]'', 'data0_i[29]', 'data0_i[28]', 'data0_i[27]', 'data0_i[26]', 'data0_i[25]', 'data0_i[24]', 'data0_i[23]', 'data0_i[22]', 'data0_i[21]', 'data0_i[20]', 'data0_i[19]', 'data0_i[18]', 'data0_i[17]', 'data0_i[16]', 'data0_i[15]', 'data0_i[14]', 'data0_i[13]', 'data0_i[12]', 'data0_i[11]', 'data0_i[10]', 'data0_i[9]', 'data0_i[8]', 'data0_i[7]', 'data1_i[7]', 'data2_i[7]', 'data3_i[7]', 'data4_i[7]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[6]' is connected to pins 'data0_i[6]', 'data1_i[6]'', 'data2_i[6]', 'data3_i[6]', 'data4_i[6]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[5]' is connected to pins 'data0_i[5]', 'data1_i[5]'', 'data2_i[5]', 'data3_i[5]', 'data4_i[5]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[4]' is connected to pins 'data0_i[4]', 'data1_i[4]'', 'data2_i[4]', 'data3_i[4]', 'data4_i[4]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[3]' is connected to pins 'data0_i[3]', 'data1_i[3]'', 'data2_i[3]', 'data3_i[3]', 'data4_i[3]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[2]' is connected to pins 'data0_i[2]', 'data1_i[2]'', 'data2_i[2]', 'data3_i[2]', 'data4_i[2]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[1]' is connected to pins 'data0_i[1]', 'data1_i[1]'', 'data2_i[1]', 'data3_i[1]', 'data4_i[1]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[0]' is connected to pins 'data0_i[0]', 'data1_i[0]'', 'data2_i[0]', 'data3_i[0]', 'data4_i[0]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[15]' is connected to pins 'data1_i[31]', 'data1_i[30]'', 'data1_i[29]', 'data1_i[28]', 'data1_i[27]', 'data1_i[26]', 'data1_i[25]', 'data1_i[24]', 'data1_i[23]', 'data1_i[22]', 'data1_i[21]', 'data1_i[20]', 'data1_i[19]', 'data1_i[18]', 'data1_i[17]', 'data1_i[16]', 'data1_i[15]', 'data2_i[15]', 'data4_i[15]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[14]' is connected to pins 'data1_i[14]', 'data2_i[14]'', 'data4_i[14]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[13]' is connected to pins 'data1_i[13]', 'data2_i[13]'', 'data4_i[13]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[12]' is connected to pins 'data1_i[12]', 'data2_i[12]'', 'data4_i[12]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[11]' is connected to pins 'data1_i[11]', 'data2_i[11]'', 'data4_i[11]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[10]' is connected to pins 'data1_i[10]', 'data2_i[10]'', 'data4_i[10]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[9]' is connected to pins 'data1_i[9]', 'data2_i[9]'', 'data4_i[9]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'rf_read2_data[8]' is connected to pins 'data1_i[8]', 'data2_i[8]'', 'data4_i[8]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_LD'. (LINT-33)
+   Net 'n_logic0_' is connected to pins 'data3_i[31]', 'data3_i[30]'', 'data3_i[29]', 'data3_i[28]', 'data3_i[27]', 'data3_i[26]', 'data3_i[25]', 'data3_i[24]', 'data3_i[23]', 'data3_i[22]', 'data3_i[21]', 'data3_i[20]', 'data3_i[19]', 'data3_i[18]', 'data3_i[17]', 'data3_i[16]', 'data3_i[15]', 'data3_i[14]', 'data3_i[13]', 'data3_i[12]', 'data3_i[11]', 'data3_i[10]', 'data3_i[9]', 'data3_i[8]', 'data4_i[31]', 'data4_i[30]', 'data4_i[29]', 'data4_i[28]', 'data4_i[27]', 'data4_i[26]', 'data4_i[25]', 'data4_i[24]', 'data4_i[23]', 'data4_i[22]', 'data4_i[21]', 'data4_i[20]', 'data4_i[19]', 'data4_i[18]', 'data4_i[17]', 'data4_i[16]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[7]' is connected to pins 'data0_i[31]', 'data0_i[30]'', 'data0_i[29]', 'data0_i[28]', 'data0_i[27]', 'data0_i[26]', 'data0_i[25]', 'data0_i[24]', 'data0_i[23]', 'data0_i[22]', 'data0_i[21]', 'data0_i[20]', 'data0_i[19]', 'data0_i[18]', 'data0_i[17]', 'data0_i[16]', 'data0_i[15]', 'data0_i[14]', 'data0_i[13]', 'data0_i[12]', 'data0_i[11]', 'data0_i[10]', 'data0_i[9]', 'data0_i[8]', 'data0_i[7]', 'data1_i[7]', 'data2_i[7]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[6]' is connected to pins 'data0_i[6]', 'data1_i[6]'', 'data2_i[6]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[5]' is connected to pins 'data0_i[5]', 'data1_i[5]'', 'data2_i[5]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[4]' is connected to pins 'data0_i[4]', 'data1_i[4]'', 'data2_i[4]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[3]' is connected to pins 'data0_i[3]', 'data1_i[3]'', 'data2_i[3]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[2]' is connected to pins 'data0_i[2]', 'data1_i[2]'', 'data2_i[2]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[1]' is connected to pins 'data0_i[1]', 'data1_i[1]'', 'data2_i[1]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[0]' is connected to pins 'data0_i[0]', 'data1_i[0]'', 'data2_i[0]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[15]' is connected to pins 'data1_i[31]', 'data1_i[30]'', 'data1_i[29]', 'data1_i[28]', 'data1_i[27]', 'data1_i[26]', 'data1_i[25]', 'data1_i[24]', 'data1_i[23]', 'data1_i[22]', 'data1_i[21]', 'data1_i[20]', 'data1_i[19]', 'data1_i[18]', 'data1_i[17]', 'data1_i[16]', 'data1_i[15]', 'data2_i[15]'.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[14]' is connected to pins 'data1_i[14]', 'data2_i[14]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[13]' is connected to pins 'data1_i[13]', 'data2_i[13]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[12]' is connected to pins 'data1_i[12]', 'data2_i[12]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[11]' is connected to pins 'data1_i[11]', 'data2_i[11]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[10]' is connected to pins 'data1_i[10]', 'data2_i[10]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[9]' is connected to pins 'data1_i[9]', 'data2_i[9]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_ST'. (LINT-33)
+   Net 'dmem_rdata_i[8]' is connected to pins 'data1_i[8]', 'data2_i[8]''.
+Warning: In design 'SCALAR_CORE_DWidth32', the same net is connected to more than one pin on submodule 'MUX_WB'. (LINT-33)
+   Net 'n_logic0_' is connected to pins 'data2_i[1]', 'data2_i[0]''.
+Warning: In design 'SOC_TOP', three-state bus 'm2s_write' has non three-state driver 'CPU/SCORE/DECODER/C686/Z_0'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'm2s_trans' has non three-state driver 'CPU/SCORE/DECODER/C679/Z_0'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[0]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_0'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[1]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_1'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[2]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_2'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[3]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_3'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[4]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_4'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[5]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_5'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[6]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_6'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[7]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_7'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[8]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_8'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[9]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_9'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[10]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_10'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[11]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_11'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[12]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_12'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[13]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_13'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[14]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_14'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[15]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_15'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[16]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_16'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[17]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_17'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[18]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_18'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[19]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_19'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[20]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_20'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[21]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_21'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[22]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_22'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[23]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_23'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[24]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_24'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[25]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_25'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[26]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_26'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[27]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_27'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[28]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_28'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[29]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_29'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[30]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_30'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_addr_o[31]' has non three-state driver 'CPU/SCORE/ALU/C272/Z_31'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[0]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_0'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[1]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_1'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[2]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_2'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[3]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_3'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[4]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_4'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[5]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_5'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[6]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_6'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[7]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_7'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[8]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_8'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[9]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_9'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[10]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_10'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[11]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_11'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[12]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_12'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[13]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_13'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[14]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_14'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[15]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_15'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[16]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_16'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[17]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_17'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[18]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_18'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[19]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_19'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[20]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_20'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[21]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_21'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[22]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_22'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[23]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_23'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[24]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_24'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[25]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_25'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[26]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_26'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[27]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_27'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[28]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_28'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[29]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_29'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[30]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_30'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'dmem_wdata_o[31]' has non three-state driver 'CPU/SCORE/MUX_LD/C74/Z_31'. (LINT-34)
+Warning: In design 'SOC_TOP', three-state bus 'n_logic0_' has non three-state driver 'U1/**logic_0**'. (LINT-34)
+Warning: In design 'SOC_TOP', multiply-driven net 'n_logic0_' is driven by constant 0. (LINT-54)
+1

@@ -12,7 +12,7 @@
 
 module CORE_TB();
     localparam DWidth        = 32;
-    localparam InitFile      = "../../program/out/mlp_1000.hex";
+    localparam InitFile      = "../../program/out/mlp_modified_riscv.hex";
     localparam MemDepth      = 32'h02004000;
     localparam IMemStart     = 32'h00000000;
     localparam DMemStart     = 32'h00004000;
@@ -33,7 +33,7 @@ module CORE_TB();
     localparam Fc3WAddr      = (Fc2OAddr   + Hidden2Size * 4);
     localparam Fc3BAddr      = (Fc3WAddr   + Hidden2Size * OutputSize  * 4);
     localparam OutputAddr    = (Fc3BAddr   + OutputSize  * 4);
-    localparam LabelAddr     = (OutputAddr + OutputSize  * 4);
+    localparam LabelAddr     = (OutputAddr + NumOfTest  * 4);
 
     localparam ImageInitFile = "../../program/test_code/image/image_1000.txt";
     localparam Fc1WInitFile  = "../../program/test_code/parameter/fc1_weight.txt";
@@ -135,17 +135,17 @@ module CORE_TB();
     int exit_signal = 0;
 
     always @(*) begin
-        if (DUT.SCORE.SRF.GPR[25] == 'd99999) begin
+        if (DUT.CPU.SCORE.SRF.GPR[25] == 'd99999) begin
             exit_signal = 1;
         end
     end
 
-    always @(DUT.SCORE.SRF.GPR[26]) begin
-        if (DUT.SCORE.SRF.GPR[26] != 0) begin
-            $display("Current correction count = %-d", DUT.SCORE.SRF.GPR[27]);
+    always @(DUT.CPU.SCORE.SRF.GPR[26]) begin
+        if (DUT.CPU.SCORE.SRF.GPR[26] != 0) begin
+            $display("Current correction count = %-d", DUT.CPU.SCORE.SRF.GPR[27]);
         end
-        if (DUT.SCORE.SRF.GPR[26] < NumOfTest) begin
-            $display("Inference image #%-d ", DUT.SCORE.SRF.GPR[26] + 1);
+        if (DUT.CPU.SCORE.SRF.GPR[26] < NumOfTest) begin
+            $display("Inference image #%-d ", DUT.CPU.SCORE.SRF.GPR[26] + 1);
         end
     end
 
@@ -162,13 +162,13 @@ module CORE_TB();
         forever begin
             @(posedge clk)
             if (exit_signal == 1) begin
-                accuracy = DUT.SCORE.SRF.GPR[27];
+                accuracy = DUT.CPU.SCORE.SRF.GPR[27];
                 accuracy = accuracy / NumOfTest * 100;
                 $display("-------------------------------------------------------");
                 $display("Accuracy = %-.2f", accuracy);
                 $display("-------------------------------------------------------");
-                $display("mcycleh = %08X, mcycle = %08X", DUT.SCORE.SRF.GPR[29], DUT.SCORE.SRF.GPR[28]);
-                $display("minstreth = %08X, minstret = %08X", DUT.SCORE.SRF.GPR[31], DUT.SCORE.SRF.GPR[30]);
+                $display("mcycleh = %08X, mcycle = %08X", DUT.CPU.SCORE.SRF.GPR[29], DUT.CPU.SCORE.SRF.GPR[28]);
+                $display("minstreth = %08X, minstret = %08X", DUT.CPU.SCORE.SRF.GPR[31], DUT.CPU.SCORE.SRF.GPR[30]);
                 $display("-------------------------------------------------------");
                 $finish();
             end
