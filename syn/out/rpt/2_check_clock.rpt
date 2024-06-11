@@ -1,5 +1,6 @@
-Warning: Design 'SOC_TOP' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'SOC_TOP' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Changed wire load model for 'NPU_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'NPU_TOP_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'MUX2TO1_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'MUX4TO1_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
@@ -59,31 +60,4 @@ Information: Changed wire load model for 'COUNTER_30_0_127' from '(none)' to 'Fo
 Information: Changed wire load model for 'D_FF_32_0' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'INSTR_CACHE_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'CPU_TOP_DWidth32' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'alt1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'apparch' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'alt1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'astr' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'alt1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'astr' from '(none)' to 'ForQA'. (OPT-170)
-Information: Updating graph... (UID-83)
-Warning: Design 'SOC_TOP' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
- 
-****************************************
-Report : clocks
-Design : SOC_TOP
-Version: V-2023.12-SP1
-Date   : Tue Jun 11 22:33:56 2024
-****************************************
-
-Attributes:
-    d - dont_touch_network
-    f - fix_hold
-    p - propagated_clock
-    G - generated_clock
-    g - lib_generated_clock
-
-Clock          Period   Waveform            Attrs     Sources
---------------------------------------------------------------------------------
-clk_i           10.00   {0 5}                         {clk_i}
---------------------------------------------------------------------------------
-1
+#line 522
