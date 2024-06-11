@@ -162,7 +162,7 @@ module CORE_TB();
         rst_n = 1'b0;
         #mClkPeriod;
         rst_n = 1'b1;
-        #20000000;
+        #20;
 
         forever begin
             @(posedge clk)

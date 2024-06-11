@@ -19,8 +19,8 @@ int max(int []);
 #define HIDDEN1_SIZE 128
 #define HIDDEN2_SIZE 64
 #define OUTPUT_SIZE  10
-#define NUM_OF_TEST  100 //#
-#define I_EMA_SIZE 7840 //#
+#define NUM_OF_TEST  10
+#define I_EMA_SIZE 7840
 #define W_FC1_TILE_EMA_SIZE 12544
 #define W_FC2_TILE_EMA_SIZE 2048
 #define W_FC3_TILE_EMA_SIZE 640
